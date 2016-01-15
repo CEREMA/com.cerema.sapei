@@ -394,7 +394,8 @@ App.controller.define('CMain', {
 			p.up('window').close();	
 			App.get('TAffaire panel#Title').update(html.join(''));	
             App.get('VSchedulerMain').hide();
-            console.log(App.get('button#mnu_close_affaire'));
+            var btns=App.getAll('menu>menuitem');
+            console.log(btns);
 			App.get('TAffaire').show();		
 		});
 	},
