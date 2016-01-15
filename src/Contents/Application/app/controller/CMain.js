@@ -479,6 +479,7 @@ App.controller.define('CMain', {
 	{
 		App.get('TAffaire').wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);
+        alert(p.ItemID);
         App.DB.get('sapei://job_client?Id_job='+p.ItemID,function(e,r){
             console.log(e);
             console.log(r);
