@@ -40,7 +40,12 @@ App.view.define('VMain', {
 				xtype: "TAffaire",
 				hidden: "true",
 				flex: 1
-			}
+			},
+            {
+				xtype: "VSchedulerMain",
+				hidden: "false",
+				flex: 1                
+            }
 			]
 		}
 	]
