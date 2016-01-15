@@ -606,8 +606,10 @@ App.controller.define('CMain', {
 	},
     closeAffaire: function(p)
     {
-        alert('x');
-        p.hide();
+        var btns=App.getAll('menu>menuitem');
+        for (var i=0;i<btns.length;i++) {
+            if (btns[i].itemId=="mnu_aff_close") btns[i].hide();  
+        };
         App.get("TAffaire").hide();
         App.get("VSchedulerMain").show();
     },
