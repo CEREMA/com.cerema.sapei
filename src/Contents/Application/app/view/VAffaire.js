@@ -233,6 +233,7 @@ App.view.define('VAffaire', {
             store: App.store.create("App.Clients.getServices"),
             displayField: "Lib_client_rattache", 
             valueField: "Id_client_rattache",
+            bind: "Id_client_rattache",
             labelAlign: "top",			
 			padding: 4,
 			width: "100%"
@@ -245,7 +246,8 @@ App.view.define('VAffaire', {
             store: App.store.create("sapei://contact_client{Id_contact_client,NomPrenom_contact_client+}?type_client=1"),
             displayField: "NomPrenom_contact_client", 
             valueField: "Id_contact_client",            
-			labelAlign: "top",			
+			bind: "Id_contact_client",
+            labelAlign: "top",			
 			padding: 4,
 			width: "100%"
 		},
