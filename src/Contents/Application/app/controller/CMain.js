@@ -392,7 +392,9 @@ App.controller.define('CMain', {
 				'</div>'				
 			];
 			p.up('window').close();	
-			App.get('TAffaire panel#Title').update(html.join(''));			
+			App.get('TAffaire panel#Title').update(html.join(''));	
+            App.get('VSchedulerMain').hide();
+            console.log(App.get('menu>menuitem#mnu_close_affaire'));
 			App.get('TAffaire').show();		
 		});
 	},
