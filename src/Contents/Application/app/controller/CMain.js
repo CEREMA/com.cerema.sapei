@@ -479,6 +479,11 @@ App.controller.define('CMain', {
 	{
 		App.get('TAffaire').wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);
+        App.DB.get('sapei://job_client?Id_job='+p.ItemID,function(e,r){
+            if (r.result.data.length>0) {
+                App.get('TAffaire combo#cboclient').setValue(r.result.data[i].Id_Client_origine);    
+            }; 
+        });
 		App.get('TAffaire').runner=window.setInterval(function() {
 			App.DB.get('sapei://wiki{id}?job='+p.ItemID,function(r) {
 				if (r.data.length==0) {
