@@ -104,7 +104,7 @@ App.view.define('VSchedulerMain', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}",{autoLoad: true}),
+				eventStore: App.eventstore.create("sapei://schedule_skills{Id,ResourceId,StartDate,EndDate,User,Cls}",{autoLoad: true}),
 				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}",{autoLoad: true})
 			},                
 			{
@@ -129,7 +129,7 @@ App.view.define('VSchedulerMain', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}",{autoLoad: true}),
+				eventStore: App.eventstore.create("sapei://schedule_users{Id,ResourceId,StartDate,EndDate,User,Cls}",{autoLoad: true}),
 				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2",{autoLoad: true})
 			}
 			]
