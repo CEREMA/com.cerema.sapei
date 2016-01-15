@@ -595,6 +595,12 @@ App.controller.define('CMain', {
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);
 		App.view.create('VOpenAffaire',{modal: true}).show();
 	},
+    closeAffaire: function(p)
+    {
+        p.hide();
+        App.get("TAffaire").hide();
+        App.get("VSchedulerMain").show();
+    },
 	Menu_onClick: function(p)
 	{
 		if (p.itemId) {
@@ -605,6 +611,9 @@ App.controller.define('CMain', {
 				case "mnu_aff_open":
 					this.openAffaires();
 					break;
+                case "mnu_aff_close":
+                    this.closeAffaire();
+                    break;
 				break;
 				default:
 			}
