@@ -38,12 +38,12 @@ App.view.define('VMain', {
 			items: [
 			{
 				xtype: "TAffaire",
-				hidden: "true",
+				hidden: true,
 				flex: 1
 			},
             {
 				xtype: "VSchedulerMain",
-				hidden: "false",
+				hidden: false,
 				flex: 1                
             }
 			]
