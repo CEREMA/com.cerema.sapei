@@ -419,7 +419,7 @@ App.view.define('VAffaire', {
                         autoLoad: true
                     }),
                     bind: "IdDepartement",
-                    valueField: 'Num_dpt',
+                    valueField: 'Id_dpt',
                     displayField: 'Lib_dpt',
                     queryMode: 'local',
                     typeAhead: true,
