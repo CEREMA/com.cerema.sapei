@@ -196,7 +196,6 @@ App.controller.define('CMain', {
                        if (users) {
                             App.DB.del('sapei://schedule_users?Id='+users,function(e){
                                console.log(e);
-					           App.Tasks.getAll({id_job: App.get('TAffaire').ItemID},me.TAffaire_update);
 					           App.notify('Enregistrement supprimé.');                             
                             });  
                        };
@@ -419,10 +418,8 @@ App.controller.define('CMain', {
 	},
 	newtask_onclick: function(p)
 	{
-		console.log(App.get('TAffaire grid').getStore());
 		App.view.create("VScheduler",{
-			modal: true/*,
-			job: p.up('grid').getStore().*/
+			modal: true
 		}).show();
 	},
 	VScheduler_onshow: function()
@@ -573,7 +570,8 @@ App.controller.define('CMain', {
 					];
 					App.get('TAffaire').ItemID=response.Id_job;
 					App.get('TAffaire panel#Title').update(html.join(''));					
-					App.get('TAffaire').show();
+					App.get('VSchedulerMain').hide();
+                    App.get('TAffaire').show();
 				});			
 				p.up('window').close();
 			}
@@ -582,6 +580,7 @@ App.controller.define('CMain', {
 	newAffaires: function(me)
 	{
 		App.get('TAffaire').hide();
+        App.get('VSchedulerMain').show();
 		delete App.get('TAffaire').wiki;
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);	
 		App.view.create('Affaires.VNew',{
@@ -591,6 +590,7 @@ App.controller.define('CMain', {
 	openAffaires: function(me)
 	{
 		App.get('TAffaire').hide();
+        App.get('VSchedulerMain').show();
 		delete App.get('TAffaire').wiki;
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);
 		App.view.create('VOpenAffaire',{modal: true}).show();
