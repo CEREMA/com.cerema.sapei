@@ -360,7 +360,7 @@ App.view.define('VAffaire', {
 				{
 					header: "Matériel/Agent",
 					dataIndex: "libelle",
-					width: 250,
+					flex: 1,
 				},
 				{
 					header: "Période",
@@ -376,7 +376,7 @@ App.view.define('VAffaire', {
                         displayField: "Lib_step",
                         valueField: "Lib_step"
                     },
-                    flex: 1
+                    width: 150
                 }
 				],
                 plugins: [ Ext.create('Ext.grid.plugin.CellEditing',{
