@@ -65,67 +65,15 @@ App.view.define('VSchedulerMain', {
 				}
 		}); 	
 		
-		// window property
-		
-        this.width = 1024;
-        this.height = 660;
-
         this.layout = {
             type: 'hbox'
         };
-
-        this.tbar = [
-				{
-					xtype: 'daterangefield',
-					editable: false,
-					fieldLabel: "Période",
-					margin: {
-						bottom: 5,
-						left: 5,
-						right: 5
-					},
-					labelAlign: "top",
-					itemId: "range",
-					width: 180,
-					weekDayStart: 1,
-					weekDayEnd:5,
-					numberOfCalendars: 4,
-					datePickerConfig: {
-					   minDate: new Date(),
-					   startDay: 1
-					}
-				},
-				{
-					xtype: "combo",
-					itemId: "type_ope",
-					editable: false,
-					valueField: "id_type_ope",
-					margin: {
-						bottom: 5,
-						right: 5
-					},
-					displayField: "libelle_ope",
-					fieldLabel: "Nature",
-					labelAlign: "top",
-					width: 170,
-					store: App.store.create("sapei://type_ope",{autoLoad: true})
-				},
-				'->',
-				{
-					text: "Ajouter",
-					xtype: "button",
-					itemId: "save_task",
-					height: 40
-				}            
-        ];
 
         this.defaults = {
             split: true
         };
 		
-		this.title="Tâche";
-		
-		this.bodyStyle="background:#FFFFFF";
+        this.bodyStyle="background:#FFFFFF";
 		
         this.items = [
 		{
