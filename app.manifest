@@ -64,7 +64,8 @@
         "Tasks"
     ],
     "db": [
-        "sapei"
+        "sapei",
+        "bpclight"
     ],
     "packages": [],
     "icon": {
