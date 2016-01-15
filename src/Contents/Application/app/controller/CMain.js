@@ -8,7 +8,8 @@ App.controller.define('CMain', {
 		"VBlog",
 		"Affaires.VNew",
 		"Affaires.VNewAxe",
-        "VContacts"
+        "VContacts",
+        "VSchedulerMain"
 	],
 	
 	models: [
