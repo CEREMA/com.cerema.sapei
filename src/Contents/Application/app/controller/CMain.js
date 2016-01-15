@@ -490,7 +490,7 @@ App.controller.define('CMain', {
                 App.get("TAffaire combo#cboservice").getStore().getProxy().extraParams.Id_client_origine=r.result.data[0].Id_Client_origine;
                 App.get("TAffaire combo#cboservice").getStore().load();
                 App.get("TAffaire combo#cboservice").getStore().on('load',function(s) {
-                    console.log(App.get('TAffaire clientpanel'));
+                    console.log(App.get('TAffaire panel#clientpanel'));
                     App.DB.get('sapei://contact_client?Id_contact_client='+r.result.data[0].Id_Client_origine);
                 });
 
