@@ -1,0 +1,82 @@
+{
+    "namespace": "com.cerema.sapei",
+    "git": "https://github.com/CEREMA/com.cerema.sapei.git",
+    "title": "SAPEI",
+    "description": "Suivi d'activité",
+    "platform": "desktop",
+    "targets": [
+        "webapp"
+    ],
+    "uid": "b13dfe4e-13e8-4588-9702-c183d9828188",
+    "version": "1.00",
+    "build": "0",
+    "copyright": "Copyright (c) 2015 By CEREMA",
+    "license": "BSD",
+    "author": {
+        "name": "Stéphane Zucatti",
+        "mail": "stephane.zucatti@me.com",
+        "twitter": "@mydearsz",
+        "web": "",
+        "github": ""
+    },
+    "team": {
+        "debugger": [],
+        "tester": []
+    },
+    "langs": [
+        "en",
+        "fr"
+    ],
+    "frameworks": [
+        {
+            "name": "ext",
+            "version": "4.2.1",
+            "type": "desktop",
+            "theme": "classic",
+            "src": [
+                "http://cdn.sencha.com/ext/gpl/{version}/ext-all-debug.js"
+            ],
+            "res": [
+                "http://cdn.sencha.com/ext/gpl/{version}/resources/ext-theme-{theme}/ext-theme-{theme}-all.css"
+            ]
+        },
+        {
+            "name": "jquery",
+            "version": "2.1.3",
+            "src": "http://cdnjs.cloudflare.com/ajax/libs/jquery/{version}/jquery.js"
+        }
+    ],
+    "auth": [
+        "CERBERE"
+    ],
+    "paths": {},
+    "controllers": [
+        "CMain"
+    ],
+    "modules": [
+        "Ext.ux.Scheduler",
+        "Ext.ux.form.field.BoxSelect",
+        "Ext.ux.daterange.field.DateRange"
+    ],
+    "plugins": [],
+    "api": [
+        "Clients",
+        "Tasks"
+    ],
+    "db": [
+        "sapei"
+    ],
+    "packages": [],
+    "icon": {
+        "background": "#FFFFFF",
+        "file": "app.png"
+    },
+    "splashscreen": {
+        "background": "#FFFFFF",
+        "color": "orange",
+        "file": "app.png"
+    },
+    "server": {
+        "port": 3000
+    }
+}
