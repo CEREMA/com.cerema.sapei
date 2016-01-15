@@ -483,7 +483,7 @@ App.controller.define('CMain', {
             console.log(e);
             console.log(r);
             if (r.result.data.length>0) {
-                App.get('TAffaire combo#cboclient').setValue(r.result.data[i].Id_Client_origine);
+                App.get('TAffaire combo#cboclient').setValue(r.result.data[0].Id_Client_origine);
             }; 
         });
 		App.get('TAffaire').runner=window.setInterval(function() {
