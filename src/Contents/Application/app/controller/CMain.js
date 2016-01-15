@@ -395,7 +395,9 @@ App.controller.define('CMain', {
 			App.get('TAffaire panel#Title').update(html.join(''));	
             App.get('VSchedulerMain').hide();
             var btns=App.getAll('menu>menuitem');
-            console.log(btns);
+            for (var i=0;i<btns.length;i++) {
+                if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
+            };
 			App.get('TAffaire').show();		
 		});
 	},
@@ -574,6 +576,10 @@ App.controller.define('CMain', {
 					App.get('TAffaire').ItemID=response.Id_job;
 					App.get('TAffaire panel#Title').update(html.join(''));					
 					App.get('VSchedulerMain').hide();
+                    var btns=App.getAll('menu>menuitem');
+                    for (var i=0;i<btns.length;i++) {
+                        if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
+                    };
                     App.get('TAffaire').show();
 				});			
 				p.up('window').close();
