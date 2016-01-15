@@ -372,6 +372,7 @@ App.view.define('VAffaire', {
                     dataIndex: "step",
                     editor: {
                         xtype: "combo",
+                        editable: false,
                         store: App.store.create("sapei://steps",{autoLoad: true}),
                         displayField: "Lib_step",
                         valueField: "Lib_step"
