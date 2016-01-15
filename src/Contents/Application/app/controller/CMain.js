@@ -487,6 +487,22 @@ App.controller.define('CMain', {
             console.log(r);
             if (r.result.data.length>0) {
                 App.get('TAffaire combo#cboclient').setValue(r.result.data[0].Id_Client_origine);
+                App.get("TAffaire combo#cboservice").getStore().getProxy().extraParams.Id_client_origine=r.result.data[0].Id_Client_origine;
+                App.get("TAffaire combo#cboservice").getStore().load();
+                App.get("TAffaire combo#cboservice").getStore().on('load',function(s) {
+                    /*if (s.totalCount==1) {
+                            App.get("TAffaire combo#cboservice").setValue(s.data.items[0].data.Id_client_rattache);
+                            App.get("TAffaire combo#cbocontact").getStore().getProxy().extraParams.Id_client_rattache=s.data.items[0].data.Id_client_rattache;
+                            App.get("TAffaire combo#cbocontact").getStore().load();
+                            App.get("TAffaire combo#cbocontact").getStore().on('load',function(s) {
+                                if (s.totalCount==1) {
+                                    App.get("TAffaire combo#cbocontact").setValue(s.data.items[0].data.Id_contact_client);
+                                    App.DB.get('sapei://contact_client?Id_contact_client='+s.data.items[0].data.Id_contact_client,p.up('panel'));
+                                }
+                            });
+                    }*/
+                });
+
             }; 
         });
 		App.get('TAffaire').runner=window.setInterval(function() {
