@@ -95,6 +95,11 @@ App.view.define('VAffaire', {
 		maxSize: 330,
 		layout: "vbox",
 		itemId: "westpanel",
+        tbar: [
+        {   
+            text: "Mise à jour"
+        }
+        ],
 		items: [
 		{
 			width: "100%",
