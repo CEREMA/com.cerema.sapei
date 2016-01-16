@@ -98,11 +98,7 @@ App.view.define('VAffaire', {
         tbar: [
         {   
             text: "Mise à jour",
-            handler: function(p)
-            {
-                var win=p.up('panel').up('panel');
-                console.log(App.getData(win));
-            }
+            itemId: "MAJ"
         }
         ],
 		items: [
