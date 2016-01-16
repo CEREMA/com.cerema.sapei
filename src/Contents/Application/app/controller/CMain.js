@@ -61,6 +61,9 @@ App.controller.define('CMain', {
             "TAffaire button#addContact": {
                   click: "on_add_contact"
             },
+            "TAffaire button#MAJ": {
+                click: "on_MAJ"    
+            },
 			"TAffaire combo": {
 				select: "affaire_combo_update"
 			},
@@ -144,6 +147,11 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    on_MAJ: function(p)
+    {
+        var win=p.up('panel').up('panel');
+        console.log(App.getData(win));
+    },
     Task_edit: function()
     {
         var me=this;
