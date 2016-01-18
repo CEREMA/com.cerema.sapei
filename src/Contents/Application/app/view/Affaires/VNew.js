@@ -154,6 +154,7 @@ App.view.define('Affaires.VNew', {
 					autoLoad: true
 				}),
 				valueField: 'IdDepartement',
+                selectable: false,
 				displayField: 'Lib_dpt',
 				queryMode: 'local',
 				typeAhead: true,
@@ -163,6 +164,7 @@ App.view.define('Affaires.VNew', {
 				xtype: "combo",
 				itemId: "cbo_axe",
 				fieldLabel: "Axe",
+                selectable: false,
 				labelAlign: "top",
 				width: 100,
 				margin: {
