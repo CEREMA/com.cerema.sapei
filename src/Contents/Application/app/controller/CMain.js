@@ -52,6 +52,9 @@ App.controller.define('CMain', {
 			"AffairesVNewAxe combo#cboDepartement": {
 				select: "newaxe_dpt_onchange"
 			},
+			"AffairesVNewAxe combo#cbo_axe": {
+				select: "newaxe_axe_onchange"
+			},
 			"AffairesVNewAxe grid#gAxe" : {
 				itemcontextmenu: "gAxe_context"
 			},
@@ -153,9 +156,15 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    newaxe_axe_onchange: function()
+    {
+        if (App.get('AffairesVNewAxe combo#cbo_axe').getValue()==3) 
+            App.get('AffairesVNewAxe textfield#axe').setValue("multi-axes"); 
+        else 
+            App.get('AffairesVNewAxe textfield#axe').setValue(App.get('AffairesVNewAxe combo#cbo_axe').getRawValue()+App.get('AffairesVNewAxe combo#cboDepartement').getRawValue().split(' - ')[0]);      
+    },
     newaxe_dpt_onchange: function(p)
     {
-        alert('x');
         if (App.get('AffairesVNewAxe combo#cbo_axe').getValue()==3) 
             App.get('AffairesVNewAxe textfield#axe').setValue("multi-axes"); 
         else 
