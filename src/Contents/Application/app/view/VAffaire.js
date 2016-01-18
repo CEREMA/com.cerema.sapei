@@ -251,6 +251,7 @@ App.view.define('VAffaire', {
             store: App.store.create("sapei://contact_client{Id_contact_client,NomPrenom_contact_client+}?type_client=1"),
             displayField: "NomPrenom_contact_client", 
             valueField: "Id_contact_client",  			
+            bind: "Id_client_principal",
             labelAlign: "top",			
 			padding: 4,
 			width: "100%"
