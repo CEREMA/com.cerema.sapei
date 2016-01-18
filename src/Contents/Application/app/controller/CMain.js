@@ -601,7 +601,6 @@ App.controller.define('CMain', {
                         '</div>',
                         '</div>'				
                     ];
-                    p.up('window').close();	
                     App.get('TAffaire panel#Title').update(html.join(''));	
                     App.get('VSchedulerMain').hide();
                     var btns=App.getAll('menu>menuitem');
