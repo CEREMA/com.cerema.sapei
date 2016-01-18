@@ -256,61 +256,70 @@ App.view.define('VAffaire', {
 			padding: 4,
 			width: "100%"
 		},
-		{
-			layout: "hbox",
-			padding: 4,
-			border: false,
-			width: "100%",
-			items: [				
-			{
-				xtype: "textfield",
-                itemId: "tel",
-                bind: "Tel_contact_client",
-				fieldLabel: "Tel",
-				labelAlign: "top",							
-				flex: 1
-			},
-			{
-				xtype: "textfield",
-				fieldLabel: "Portable",
-                bind: "Mobile_contact_client",
-                itemId: "mobile",
-				labelAlign: "top",			
-				margin: {
-					left: 5
-				},
-				flex: 1
-			}
-			]
-		},
-		{
-			xtype: "textfield",
-			fieldLabel: "Adresse mail",
-            bind: "Mail_contact_client",
-            itemId: "mail",
-			labelAlign: "top",			
-			padding: 4,
-			width: "100%"
-		},		
-		{
-			xtype: "textfield",
-			fieldLabel: "Fonction",
-            bind: "Fonction_contact_client",
-            itemId: "fonction",
-			labelAlign: "top",			
-			padding: 4,
-			width: "100%"
-		},
-		{
-			xtype: "textarea",
-			fieldLabel: "Adresse",
-            itemId: "adresse",
-            bind: "Adresse_contact_client",
-			labelAlign: "top",			
-			padding: 4,
-			width: "100%",
-			height: 80
-		},
+        {
+            layout: "vbox",
+            width: "100%",
+            itemId: "panelContacts",
+            flex: 1,
+            border: false,
+            items: [
+            {
+                layout: "hbox",
+                padding: 4,
+                border: false,
+                width: "100%",
+                items: [				
+                {
+                    xtype: "textfield",
+                    itemId: "tel",
+                    bind: "Tel_contact_client",
+                    fieldLabel: "Tel",
+                    labelAlign: "top",							
+                    flex: 1
+                },
+                {
+                    xtype: "textfield",
+                    fieldLabel: "Portable",
+                    bind: "Mobile_contact_client",
+                    itemId: "mobile",
+                    labelAlign: "top",			
+                    margin: {
+                        left: 5
+                    },
+                    flex: 1
+                }
+                ]
+            },
+            {
+                xtype: "textfield",
+                fieldLabel: "Adresse mail",
+                bind: "Mail_contact_client",
+                itemId: "mail",
+                labelAlign: "top",			
+                padding: 4,
+                width: "100%"
+            },		
+            {
+                xtype: "textfield",
+                fieldLabel: "Fonction",
+                bind: "Fonction_contact_client",
+                itemId: "fonction",
+                labelAlign: "top",			
+                padding: 4,
+                width: "100%"
+            },
+            {
+                xtype: "textarea",
+                fieldLabel: "Adresse",
+                itemId: "adresse",
+                bind: "Adresse_contact_client",
+                labelAlign: "top",			
+                padding: 4,
+                width: "100%",
+                height: 80
+            }                
+            ]
+        },
 		{
 			flex: 1,
 			border: false
