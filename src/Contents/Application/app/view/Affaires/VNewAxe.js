@@ -98,7 +98,7 @@ App.view.define('Affaires.VNewAxe', {
 				dataIndex: "Lib_type_axe"
 			}
 			],			
-			store: App.store.create("sapei://axe{Id_axe,Axe,type_axe.Lib_type_axe}",{autoLoad: true})
+			store: App.store.create("sapei://axe{Id_axe,Axe,type_axe.Lib_type_axe}?Id_axe<3",{autoLoad: true})
 		}
 		];
 		
