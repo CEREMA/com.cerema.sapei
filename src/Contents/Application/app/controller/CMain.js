@@ -281,7 +281,7 @@ App.controller.define('CMain', {
         });
     },
     affaire_combo_update: function(p) {
-		if (p.bind) {
+		/*if (p.bind) {
 			// on met à jour l'enregistrement
 			var obj={};
 			obj.Id_job=App.get('TAffaire').ItemID;
@@ -290,7 +290,7 @@ App.controller.define('CMain', {
 				console.log(e);
 				console.log(r);
 			});
-		}
+		}*/
 	},
     affaire_combo_change: function(p) {
         if (p.itemId=="cboservice") {
