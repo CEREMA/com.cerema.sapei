@@ -298,6 +298,10 @@ App.controller.define('CMain', {
             p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
             p.getStore().load();              
         };
+        if (p.itemId=="cbocontact") {
+            p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
+            p.getStore().load();              
+        };
     },
 	VBlog_close: function()
 	{
