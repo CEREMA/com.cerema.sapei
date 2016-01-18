@@ -112,7 +112,7 @@ App.view.define('Affaires.VNew', {
 				displayField: 'Lib_client_origine',
 				valueField: 'Id_client_origine',
 				bind: "Id_contact_chantier",
-				selectable: false,
+				editable: false,
 				allowBlank: false
 			}
 			]
@@ -153,7 +153,7 @@ App.view.define('Affaires.VNew', {
 					autoLoad: true
 				}),
 				valueField: 'IdDepartement',
-                selectable: false,
+                editable: false,
 				displayField: 'Lib_dpt',
 				queryMode: 'local',
 				allowBlank: false				
@@ -162,7 +162,7 @@ App.view.define('Affaires.VNew', {
 				xtype: "combo",
 				itemId: "cbo_axe",
 				fieldLabel: "Axe",
-                selectable: false,
+                editable: false,
 				labelAlign: "top",
 				width: 100,
 				margin: {
