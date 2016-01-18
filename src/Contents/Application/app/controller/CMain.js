@@ -151,6 +151,7 @@ App.controller.define('CMain', {
     {
         var obj=App.getData(p.up('panel').up('panel'));
         obj.Id_job=p.up('panel').up('panel').ItemID;
+        console.log(obj);
         App.DB.post('sapei://job',obj)
     },
     Task_edit: function()
