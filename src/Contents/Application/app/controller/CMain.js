@@ -305,12 +305,13 @@ App.controller.define('CMain', {
 		}*/
 	},
     affaire_combo_change: function(p) {
+        if (p.itemId=="cboclient") {
+            App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=p.getValue();
+            App.get('TAffaire combo#cboservice').getStore().load();
+        };
         if (p.itemId=="cboservice") {
             p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
             p.getStore().load();
-            alert('x');
-            App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=p.getValue();
-            App.get('TAffaire combo#cboservice').getStore().load();
         };
         if (p.itemId=="cbocontact") {
             p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
