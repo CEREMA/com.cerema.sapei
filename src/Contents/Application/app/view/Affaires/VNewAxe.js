@@ -57,7 +57,7 @@ App.view.define('Affaires.VNewAxe', {
 					left: 5
 				},
 				editable:false,
-				width: 50
+				width: 80
 			}
 			]
 		},
@@ -96,15 +96,9 @@ App.view.define('Affaires.VNewAxe', {
 			{
 				text: "Type Axe",
 				dataIndex: "Lib_type_axe"
-			},
-			{
-				text: "Département",
-				dataIndex: "Lib_dpt",
-				flex: 1
 			}
-
 			],			
-			store: App.store.create("sapei://axe{Id_axe,Axe,type_axe.Lib_type_axe,dpt.Lib_dpt}",{autoLoad: true})
+			store: App.store.create("sapei://axe{Id_axe,Axe,type_axe.Lib_type_axe}",{autoLoad: true})
 		}
 		];
 		
