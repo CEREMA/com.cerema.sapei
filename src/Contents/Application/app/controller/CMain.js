@@ -256,6 +256,10 @@ App.controller.define('CMain', {
             Id_job: p.up('panel').up('panel').ItemID,
             Id_contact_client: p.getValue()
         },function(e){
+            console.log({
+            Id_job: p.up('panel').up('panel').ItemID,
+            Id_contact_client: p.getValue()
+        });
             console.log(e);
         });
         App.get("TAffaire combo#cboservice").getStore().getProxy().extraParams.Id_client_origine=p.getValue();
