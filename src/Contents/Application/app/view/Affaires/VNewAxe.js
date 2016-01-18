@@ -45,6 +45,7 @@ App.view.define('Affaires.VNewAxe', {
 			},
 			{
 				xtype: "combo",
+                itemId: "cbo_axe",
 				fieldLabel: "Type",
 				labelAlign: "top",
 				bind: "Id_Type_Axe",
