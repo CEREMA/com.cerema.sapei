@@ -235,7 +235,7 @@ App.view.define('VAffaire', {
 			fieldLabel: "Service",
             itemId: "cboservice",
             editable: false,
-            store: App.store.create("App.Clients.getServices",{autoLoad: true}),
+            store: App.store.create("App.Clients.getServices"),
             displayField: "Lib_client_rattache", 
             valueField: "Id_client_rattache",
             bind: "Id_client_rattache",
