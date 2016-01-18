@@ -289,7 +289,7 @@ App.controller.define('CMain', {
                     App.get("TAffaire combo#cbocontact").getStore().on('load',function(s) {
                         if (s.totalCount==1) {
                             App.get("TAffaire combo#cbocontact").setValue(s.data.items[0].data.Id_contact_client);
-                            App.DB.get('sapei://contact_client?Id_contact_client='+s.data.items[0].data.Id_contact_client,p.up('panel'));
+                            App.DB.get('sapei://contact_client?Id_contact_client='+s.data.items[0].data.Id_contact_client,App.get('TAffaire panel#panelContacts'));
                             App.DB.post('sapei://job',{
                                 Id_job: p.up('panel').up('panel').ItemID,
                                 Id_client_principal: s.data.items[0].data.Id_contact_client
