@@ -312,9 +312,8 @@ App.controller.define('CMain', {
             p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
             p.getStore().load();
             p.getStore().on('load',function() {
-                alert(p.getValue());
-                App.get('TAffaire combo#cboclient').getStore().getProxy().extraParams.Id_client_rattache=p.getValue();
-                App.get('TAffaire combo#cboclient').getStore().load();
+                App.get('TAffaire combo#cbocontact').getStore().getProxy().extraParams.Id_client_rattache=p.getValue();
+                App.get('TAffaire combo#cbocontact').getStore().load();
             });
         };
         if (p.itemId=="cbocontact") {
