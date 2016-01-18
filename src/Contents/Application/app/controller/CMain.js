@@ -419,8 +419,8 @@ App.controller.define('CMain', {
 			var html=[
 				'<div class="job_title">',
 				response.Intitule_job,
-				'<div class="job_num">SIGMA : ',
-				response.Num_SIGMA_job,
+				'<div class="job_num">Id : ',
+				response.Id_job,
 				'</div>',
 				'</div>'				
 			];
