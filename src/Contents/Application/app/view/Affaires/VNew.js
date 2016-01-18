@@ -168,7 +168,7 @@ App.view.define('Affaires.VNew', {
 				margin: {
 					left: 5
 				},
-				store: App.store.create('sapei://axe'),
+				store: App.store.create('sapei://axe',{autoLoad: true}),
 				valueField: 'Id_axe',
 				displayField: 'Axe',
 				bind: "Id_axe",
