@@ -40,11 +40,17 @@ App.controller.define('CMain', {
 			"AffairesVNew combo#cbo_dpt": {
 				select: "cbo_dpt_onselect"
 			},
+            /*
+            AffairesVNewAxe
+            */
 			"AffairesVNewAxe": {
 			
 			},
 			"AffairesVNewAxe button#btn_add": {
 				click: "add_new_axe"
+			},
+			"AffairesVNewAxe combo#cboDepartement": {
+				select: "newaxe_dpt_onchange"
 			},
 			"AffairesVNewAxe grid#gAxe" : {
 				itemcontextmenu: "gAxe_context"
@@ -147,6 +153,14 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    newaxe_dpt_onchange: function(p)
+    {
+        alert('x');
+        if (App.get('AffairesVNewAxe combo#cbo_axe').getValue()==3) 
+            App.get('AffairesVNewAxe textfield#axe').setValue("multi-axe"); 
+        else 
+            App.get('AffairesVNewAxe textfield#axe').setValue(App.get('AffairesVNewAxe combo#cbo_axe').getRawValue()+App.get('AffairesVNewAxe combo); 
+    },
     on_MAJ: function(p)
     {
         var obj=App.getData(p.up('panel').up('panel'));
