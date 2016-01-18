@@ -262,6 +262,7 @@ App.controller.define('CMain', {
     },
     cboservice_onselect: function(p)
     {
+        App.reset(App.get('TAffaire panel#panelContacts'));
         var zobj=App.getData(p.up('panel'));
         zobj.Id_job=p.up('panel').up('panel').ItemID;
         App.DB.post('sapei://job',zobj,function(){});
