@@ -159,7 +159,7 @@ App.controller.define('CMain', {
         if (App.get('AffairesVNewAxe combo#cbo_axe').getValue()==3) 
             App.get('AffairesVNewAxe textfield#axe').setValue("multi-axe"); 
         else 
-            App.get('AffairesVNewAxe textfield#axe').setValue(App.get('AffairesVNewAxe combo#cbo_axe').getRawValue()+App.get('AffairesVNewAxe combo#cbo_dpt').getRawValue().split(' - ')[0]); 
+            App.get('AffairesVNewAxe textfield#axe').setValue(App.get('AffairesVNewAxe combo#cbo_axe').getRawValue()+App.get('AffairesVNewAxe combo#cboDepartement').getRawValue().split(' - ')[0]); 
     },
     on_MAJ: function(p)
     {
