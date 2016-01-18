@@ -262,19 +262,11 @@ App.controller.define('CMain', {
             if (s.totalCount==1) {
                     App.get("TAffaire combo#cboservice").setValue(s.data.items[0].data.Id_client_rattache);
                     App.get("TAffaire combo#cbocontact").getStore().getProxy().extraParams.Id_client_rattache=s.data.items[0].data.Id_client_rattache;
-                    /*App.DB.post('sapei://job',{
-                        Id_job: p.up('panel').up('panel').ItemID,
-                        Id_client_rattache: s.data.items[0].data.Id_client_rattache
-                    },function(){});                    */
                     App.get("TAffaire combo#cbocontact").getStore().load();
                     App.get("TAffaire combo#cbocontact").getStore().on('load',function(s) {
                         if (s.totalCount==1) {
                             App.get("TAffaire combo#cbocontact").setValue(s.data.items[0].data.Id_contact_client);
                             App.DB.get('sapei://contact_client?Id_contact_client='+s.data.items[0].data.Id_contact_client,p.up('panel'));
-                            /*App.DB.post('sapei://job',{
-                                Id_job: p.up('panel').up('panel').ItemID,
-                                Id_client_principal: s.data.items[0].data.Id_contact_client
-                            },function(){});                            */
                         }
                     });
             }
@@ -299,7 +291,10 @@ App.controller.define('CMain', {
         };
         if (p.itemId=="cbocontact") {
             p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
-            p.getStore().load();              
+            p.getStore().load();
+            p.getStore().on('load',function() {
+                App.DB.get('sapei://contact_client?Id_contact_client='+s.data.items[0].data.Id_contact_client,p.up('panel'));
+            });
         };
     },
 	VBlog_close: function()
