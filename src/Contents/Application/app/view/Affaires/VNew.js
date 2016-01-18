@@ -111,7 +111,7 @@ App.view.define('Affaires.VNew', {
 				}),
 				displayField: 'Lib_client_origine',
 				valueField: 'Id_client_origine',
-				bind: "Id_contact_chantier",
+				bind: "Id_contact_client",
 				editable: false,
 				allowBlank: false
 			}
