@@ -59,6 +59,7 @@ App.view.define('Affaires.VNewAxe', {
 			},
 			{
 				xtype: "combo",
+                itemId: "cboDepartement",
 				fieldLabel: "Département",
                 selectable: false,
 				bind: "Id_Dpt",
