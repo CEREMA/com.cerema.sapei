@@ -304,19 +304,19 @@ App.controller.define('CMain', {
 		}*/
 	},
     affaire_combo_change: function(p) {
-        /*if (p.itemId=="cboclient") {
+        if (p.itemId=="cboclient") {
             App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=p.getValue();
             App.get('TAffaire combo#cboservice').getStore().load();
         };
         if (p.itemId=="cboservice") {
             p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
             p.getStore().load();
-        };*/
+        };
         if (p.itemId=="cbocontact") {
             p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
             p.getStore().load();            
             p.getStore().on('load',function() {
-                App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),p.up('panel'));
+                //App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),p.up('panel'));
             });            
         };
     },
