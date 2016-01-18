@@ -154,6 +154,7 @@ App.view.define('Affaires.VNew', {
 				}),
 				valueField: 'IdDepartement',
                 editable: false,
+                bind: "Id_dpt",
 				displayField: 'Lib_dpt',
 				queryMode: 'local',
 				allowBlank: false				
