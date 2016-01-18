@@ -311,8 +311,11 @@ App.controller.define('CMain', {
         if (p.itemId=="cboservice") {
             p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
             p.getStore().load();
-            App.get('TAffaire combo#cboclient').getStore().getProxy().extraParams.Id_client_rattache=p.getValue();
-            App.get('TAffaire combo#cboclient').getStore().load();
+            p.getStore().on('load',function() {
+                alert('x');
+                App.get('TAffaire combo#cboclient').getStore().getProxy().extraParams.Id_client_rattache=p.getValue();
+                App.get('TAffaire combo#cboclient').getStore().load();
+            });
         };
         if (p.itemId=="cbocontact") {
             p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
