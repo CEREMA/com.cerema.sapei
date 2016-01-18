@@ -103,6 +103,13 @@ App.view.define('VAffaire', {
         ],
 		items: [
 		{
+            xtype: "textfield",
+            fieldLabel: "Numéro SIGMA",
+            labelAlign: "top",
+            bind: "Num_SIGMA_job",
+            allowBlank: false
+        },            
+		{
 			width: "100%",
 			layout: "hbox",
 			padding: 4,
