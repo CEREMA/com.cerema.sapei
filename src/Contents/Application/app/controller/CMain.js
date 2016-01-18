@@ -573,7 +573,7 @@ App.controller.define('CMain', {
 	add_new_axe: function(p)
 	{
 		App.DB.post('sapei://axe',p.up('window'),function() {
-			App.reset(win);
+			App.reset(p.up('window'));
 			App.get('AffairesVNewAxe grid').getStore().load();
 		});
 	},
