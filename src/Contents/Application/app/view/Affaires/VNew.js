@@ -157,7 +157,6 @@ App.view.define('Affaires.VNew', {
                 selectable: false,
 				displayField: 'Lib_dpt',
 				queryMode: 'local',
-				typeAhead: true,
 				allowBlank: false				
 			},
 			{
@@ -175,7 +174,6 @@ App.view.define('Affaires.VNew', {
 				displayField: 'Axe',
 				bind: "Id_axe",
 				queryMode: 'local',
-				typeAhead: true,
 				allowBlank: false
 			}			
 			]
