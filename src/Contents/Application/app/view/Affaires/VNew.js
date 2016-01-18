@@ -112,8 +112,7 @@ App.view.define('Affaires.VNew', {
 				displayField: 'Lib_client_origine',
 				valueField: 'Id_client_origine',
 				bind: "Id_contact_chantier",
-				queryMode: 'local',
-				typeAhead: true,
+				selectable: false,
 				allowBlank: false
 			}
 			]
