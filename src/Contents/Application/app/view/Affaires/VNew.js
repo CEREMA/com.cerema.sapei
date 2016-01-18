@@ -149,7 +149,7 @@ App.view.define('Affaires.VNew', {
 				margin: {
 					left: 5
 				},
-				store: App.store.create('sapei://dpt',{
+				store: App.store.create('sapei://dpt{Id_dpt,Num_dpt+" - "+Lib_dpt}',{
 					autoLoad: true
 				}),
 				valueField: 'IdDepartement',
@@ -169,7 +169,7 @@ App.view.define('Affaires.VNew', {
 				margin: {
 					left: 5
 				},
-				store: App.store.create('sapei://axe',{autoLoad: true}),
+				store: App.store.create('sapei://axe{Id_axe,Axe+}',{autoLoad: true}),
 				valueField: 'Id_axe',
 				displayField: 'Axe',
 				bind: "Id_axe",
