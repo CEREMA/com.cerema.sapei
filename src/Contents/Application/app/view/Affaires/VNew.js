@@ -153,7 +153,7 @@ App.view.define('Affaires.VNew', {
 				store: App.store.create('sapei://dpt',{
 					autoLoad: true
 				}),
-				valueField: 'Num_dpt',
+				valueField: 'IdDepartement',
 				displayField: 'Lib_dpt',
 				queryMode: 'local',
 				typeAhead: true,
