@@ -589,25 +589,26 @@ App.controller.define('CMain', {
 		App.DB.post('sapei://job',p.up('window'),function(o) {
 			App.reset(App.get('TAffaire'));
 			if (o.insertId) {
-				App.DB.get('sapei://job?Id_job='+o.insertId,App.get('TAffaire'),function(response) {
-					response=response.data[0];
-					var html=[
-						'<div class="job_title">',
-						response.Intitule_job,
-						'<div class="job_num">SIGMA : ',
-						response.Num_SIGMA_job,
-						'</div>',
-						'</div>'				
-					];
-					App.get('TAffaire').ItemID=response.Id_job;
-					App.get('TAffaire panel#Title').update(html.join(''));					
-					App.get('VSchedulerMain').hide();
+                App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
+                    response=response.data[0];
+                    App.get('TAffaire').ItemID=response.Id_job;
+                    var html=[
+                        '<div class="job_title">',
+                        response.Intitule_job,
+                        '<div class="job_num">SIGMA : ',
+                        response.Num_SIGMA_job,
+                        '</div>',
+                        '</div>'				
+                    ];
+                    p.up('window').close();	
+                    App.get('TAffaire panel#Title').update(html.join(''));	
+                    App.get('VSchedulerMain').hide();
                     var btns=App.getAll('menu>menuitem');
                     for (var i=0;i<btns.length;i++) {
                         if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
-                    };  
-                    App.get('TAffaire').show();
-				});			
+                    };
+                    App.get('TAffaire').show();		
+                });                
 				p.up('window').close();
 			}
 		});	
