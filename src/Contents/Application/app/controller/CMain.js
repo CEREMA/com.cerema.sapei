@@ -468,7 +468,9 @@ App.controller.define('CMain', {
 	{
 		App.reset(App.get('TAffaire')); 
 		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
+            
 			response=response.data[0];
+            App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
 			App.get('TAffaire').ItemID=response.Id_job;
 			var html=[
 				'<div class="job_title">',
