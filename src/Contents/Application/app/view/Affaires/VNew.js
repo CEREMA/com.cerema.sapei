@@ -178,7 +178,7 @@ App.view.define('Affaires.VNew', {
 			]
 		},
 		{
-			xtype: "htmleditor",
+			xtype: "textarea",
 			fieldLabel: "Nature de la tâche demandée",
 			bind: "Nature_job",
 			labelAlign: "top",
