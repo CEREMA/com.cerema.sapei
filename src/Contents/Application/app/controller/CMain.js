@@ -77,6 +77,9 @@ App.controller.define('CMain', {
 				select: "affaire_combo_update",
                 change: "affaire_combo_change"
 			},
+            "TAffaire combo#cboservice": {
+                select: "cboservice_onselect"  
+            },
 			"TAffaire button#newtask": {
 				click: "newtask_onclick"
 			},
@@ -249,6 +252,10 @@ App.controller.define('CMain', {
     {
         App.get('Contacts grid').getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
         App.get('Contacts grid').getStore().load();
+    },
+    cboservice_onselect: function(p)
+    {
+        App.reset(p.up('panel'),[p,App.get('TAffaire combo#cboclient')]);
     },
     cboclient_onselect: function(p)
     {
