@@ -317,44 +317,44 @@ App.view.define('VAffaire', {
                 padding: 4,
                 width: "100%",
                 height: 80
-            }                
-            ]
-        },
-		{
-			flex: 1,
-			border: false
-		},
-		{
-			xtype: "grid",
-			border: false,
-            tbar: [
+            },
+            {
+                flex: 1,
+                border: false
+            },
+            {
+                xtype: "grid",
+                border: false,
+                tbar: [
+                    {
+                        text: "Ajouter",
+                        itemId: "addContact"
+                    },
+                    {
+                        text: "Supprimer",
+                        itemId: "delContact"
+                    }
+                ],
+                columns: [
                 {
-                    text: "Ajouter",
-                    itemId: "addContact"
+                    text: "Contact"
                 },
                 {
-                    text: "Supprimer",
-                    itemId: "delContact"
+                    text: "Téléphone"
+                },
+                {
+                    text: "Mail"
+                },
+                {
+                    text: "Service"
                 }
-            ],
-			columns: [
-			{
-				text: "Contact"
-			},
-			{
-				text: "Téléphone"
-			},
-			{
-				text: "Mail"
-			},
-			{
-				text: "Service"
-			}
-			],
-			store: App.store.create({fields:[],data:[]}),
-			width: "100%",
-			height:250
-		}
+                ],
+                store: App.store.create({fields:[],data:[]}),
+                width: "100%",
+                height:250
+            }                
+            ]
+        }
 		]
 	},
 	{
