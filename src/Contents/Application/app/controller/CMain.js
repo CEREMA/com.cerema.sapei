@@ -308,6 +308,7 @@ App.controller.define('CMain', {
         if (p.itemId=="cboservice") {
             p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
             p.getStore().load();
+            alert('x');
             App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=p.getValue();
             App.get('TAffaire combo#cboservice').getStore().load();
         };
