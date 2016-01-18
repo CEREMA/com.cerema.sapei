@@ -264,7 +264,7 @@ App.controller.define('CMain', {
                     App.get("TAffaire combo#cbocontact").getStore().getProxy().extraParams.Id_client_rattache=s.data.items[0].data.Id_client_rattache;
                     App.DB.post('sapei://job',{
                         Id_job: p.up('panel').up('panel').ItemID,
-                        Id_contact_client: s.data.items[0].data.Id_client_rattache
+                        Id_client_rattache: s.data.items[0].data.Id_client_rattache
                     },function(){});                    
                     App.get("TAffaire combo#cbocontact").getStore().load();
                     App.get("TAffaire combo#cbocontact").getStore().on('load',function(s) {
@@ -273,7 +273,7 @@ App.controller.define('CMain', {
                             App.DB.get('sapei://contact_client?Id_contact_client='+s.data.items[0].data.Id_contact_client,p.up('panel'));
                             App.DB.post('sapei://job',{
                                 Id_job: p.up('panel').up('panel').ItemID,
-                                Id_contact_client: s.data.items[0].data.Id_contact_client
+                                Id_client_principal: s.data.items[0].data.Id_contact_client
                             },function(){});                            
                         }
                     });
