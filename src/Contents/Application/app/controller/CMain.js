@@ -587,6 +587,7 @@ App.controller.define('CMain', {
 	{
 		p.setDisabled(true);
 		App.DB.post('sapei://job',p.up('window'),function(o) {
+            console.log(o);
 			App.reset(App.get('TAffaire'));
 			if (o.insertId) {
                 App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
