@@ -325,13 +325,14 @@ App.controller.define('CMain', {
                 App.get('TAffaire combo#cbocontact').getStore().load();
             });
         };
+        */
         if (p.itemId=="cbocontact") {
             p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
             p.getStore().load();            
             p.getStore().on('load',function() {
                 App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),App.get('TAffaire panel#panelContacts'));
             });            
-        };*/
+        };
     },
 	VBlog_close: function()
 	{
