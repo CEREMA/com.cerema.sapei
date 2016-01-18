@@ -513,21 +513,8 @@ App.controller.define('CMain', {
     },
 	TAffaire_onshow: function(p)
 	{
-        alert('x');
 		App.get('TAffaire').wiki=0;
-        App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);
-        App.DB.get('sapei://job_client?Id_job='+p.ItemID,function(e,r){
-            if (r.result.data.length>0) {
-                App.get('TAffaire combo#cboclient').setValue(r.result.data[0].Id_Client_origine);
-                App.get("TAffaire combo#cboservice").getStore().getProxy().extraParams.Id_client_origine=r.result.data[0].Id_Client_origine;
-                App.get("TAffaire combo#cboservice").getStore().load();
-                App.get("TAffaire combo#cboservice").getStore().on('load',function(s) {
-                    console.log(App.get('TAffaire panel#clientpanel'));
-                    App.DB.get('sapei://contact_client?Id_contact_client='+r.result.data[0].Id_Client_origine);
-                });
-
-            }; 
-        });
+        App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
 		App.get('TAffaire').runner=window.setInterval(function() {
 			App.DB.get('sapei://wiki{id}?job='+p.ItemID,function(r) {
 				if (r.data.length==0) {
