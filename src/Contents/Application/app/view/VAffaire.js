@@ -225,6 +225,7 @@ App.view.define('VAffaire', {
             store: App.store.create("sapei://client_origine{Id_client_origine,Lib_client_origine+}",{autoLoad: true}),
             displayField: "Lib_client_origine", 
             valueField: "Id_client_origine",
+            bind: "Id_contact_client",
             labelAlign: "top",			
 			padding: 4,
 			width: "100%"
@@ -249,8 +250,7 @@ App.view.define('VAffaire', {
             editable: false,
             store: App.store.create("sapei://contact_client{Id_contact_client,NomPrenom_contact_client+}?type_client=1"),
             displayField: "NomPrenom_contact_client", 
-            valueField: "Id_contact_client",            
-			bind: "Id_contact_client",
+            valueField: "Id_contact_client",  			
             labelAlign: "top",			
 			padding: 4,
 			width: "100%"
