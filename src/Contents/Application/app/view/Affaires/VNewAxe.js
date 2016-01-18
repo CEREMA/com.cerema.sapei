@@ -2,8 +2,8 @@ App.view.define('Affaires.VNewAxe', {
     extend: "Ext.window.Window",
     alias: 'widget.AffairesVNewAxe',
     initComponent: function() {
-        this.width = 500;
-        this.height = 320;
+        this.width = 350;
+        this.height = 350;
 
         this.layout = {
             type: 'vbox'
