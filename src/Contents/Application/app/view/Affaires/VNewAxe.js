@@ -46,6 +46,7 @@ App.view.define('Affaires.VNewAxe', {
 				fieldLabel: "Type",
 				labelAlign: "top",
 				bind: "Id_Type_Axe",
+                selectable: false,
 				store: App.store.create('sapei://type_axe',{autoLoad: true}),
 				displayField: "Lib_type_axe",
 				valueField: "Id_type_axe",
@@ -58,6 +59,7 @@ App.view.define('Affaires.VNewAxe', {
 			{
 				xtype: "combo",
 				fieldLabel: "Département",
+                selectable: false,
 				bind: "Id_Dpt",
 				labelAlign: "top",
 				store: App.store.create('sapei://dpt',{autoLoad: true}),
