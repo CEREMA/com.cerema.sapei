@@ -50,7 +50,7 @@ App.view.define('Affaires.VNewAxe', {
 				labelAlign: "top",
 				bind: "Id_Type_Axe",
                 selectable: false,
-				store: App.store.create('sapei://type_axe?(Id_type_axe=1 || Id_type_axe=2)',{autoLoad: true}),
+				store: App.store.create('sapei://type_axe',{autoLoad: true}),
 				displayField: "Lib_type_axe",
 				valueField: "Id_type_axe",
 				margin: {
