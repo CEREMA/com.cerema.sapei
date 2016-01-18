@@ -75,10 +75,7 @@ App.controller.define('CMain', {
             },
 			"TAffaire combo": {
 				select: "affaire_combo_update",
-                change: function()
-                {
-                    alert('x');   
-                }
+                change: "affaire_combo_change"
 			},
 			"TAffaire button#newtask": {
 				click: "newtask_onclick"
@@ -296,6 +293,12 @@ App.controller.define('CMain', {
 			});
 		}
 	},
+    affaire_combo_change: function(p) {
+        if (p.itemId=="cboservice") {
+            p.getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
+            p.getStore().load();              
+        };
+    },
 	VBlog_close: function()
 	{
 		App.get('TAffaire button#ecrire').setDisabled(false);
