@@ -32,9 +32,10 @@ App.view.define('Affaires.VNewAxe', {
 			items: [
 			{
 				xtype: "textfield",
+                itemId: "axe",
 				fieldLabel: "Axe",
 				labelAlign: "top",
-                hidden: true,
+                hidden: false,
 				bind: "Axe",
 				width: 80,
 				margin: {
