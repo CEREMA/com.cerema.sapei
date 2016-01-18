@@ -255,7 +255,9 @@ App.controller.define('CMain', {
         App.DB.post('sapei://job',{
             Id_job: p.up('panel').up('panel').ItemID,
             Id_contact_client: p.getValue()
-        },function(){});
+        },function(e){
+            console.log(e);
+        });
         App.get("TAffaire combo#cboservice").getStore().getProxy().extraParams.Id_client_origine=p.getValue();
         App.get("TAffaire combo#cboservice").getStore().load();
         App.get("TAffaire combo#cboservice").getStore().on('load',function(s) {
