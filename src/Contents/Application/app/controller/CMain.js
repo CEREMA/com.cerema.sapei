@@ -157,7 +157,7 @@ App.controller.define('CMain', {
     {
         alert('x');
         if (App.get('AffairesVNewAxe combo#cbo_axe').getValue()==3) 
-            App.get('AffairesVNewAxe textfield#axe').setValue("multi-axe"); 
+            App.get('AffairesVNewAxe textfield#axe').setValue("multi-axes"); 
         else 
             App.get('AffairesVNewAxe textfield#axe').setValue(App.get('AffairesVNewAxe combo#cbo_axe').getRawValue()+App.get('AffairesVNewAxe combo#cboDepartement').getRawValue().split(' - ')[0]); 
     },
