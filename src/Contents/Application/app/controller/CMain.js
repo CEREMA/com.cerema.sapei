@@ -80,6 +80,9 @@ App.controller.define('CMain', {
             "TAffaire combo#cboservice": {
                 select: "cboservice_onselect"  
             },
+            "TAffaire combo#cbocontact": {
+                select: "cbocontact_onselect"  
+            },
 			"TAffaire button#newtask": {
 				click: "newtask_onclick"
 			},
@@ -252,6 +255,10 @@ App.controller.define('CMain', {
     {
         App.get('Contacts grid').getStore().getProxy().extraParams.Id_client_origine=App.get('TAffaire combo#cboclient').getValue();
         App.get('Contacts grid').getStore().load();
+    },
+    cbocontact_onselect: function(p)
+    {
+        App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),App.get('TAffaire panel#panelContacts'));
     },
     cboservice_onselect: function(p)
     {
