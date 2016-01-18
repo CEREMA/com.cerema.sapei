@@ -313,7 +313,7 @@ App.controller.define('CMain', {
 		}*/
 	},
     affaire_combo_change: function(p) {
-        if (p.itemId=="cboclient") {
+        /*if (p.itemId=="cboclient") {
             App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=p.getValue();
             App.get('TAffaire combo#cboservice').getStore().load();
         };
@@ -331,7 +331,7 @@ App.controller.define('CMain', {
             p.getStore().on('load',function() {
                 App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),App.get('TAffaire panel#panelContacts'));
             });            
-        };
+        };*/
     },
 	VBlog_close: function()
 	{
