@@ -260,6 +260,7 @@ App.controller.define('CMain', {
         App.DB.post('sapei://job',zobj,function(){});
         App.get("TAffaire combo#cbocontact").getStore().getProxy().extraParams.Id_client_rattache=p.getValue();
         App.get("TAffaire combo#cbocontact").getStore().load();
+        App.get("TAffaire combo#cbocontact").setValue('');
     },
     cboclient_onselect: function(p)
     {
