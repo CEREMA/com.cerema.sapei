@@ -66,7 +66,7 @@ App.view.define('Affaires.VNewAxe', {
                 selectable: false,
 				bind: "Id_Dpt",
 				labelAlign: "top",
-				store: App.store.create('sapei://dpt',{autoLoad: true}),
+				store: App.store.create('sapei://dpt{IdDepartement,Num_dpt+" - "+Lib_dpt=Lib_dpt}',{autoLoad: true}),
 				displayField: "Lib_dpt",
 				valueField: "IdDepartement",
 				margin: {
