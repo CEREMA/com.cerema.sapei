@@ -149,9 +149,10 @@ App.controller.define('CMain', {
 	},
     on_MAJ: function(p)
     {
-        var win=p.up('panel').up('panel');
-        console.log(App.getData(win));
-        App.DB.post('sapei://job',win)
+        var obj=App.getData(p.up('panel').up('panel'));
+        obj.Id_job=p.up('panel').up('panel').ItemID;
+        alert(obj.Id_job);
+        //App.DB.post('sapei://job',win)
     },
     Task_edit: function()
     {
