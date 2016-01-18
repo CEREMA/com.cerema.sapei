@@ -320,7 +320,7 @@ App.controller.define('CMain', {
             p.getStore().getProxy().extraParams.Id_client_rattache=App.get('TAffaire combo#cboservice').getValue();
             p.getStore().load();            
             p.getStore().on('load',function() {
-                //App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),p.up('panel'));
+                App.DB.get('sapei://contact_client?Id_contact_client='+p.getValue(),App.get('TAffaire combo#panelContacts'));
             });            
         };
     },
