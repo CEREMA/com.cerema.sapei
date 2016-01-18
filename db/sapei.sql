@@ -20,45 +20,24 @@ CREATE TABLE IF NOT EXISTS `axe` (
   `Id_axe` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant de l''axe concerné',
   `Axe` varchar(50) NOT NULL DEFAULT '0',
   `Id_Type_Axe` int(11) NOT NULL DEFAULT '0' COMMENT 'Identifiant du type d''axe',
-  `Id_Dpt` int(11) NOT NULL DEFAULT '0' COMMENT 'Numéro du département',
   PRIMARY KEY (`Id_axe`),
-  KEY `FK_axe_dpt` (`Id_Dpt`),
   KEY `FK_axe_axe` (`Id_Type_Axe`),
-  CONSTRAINT `FK_axe_axe` FOREIGN KEY (`Id_Type_Axe`) REFERENCES `type_axe` (`Id_type_axe`),
-  CONSTRAINT `FK_axe_dpt` FOREIGN KEY (`Id_Dpt`) REFERENCES `dpt` (`IdDepartement`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COMMENT='Table des axes';
+  CONSTRAINT `FK_axe_axe` FOREIGN KEY (`Id_Type_Axe`) REFERENCES `type_axe` (`Id_type_axe`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COMMENT='Table des axes';
 
--- Export de données de la table sapei.axe: ~27 rows (environ)
+-- Export de données de la table sapei.axe: ~9 rows (environ)
 DELETE FROM `axe`;
 /*!40000 ALTER TABLE `axe` DISABLE KEYS */;
-INSERT INTO `axe` (`Id_axe`, `Axe`, `Id_Type_Axe`, `Id_Dpt`) VALUES
-	(3, 'A3', 2, 5),
-	(6, 'A5', 1, 2),
-	(8, '10', 2, 2),
-	(9, 'B21', 1, 5),
-	(10, 'A23', 1, 1),
-	(11, 'A23', 1, 1),
-	(14, 'multi-axes', 3, 1),
-	(15, 'multi-axes', 3, 2),
-	(16, 'multi-axes', 3, 3),
-	(17, 'multi-axes', 3, 4),
-	(18, 'multi-axes', 3, 5),
-	(19, 'multi-axes', 3, 6),
-	(20, 'multi-axes', 3, 7),
-	(21, 'multi-axes', 3, 8),
-	(22, 'multi-axes', 3, 9),
-	(23, 'multi-axes', 3, 10),
-	(24, 'multi-axes', 3, 11),
-	(25, 'multi-axes', 3, 12),
-	(26, 'multi-axes', 3, 13),
-	(27, 'multi-axes', 3, 14),
-	(28, 'multi-axes', 3, 15),
-	(29, 'multi-axes', 3, 16),
-	(30, 'multi-axes', 3, 17),
-	(31, 'multi-axes', 3, 18),
-	(32, 'multi-axes', 3, 19),
-	(33, 'multi-axes', 3, 20),
-	(34, 'multi-axes', 3, 21);
+INSERT INTO `axe` (`Id_axe`, `Axe`, `Id_Type_Axe`) VALUES
+	(3, 'A3', 2),
+	(6, 'A5', 1),
+	(8, '10', 2),
+	(9, 'B21', 1),
+	(10, 'A23', 1),
+	(11, 'A23', 1),
+	(36, 'multi-axes', 3),
+	(42, 'RD06', 1),
+	(43, 'RD30', 1);
 /*!40000 ALTER TABLE `axe` ENABLE KEYS */;
 
 
@@ -1563,7 +1542,7 @@ CREATE TABLE IF NOT EXISTS `client_origine` (
   PRIMARY KEY (`Id_client_origine`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Table des clients d''origine';
 
--- Export de données de la table sapei.client_origine: ~18 rows (environ)
+-- Export de données de la table sapei.client_origine: ~17 rows (environ)
 DELETE FROM `client_origine`;
 /*!40000 ALTER TABLE `client_origine` DISABLE KEYS */;
 INSERT INTO `client_origine` (`Id_client_origine`, `Lib_client_origine`) VALUES
@@ -1665,14 +1644,16 @@ CREATE TABLE IF NOT EXISTS `contact_client` (
   KEY `FK_contact_client_client_rattache` (`Id_client_rattache`),
   CONSTRAINT `FK_contact client_type_contact` FOREIGN KEY (`Type_client`) REFERENCES `type_contact` (`Id_type_contact`),
   CONSTRAINT `FK_contact_client_client_rattache` FOREIGN KEY (`Id_client_rattache`) REFERENCES `client_rattache` (`Id_client_rattache`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Table des contacts clients';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Table des contacts clients';
 
--- Export de données de la table sapei.contact_client: ~1 rows (environ)
+-- Export de données de la table sapei.contact_client: ~4 rows (environ)
 DELETE FROM `contact_client`;
 /*!40000 ALTER TABLE `contact_client` DISABLE KEYS */;
 INSERT INTO `contact_client` (`Id_contact_client`, `Id_client_rattache`, `NomPrenom_contact_client`, `Tel_contact_client`, `Mobile_contact_client`, `Mail_contact_client`, `Fonction_contact_client`, `Adresse_contact_client`, `Type_client`) VALUES
 	(1, 17, 'FOUQOU Bruno', '04 12 45 12 63', '06 15 47 45 65', 'bruno.fouqou@developpement-durable.gouv.fr', 'Chef du pôle conservation du patrimoine', '16, rue Bernard du Bois\r\n13001 Marseille', '1'),
-	(2, 1, 'FABRE Emmanuel', '04 90 18 32 53', '-', 'Emmanuel.Fabre@developpement-durable.gouv.fr', 'Chef du CEI de de Saint Martin de Crau', 'Zone du Salat\r\n13, av. Galilée\r\n13310 Saint-Martin-de-Crau', '2');
+	(2, 1, 'FABRE Emmanuel', '04 90 18 32 53', '-', 'Emmanuel.Fabre@developpement-durable.gouv.fr', 'Chef du CEI de de Saint Martin de Crau', 'Zone du Salat\r\n13, av. Galilée\r\n13310 Saint-Martin-de-Crau', '2'),
+	(3, 1, 'COUTANT Bruno', '04 67 13 74 42', '06 80 17 24 37', 'bruno.coutant@developpement-durable.gouv.fr', 'Chef de  Projet au SIR de Montpellier', NULL, '2'),
+	(4, 1, 'XXX', '-', '-', '-', NULL, NULL, '1');
 /*!40000 ALTER TABLE `contact_client` ENABLE KEYS */;
 
 
@@ -1857,6 +1838,9 @@ DELETE FROM `etude`;
 -- Export de la structure de table sapei. job
 CREATE TABLE IF NOT EXISTS `job` (
   `Id_job` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant de l''activité',
+  `Id_contact_client` int(11) DEFAULT NULL,
+  `Id_client_rattache` int(11) DEFAULT NULL,
+  `Id_client_principal` int(11) DEFAULT NULL,
   `Date_prise_job` date DEFAULT NULL COMMENT 'Date de la prise en comtpe de l''activité',
   `Id_type_prestation` int(11) DEFAULT NULL COMMENT 'Identifiant de la prestation',
   `Intitule_job` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Inititulé de l''activité',
@@ -1880,37 +1864,34 @@ CREATE TABLE IF NOT EXISTS `job` (
   `Longueur_mesure_job` int(11) DEFAULT NULL COMMENT 'Longueur de l''axe à traiter (en mètre)',
   `Etat_avance_job` int(11) DEFAULT NULL COMMENT 'Etat d''avancement global de l''activité',
   `Suivi_job` varchar(255) DEFAULT NULL COMMENT 'Suivi de l''activité',
-  `Id_contact_chantier` int(11) DEFAULT NULL COMMENT 'Identifiant du représentant du client',
   `Comment_dmd_protec_job` text COMMENT 'Commentaire sur la demande de protection',
   `Num_SIGMA_job` varchar(50) DEFAULT NULL COMMENT 'Numéro SIGMA affecté à l''activité',
   `PJ_job` text COMMENT 'Pièce jointe pour complément',
   `Id_axe` int(11) DEFAULT NULL,
+  `Id_dpt` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id_job`),
   KEY `FK_job_type_prestation` (`Id_type_prestation`),
   KEY `FK_job_type_chaussee` (`Id_type_chaussee`),
-  KEY `FK_job_contact client` (`Id_contact_chantier`),
   KEY `FK_job_sens` (`Sens_job`),
   KEY `FK_job_axe` (`Id_axe`),
+  KEY `Id_contact_client` (`Id_contact_client`),
+  KEY `Id_dpt` (`Id_dpt`),
+  KEY `Id_client_rattache` (`Id_client_rattache`),
+  KEY `Id_client_principal` (`Id_client_principal`),
   CONSTRAINT `FK_job_axe` FOREIGN KEY (`Id_axe`) REFERENCES `axe` (`Id_axe`),
-  CONSTRAINT `FK_job_contact client` FOREIGN KEY (`Id_contact_chantier`) REFERENCES `client_origine` (`Id_client_origine`),
+  CONSTRAINT `FK_job_client_origine` FOREIGN KEY (`Id_contact_client`) REFERENCES `client_origine` (`Id_client_origine`),
+  CONSTRAINT `FK_job_contact_client` FOREIGN KEY (`Id_client_principal`) REFERENCES `contact_client` (`Id_contact_client`),
+  CONSTRAINT `FK_job_dpt` FOREIGN KEY (`Id_dpt`) REFERENCES `dpt` (`IdDepartement`),
   CONSTRAINT `FK_job_sens` FOREIGN KEY (`Sens_job`) REFERENCES `sens` (`Id_sens`),
   CONSTRAINT `FK_job_type_chaussee` FOREIGN KEY (`Id_type_chaussee`) REFERENCES `type_chaussee` (`Id_type_chaussee`),
   CONSTRAINT `FK_job_type_prestation` FOREIGN KEY (`Id_type_prestation`) REFERENCES `type_prestation` (`Id_type_prestation`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='Table d''initialisation de l''activité';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Table d''initialisation de l''activité';
 
--- Export de données de la table sapei.job: ~3 rows (environ)
+-- Export de données de la table sapei.job: ~1 rows (environ)
 DELETE FROM `job`;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
-INSERT INTO `job` (`Id_job`, `Date_prise_job`, `Id_type_prestation`, `Intitule_job`, `Nature_job`, `Date_livrable_job`, `Id_type_chaussee`, `Date_affectation_job`, `Dmd_protection_job`, `Id_pilote_job`, `Statut_job`, `PRD_job`, `PRD`, `PRF`, `ABD_job`, `PRF_job`, `ABF_job`, `Sens_job`, `Comment_sens_job`, `Comment_avance_mesure_job`, `Comment_avance_traite_job`, `Longueur_mesure_job`, `Etat_avance_job`, `Suivi_job`, `Id_contact_chantier`, `Comment_dmd_protec_job`, `Num_SIGMA_job`, `PJ_job`, `Id_axe`) VALUES
-	(7, '2015-11-16', 3, 'Carottage sur 48A75 Le Monastier / Montjezieu PR159+320 à 169+270', 'Vérification du collage des couches + déflexion', '2015-11-17', 2, NULL, NULL, 614, NULL, NULL, '0+0', '23+0', NULL, NULL, NULL, 3, NULL, NULL, NULL, 23000, NULL, NULL, 4, 'test', '00054231', NULL, 3),
-	(8, '2015-12-07', 2, 'fsdfsdf', 'sdfsdfsdfsd', '2015-12-10', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, '83015', NULL, NULL),
-	(9, '2015-12-07', 1, 'jfsdkjksdjf', 'sdfsdfsdfsdfsdf', '2015-12-15', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, '830156', NULL, NULL),
-	(10, '2015-11-30', 1, 'fssfsdf', 'sdfsfdsdfsdfsdf', '2015-12-31', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, '83015', NULL, NULL),
-	(11, '2015-12-07', 1, 'fgdffgsdfsdf', 'sdfdfsdfdf', '2015-12-23', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, '83015', NULL, NULL),
-	(12, '2015-12-07', 2, 'dfsdsdfsdf', 'sdfsdfsdfsdfsdf', '2015-12-23', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, '83015', NULL, NULL),
-	(13, '2015-12-07', 1, 'test', 'sdfsdfsdfsfdf', '2015-12-16', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, '83015', NULL, NULL),
-	(14, '2015-12-07', 1, 'fssdfsdf', 'sdfsdfsdfsdf', '2015-12-29', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, '83019', NULL, NULL),
-	(15, '2015-12-07', 2, 'eeeeeeeeeeeeeeee', 'dfsfsdfsdffsdf<div>fsd</div><div>f</div><div>sdf sdf sdfsd</div>', '2015-12-24', NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, NULL, '83015', NULL, NULL);
+INSERT INTO `job` (`Id_job`, `Id_contact_client`, `Id_client_rattache`, `Id_client_principal`, `Date_prise_job`, `Id_type_prestation`, `Intitule_job`, `Nature_job`, `Date_livrable_job`, `Id_type_chaussee`, `Date_affectation_job`, `Dmd_protection_job`, `Id_pilote_job`, `Statut_job`, `PRD_job`, `PRD`, `PRF`, `ABD_job`, `PRF_job`, `ABF_job`, `Sens_job`, `Comment_sens_job`, `Comment_avance_mesure_job`, `Comment_avance_traite_job`, `Longueur_mesure_job`, `Etat_avance_job`, `Suivi_job`, `Comment_dmd_protec_job`, `Num_SIGMA_job`, `PJ_job`, `Id_axe`, `Id_dpt`) VALUES
+	(7, 2, 17, 1, '2015-10-23', 1, 'Retroréflexion sur l\'ensemble du réseau de la DIR MED. Commande 2016', 'Retroréflexion sur l\'ensemble du réseau de la DIR MED. Commande 2016', NULL, 1, NULL, NULL, 614, NULL, NULL, '0+1', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'xxx', NULL, 36, 4);
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 
 
@@ -1924,13 +1905,11 @@ CREATE TABLE IF NOT EXISTS `job_axe` (
   KEY `axe` (`axe`),
   CONSTRAINT `FK_job_axe_axe` FOREIGN KEY (`axe`) REFERENCES `axe` (`Id_axe`),
   CONSTRAINT `FK_job_axe_job` FOREIGN KEY (`job`) REFERENCES `job` (`Id_job`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.job_axe: ~1 rows (environ)
+-- Export de données de la table sapei.job_axe: ~0 rows (environ)
 DELETE FROM `job_axe`;
 /*!40000 ALTER TABLE `job_axe` DISABLE KEYS */;
-INSERT INTO `job_axe` (`id_job_axe`, `job`, `axe`) VALUES
-	(1, 7, 10);
 /*!40000 ALTER TABLE `job_axe` ENABLE KEYS */;
 
 
@@ -2006,18 +1985,11 @@ CREATE TABLE IF NOT EXISTS `ope` (
   CONSTRAINT `FK_ope_schedule_users` FOREIGN KEY (`Id_users`) REFERENCES `schedule_users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_ope_steps` FOREIGN KEY (`Stat`) REFERENCES `steps` (`Id_step`),
   CONSTRAINT `FK_ope_type_ope` FOREIGN KEY (`type_ope`) REFERENCES `type_ope` (`id_type_ope`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COMMENT='Table des opérations de mesure menées dans le cadre d''une activité';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des opérations de mesure menées dans le cadre d''une activité';
 
--- Export de données de la table sapei.ope: ~2 rows (environ)
+-- Export de données de la table sapei.ope: ~0 rows (environ)
 DELETE FROM `ope`;
 /*!40000 ALTER TABLE `ope` DISABLE KEYS */;
-INSERT INTO `ope` (`Id_ope`, `Id_job`, `Id_skills`, `Id_users`, `Stat`, `type_ope`, `bool_traitement`) VALUES
-	(42, 7, NULL, 40, 1, 1, NULL),
-	(43, 7, NULL, 41, 4, 2, NULL),
-	(44, 7, NULL, 42, 4, 2, NULL),
-	(45, 7, 27, NULL, 1, 2, NULL),
-	(46, 15, NULL, 43, 2, 1, NULL),
-	(47, 8, NULL, 44, 1, 1, NULL);
 /*!40000 ALTER TABLE `ope` ENABLE KEYS */;
 
 
@@ -2148,13 +2120,11 @@ CREATE TABLE IF NOT EXISTS `schedule_skills` (
   PRIMARY KEY (`Id`),
   KEY `FK_schedule_skills_porteur_outils` (`ResourceId`),
   CONSTRAINT `FK_schedule_skills_porteur_outils` FOREIGN KEY (`ResourceId`) REFERENCES `porteur_outils` (`Id_porteur_outils`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.schedule_skills: ~2 rows (environ)
+-- Export de données de la table sapei.schedule_skills: ~0 rows (environ)
 DELETE FROM `schedule_skills`;
 /*!40000 ALTER TABLE `schedule_skills` DISABLE KEYS */;
-INSERT INTO `schedule_skills` (`Id`, `ResourceId`, `TaskId`, `Name`, `StartDate`, `EndDate`, `Cls`, `User`) VALUES
-	(27, 9, 0, NULL, '2016-01-18 08:00:00', '2016-01-19 17:00:00', NULL, 614);
 /*!40000 ALTER TABLE `schedule_skills` ENABLE KEYS */;
 
 
@@ -2170,17 +2140,11 @@ CREATE TABLE IF NOT EXISTS `schedule_users` (
   PRIMARY KEY (`Id`),
   KEY `FK_schedule_users_user` (`ResourceId`),
   CONSTRAINT `FK_schedule_users_user` FOREIGN KEY (`ResourceId`) REFERENCES `user` (`Id_agent`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
--- Export de données de la table sapei.schedule_users: ~2 rows (environ)
+-- Export de données de la table sapei.schedule_users: ~0 rows (environ)
 DELETE FROM `schedule_users`;
 /*!40000 ALTER TABLE `schedule_users` DISABLE KEYS */;
-INSERT INTO `schedule_users` (`Id`, `ResourceId`, `Name`, `StartDate`, `EndDate`, `Cls`, `User`) VALUES
-	(40, 1707, NULL, '2016-01-15 08:00:00', '2016-01-15 17:00:00', NULL, 614),
-	(41, 1707, NULL, '2016-01-18 09:00:00', '2016-01-18 17:00:00', NULL, 614),
-	(42, 823, NULL, '2016-01-19 09:00:00', '2016-01-19 17:00:00', NULL, 614),
-	(43, 1593, NULL, '2016-01-19 09:00:00', '2016-01-21 18:00:00', NULL, 614),
-	(44, 148, NULL, '2016-01-21 09:00:00', '2016-01-22 17:00:00', NULL, 614);
 /*!40000 ALTER TABLE `schedule_users` ENABLE KEYS */;
 
 
@@ -2208,7 +2172,7 @@ CREATE TABLE IF NOT EXISTS `steps` (
   PRIMARY KEY (`Id_step`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Etapes';
 
--- Export de données de la table sapei.steps: ~5 rows (environ)
+-- Export de données de la table sapei.steps: ~4 rows (environ)
 DELETE FROM `steps`;
 /*!40000 ALTER TABLE `steps` DISABLE KEYS */;
 INSERT INTO `steps` (`Id_step`, `Lib_step`) VALUES
@@ -2233,13 +2197,11 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   CONSTRAINT `FK_tasks_job` FOREIGN KEY (`id_job`) REFERENCES `job` (`Id_job`),
   CONSTRAINT `FK_tasks_steps` FOREIGN KEY (`task_step`) REFERENCES `steps` (`Id_step`),
   CONSTRAINT `FK_tasks_type_ope` FOREIGN KEY (`task_type`) REFERENCES `type_ope` (`id_type_ope`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.tasks: ~1 rows (environ)
+-- Export de données de la table sapei.tasks: ~0 rows (environ)
 DELETE FROM `tasks`;
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` (`id_task`, `id_job`, `task_type`, `task_step`) VALUES
-	(1, 7, 1, 4);
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 
 
@@ -2266,7 +2228,7 @@ CREATE TABLE IF NOT EXISTS `type_axe` (
   PRIMARY KEY (`Id_type_axe`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Table de référence des types d''axe';
 
--- Export de données de la table sapei.type_axe: ~3 rows (environ)
+-- Export de données de la table sapei.type_axe: ~2 rows (environ)
 DELETE FROM `type_axe`;
 /*!40000 ALTER TABLE `type_axe` DISABLE KEYS */;
 INSERT INTO `type_axe` (`Id_type_axe`, `Lib_type_axe`) VALUES
@@ -2406,22 +2368,13 @@ CREATE TABLE IF NOT EXISTS `wiki` (
   KEY `job` (`job`),
   CONSTRAINT `FK_wiki_job` FOREIGN KEY (`job`) REFERENCES `job` (`Id_job`),
   CONSTRAINT `FK_wiki_user` FOREIGN KEY (`poster`) REFERENCES `user` (`Id_agent`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.wiki: ~10 rows (environ)
+-- Export de données de la table sapei.wiki: ~1 rows (environ)
 DELETE FROM `wiki`;
 /*!40000 ALTER TABLE `wiki` DISABLE KEYS */;
 INSERT INTO `wiki` (`id`, `poster`, `date`, `job`, `blog`) VALUES
-	(1, 614, '2016-01-06 11:31:26', 7, 'dfofskldfjklmsdfm sdjklmfkslmdfsdf'),
-	(2, 614, '2016-01-06 14:27:42', 7, 'test'),
-	(3, 614, '2016-01-06 14:45:52', 7, '<b style="font-size: 12px;">démo</b><div style="font-size: 12px;"><b><br></b></div><div><b style="font-size: 12px;">sdf sjdkl skldf klsdfklj sdf sdf </b>s fsdf <font size="5">sdf sf sdf sdfsdf</font>&nbsp;</div>'),
-	(4, 614, '2016-01-06 14:52:55', 7, 'flslmdfk slkdlmf kslmkf sdf&nbsp;'),
-	(5, 614, '2016-01-06 15:08:07', 7, 'démo 2'),
-	(6, 614, '2016-01-06 16:29:24', 7, 'encore une fois'),
-	(7, 614, '2016-01-08 09:09:30', 7, 'test'),
-	(8, 614, '2016-01-13 09:03:47', 12, 'test'),
-	(9, 614, '2016-01-13 09:05:58', 7, 'test'),
-	(10, 614, '2016-01-15 09:59:09', 7, 'encore un test');
+	(1, 614, '2016-01-18 15:46:13', 7, 'test');
 /*!40000 ALTER TABLE `wiki` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
