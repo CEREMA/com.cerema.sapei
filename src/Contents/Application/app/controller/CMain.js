@@ -74,7 +74,11 @@ App.controller.define('CMain', {
                 click: "on_MAJ"    
             },
 			"TAffaire combo": {
-				select: "affaire_combo_update"
+				select: "affaire_combo_update",
+                change: function()
+                {
+                    alert('x');   
+                }
 			},
 			"TAffaire button#newtask": {
 				click: "newtask_onclick"
