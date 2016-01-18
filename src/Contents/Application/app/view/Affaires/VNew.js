@@ -149,7 +149,7 @@ App.view.define('Affaires.VNew', {
 				margin: {
 					left: 5
 				},
-				store: App.store.create('sapei://dpt{Id_dpt,Num_dpt+" - "+Lib_dpt}',{
+				store: App.store.create('sapei://dpt{Id_dpt,Num_dpt+" - "+Lib_dpt=Lib_dpt}',{
 					autoLoad: true
 				}),
 				valueField: 'IdDepartement',
