@@ -255,7 +255,6 @@ App.controller.define('CMain', {
     },
     cboservice_onselect: function(p)
     {
-        App.reset(p.up('panel'),[p,App.get('TAffaire combo#cboclient')]);
         var zobj=App.getData(p.up('panel'));
         zobj.Id_job=p.up('panel').up('panel').ItemID;
         App.DB.post('sapei://job',zobj,function(){});
