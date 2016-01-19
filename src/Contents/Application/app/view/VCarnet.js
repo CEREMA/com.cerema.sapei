@@ -32,7 +32,7 @@ App.view.define('VCarnet', {
                     fieldLabel: "Client",
                     editable: false,
                     labelAlign: "top",
-                    store: App.store.create('sapei://client_origine',{autoLoad: true}),
+                    store: App.store.create('sapei://client_origine{Id_client_origine,Lib_client_origine+}',{autoLoad: true}),
                     displayField: "Lib_client_origine",
                     valueField: "Id_client_origine"
                 },
@@ -43,7 +43,7 @@ App.view.define('VCarnet', {
                     fieldLabel: "Service",
                     editable: false,
                     labelAlign: "top",
-                    store: App.store.create('sapei://client_rattache'),
+                    store: App.store.create('sapei://client_rattache{Id_client_rattache,Lib_client_rattache+}'),
                     displayField: "Lib_client_rattache",
                     valueField: "Id_client_rattache"
                 },
