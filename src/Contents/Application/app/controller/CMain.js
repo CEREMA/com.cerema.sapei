@@ -126,16 +126,6 @@ App.controller.define('CMain', {
                 eventresizeend: "sch_materiels_dragcreate",
                 eventdrop: "sch_materiels_dragcreate",
                 eventcontextmenu: "schedule_materiels_context"
-                /*
-				beforetooltipshow: "bttipshow",
-                itemcontextmenu: "grid_context",
-                eventmouseleave: "grid_mouse_leave",
-                eventmouseenter: "grid_mouse_enter",
-				beforedragcreate: "no_drag_create",
-                dragcreateend: "grid_drag_end",
-                eventdrop: "grid_drop",
-                eventdblclick: "grid_dblclick"
-				*/
 			},
 			/*
 			OpenAffaire
@@ -581,8 +571,15 @@ App.controller.define('CMain', {
 	{
 		var p=this;
         if (record[0]) record=record[0];
+        var Cls="";
+        if (App.get('VScheduler combo#type_ope').getValue()==1) Cls="yellow";
+        if (App.get('VScheduler combo#type_ope').getValue()==2) Cls="yellow";
+        if (App.get('VScheduler combo#type_ope').getValue()==3) Cls="yellow";
+        if (App.get('VScheduler combo#type_ope').getValue()==4) Cls="orange";
+        if (App.get('VScheduler combo#type_ope').getValue()==5) Cls="red";
+        
 		var obj={
-			Cls: record.data.Cls,
+			Cls: Cls,
 			EndDate: record.data.EndDate,
 			Name: record.data.Name,
 			ResourceId: record.data.ResourceId,
@@ -600,8 +597,14 @@ App.controller.define('CMain', {
 	{
 		var p=this;
         if (record[0]) record=record[0];
+        var Cls="";
+        if (App.get('VScheduler combo#type_ope').getValue()==1) Cls="yellow";
+        if (App.get('VScheduler combo#type_ope').getValue()==2) Cls="yellow";
+        if (App.get('VScheduler combo#type_ope').getValue()==3) Cls="yellow";
+        if (App.get('VScheduler combo#type_ope').getValue()==4) Cls="orange";
+        if (App.get('VScheduler combo#type_ope').getValue()==5) Cls="red";        
 		var obj={
-			Cls: record.data.Cls,
+			Cls: Cls,
 			EndDate: record.data.EndDate,
 			Name: record.data.Name,
 			ResourceId: record.data.ResourceId,
