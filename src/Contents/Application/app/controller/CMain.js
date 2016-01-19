@@ -380,7 +380,7 @@ App.controller.define('CMain', {
                        };
                        if (users) {
                             App.DB.del('sapei://schedule_users?Id='+users,function(e){
-                               console.log(e);
+                               App.Tasks.getAll({id_job: App.get('TAffaire').ItemID},me.TAffaire_update);
 					           App.notify('Enregistrement supprimé.');                             
                             });  
                        };
