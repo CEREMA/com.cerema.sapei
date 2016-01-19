@@ -71,6 +71,11 @@ App.controller.define('CMain', {
             "TAffaire button#addContact": {
                   click: "on_add_contact"
             },
+            "TAffaire textarea#comments": {
+                change: function(p) {
+                    if (p.getValue()!='') App.get('TAffaire checkbox').setChecked(true);
+                }
+            },
 			"TAffaire combo": {
 				select: "affaire_combo_update",
                 change: "affaire_combo_change"
