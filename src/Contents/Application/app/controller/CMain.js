@@ -188,6 +188,9 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    hide_tip: function() {
+        $('.x-tip').hide();  
+    },
     schedule_tip: function(view, r, e, eOpts) {
         view.tip = Ext.create('Ext.tip.ToolTip', {
             html: 'xxx',
