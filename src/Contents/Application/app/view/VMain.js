@@ -38,7 +38,7 @@ App.view.define('VMain', {
                     text: "Contacts",
                     menu: [
                         {
-                            itemId: "Carnet",
+                            itemId: "mnu_contacts",
                             text: "Carnet d'adresses"
                         }
                     ]
