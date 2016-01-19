@@ -159,13 +159,33 @@ App.controller.define('CMain', {
                 show: "Contacts_onshow"
             },
             "Contacts grid": {
-                itemdblclick: "contacts_choose"   
+                itemdblclick: "contacts_choose",
+                itemcontextmenu:  "contacts_context"
             }
 		});
 		
 		App.init('VMain',this.onLoad);
 		
 	},
+    contacts_context: function(view, rec, node, index, e)
+    {
+		e.stopEvent();
+        console.log(rec);
+        var me=this;
+		var x=Ext.create('Ext.menu.Menu',{
+			items: [
+				{
+					itemId: 'ctx-grid-delete',
+					text: "Supprimer"
+				}				
+			]
+		});
+		x.on('click',function(p) {
+			if (p.itemId="ctx-grid-delete") {
+                
+            }
+        });
+    },
     contacts_choose: function(p,record)
     {
         App.DB.post('sapei://job_contacts',{
