@@ -169,6 +169,7 @@ App.controller.define('CMain', {
 	},
     contacts_context: function(view, rec, node, index, e)
     {
+        alert('x');
 		e.stopEvent();
         console.log(rec);
         var me=this;
