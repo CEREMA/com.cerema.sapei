@@ -39,6 +39,8 @@ App.controller.define('CCarnet', {
 			if (p.itemId=="ctx-grid-delete") {
             }
         });
+		x.showAt(e.getXY());
+		return false;        
     },
     grid_click: function(p,rec)
     {
