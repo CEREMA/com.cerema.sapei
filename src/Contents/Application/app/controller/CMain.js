@@ -168,13 +168,13 @@ App.controller.define('CMain', {
 	},
     contacts_choose: function(p,record)
     {
-        console.log(record);
-        /*App.DB.post('sapei://job_contacts',{
+        App.DB.post('sapei://job_contacts',{
             Id_job: App.get('TAffaire').ItemID,
-            Id_client: 
+            Id_client: record.data.Id_contact_client
         },function(o) {
-            console.log(o); 
-        });*/
+            
+            p.up('window').close();
+        });
     },
     newaxe_axe_onchange: function()
     {
