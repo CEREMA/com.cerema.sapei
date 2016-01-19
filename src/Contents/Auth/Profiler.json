@@ -5,10 +5,13 @@
 	"profile": {
 		"Admin": [
 			"sebastien.wasner",
-			"nadege.sagnard"
+			"nadege.sagnard",
 			"olivier.ruiz",
 			"stephane.zucatti",
 			"gil.romand"
+		],
+		"Users": [
+			
 		]
 	}
 }
