@@ -136,6 +136,9 @@ App.controller.define('CMain', {
 			"VOpenAffaire grid#open": {
 				itemdblclick: "grid_open_dblclick"
 			},
+            "VOpenAffaire button#openAffaire": {
+                click: "openAffaire"  
+            },
 			/*
 			VBlog
 			*/
@@ -622,6 +625,37 @@ App.controller.define('CMain', {
 	{
 		App.get('AffairesVNew textfield#whoami').setValue(Auth.User.uid);
 	},
+    openAffaire: function()
+    {
+		App.reset(App.get('TAffaire')); 
+        var record=App.get('VOpenAffaire grid').getSelectionModel().getSelection();
+        
+		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
+            
+			response=response.data[0];
+            App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
+            App.get('TAffaire combo#cboservice').getStore().load();
+			App.get('TAffaire').ItemID=response.Id_job;
+            App.get('TAffaire grid#gridContacts').getStore().getProxy().extraParams.Id_job=response.Id_job;
+            App.get('TAffaire grid#gridContacts').getStore().load();
+			var html=[
+				'<div class="job_title">',
+				response.Intitule_job,
+				'<div class="job_num">Id : ',
+				response.Id_job,
+				'</div>',
+				'</div>'				
+			];
+			p.up('window').close();	
+			App.get('TAffaire panel#Title').update(html.join(''));	
+            App.get('VSchedulerMain').hide();
+            var btns=App.getAll('menu>menuitem');
+            for (var i=0;i<btns.length;i++) {
+                if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
+            };
+			App.get('TAffaire').show();		
+		});        
+    },
 	grid_open_dblclick: function(p,record)
 	{
 		App.reset(App.get('TAffaire')); 
