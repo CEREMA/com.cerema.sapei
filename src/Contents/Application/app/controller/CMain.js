@@ -9,6 +9,7 @@ App.controller.define('CMain', {
 		"Affaires.VNew",
 		"Affaires.VNewAxe",
         "VContacts",
+        "VCarnet",
         "VSchedulerMain"
 	],
 	
@@ -898,6 +899,10 @@ App.controller.define('CMain', {
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
         App.get("VSchedulerMain").show();
     },
+    Contacts: function()
+    {
+        App.view.create('VCarnet',{modal: true}).show();  
+    },
 	Menu_onClick: function(p)
 	{
 		if (p.itemId) {
@@ -910,6 +915,9 @@ App.controller.define('CMain', {
 					break;
                 case "mnu_aff_close":
                     this.closeAffaire();
+                    break;
+                case "mnu_contacts":
+                    this.Contacts();
                     break;
 				break;
 				default:
