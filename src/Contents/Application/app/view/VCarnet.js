@@ -49,9 +49,9 @@ App.view.define('VCarnet', {
                 fieldLabel: "Type",
                 editable: false,
                 labelAlign: "left",
-                store: App.store.create('sapei://type_contact'),
+                store: App.store.create('sapei://type_contact',{autoLoad: true}),
                 displayField: "Lib_type_contact",
-                valueField: "Id_client_rattache"
+                valueField: "Id_type_contact"
             },
             {
                 flex: 1,
