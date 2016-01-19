@@ -539,6 +539,7 @@ App.controller.define('CMain', {
             if (posts[i].type_ope==4) posts[i].Cls="orange";
             if (posts[i].type_ope==5) posts[i].Cls="red";
         };
+        console.log(posts);
 		// Mise à jour de l'opération
 		App.DB.post('sapei://ope',posts,function(r) {
 			App.notify("La tâche a bien été enregistrée.");
