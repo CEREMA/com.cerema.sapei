@@ -625,7 +625,7 @@ App.controller.define('CMain', {
 	{
 		App.get('AffairesVNew textfield#whoami').setValue(Auth.User.uid);
 	},
-    openAffaire: function()
+    openAffaire: function(p)
     {
 		App.reset(App.get('TAffaire')); 
         var record=App.get('VOpenAffaire grid').getSelectionModel().getSelection();
