@@ -25,7 +25,6 @@ App.controller.define('CCarnet', {
 				
 	},
     grid_context: function(view, rec, node, index, e) {
-    {
 		e.stopEvent();
         var me=this;
 		var x=Ext.create('Ext.menu.Menu',{
