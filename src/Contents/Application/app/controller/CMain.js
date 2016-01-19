@@ -172,7 +172,6 @@ App.controller.define('CMain', {
     contacts_context: function(view, rec, node, index, e)
     {
 		e.stopEvent();
-        console.log(rec);
         var me=this;
         var items=[];
         items.push({
@@ -187,12 +186,12 @@ App.controller.define('CMain', {
 			items: items
 		});
 		x.on('click',function(p) {
-			if (p.itemId="ctx-grid-delete") {
+			if (p.itemId=="ctx-grid-delete") {
                 App.DB.del('sapei://job_contacts?Id_job_contact='+rec.data.Id_job_contact,function(o) {
                     App.get('TAffaire grid#gridContacts').getStore().load();        
                 });
             };
-            if (p.itemId="ctx-grid-delete") {
+            if (p.itemId=="ctx-grid-delete") {
                 location.href="mailto:"+p.text;
             }
         });
@@ -265,7 +264,7 @@ App.controller.define('CMain', {
 			]
 		});
 		x.on('click',function(p) {
-			if (p.itemId="ctx-grid-delete") {
+			if (p.itemId=="ctx-grid-delete") {
                 App.DB.get('sapei://ope?Id_ope='+rec.data.Id,function(e,response) {
                     var skills=response.result.data[0].Id_skills;
                     var users=response.result.data[0].Id_users;
@@ -664,7 +663,7 @@ App.controller.define('CMain', {
 			]
 		});
 		x.on('click',function(p) {
-			if (p.itemId="ctx-grid-delete") {
+			if (p.itemId=="ctx-grid-delete") {
 				App.DB.del('sapei://axe?id='+rec.data.Id_axe,function(response) {
 					console.log(response);
 					App.get('AffairesVNewAxe grid').getStore().load();
