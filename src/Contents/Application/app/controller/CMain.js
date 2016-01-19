@@ -189,7 +189,7 @@ App.controller.define('CMain', {
 		
 	},
     load_affaire: function(p,rec) {
-        App.DB.get('sapei://
+        console.log(rec);
     },
     hide_tip: function() {
         $('.x-tip').hide();  
