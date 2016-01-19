@@ -189,7 +189,12 @@ App.controller.define('CMain', {
 		
 	},
     load_affaire: function(p,rec) {
-        console.log(rec);
+        if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_skills='+rec.data.Id,function(e,r) {
+            console.log(r); 
+        });
+        if (rec.data.Type==2) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
+            console.log(r); 
+        });
     },
     hide_tip: function() {
         $('.x-tip').hide();  
