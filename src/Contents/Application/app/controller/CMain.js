@@ -190,10 +190,62 @@ App.controller.define('CMain', {
 	},
     load_affaire: function(p,rec) {
         if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_skills='+rec.data.Id,function(e,r) {
-            console.log(r); 
+            var id=r.result.data[0].Id_job; 
+            App.reset(App.get('TAffaire')); 
+            App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
+
+                response=response.data[0];
+                App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
+                App.get('TAffaire combo#cboservice').getStore().load();
+                App.get('TAffaire').ItemID=response.Id_job;
+                App.get('TAffaire grid#gridContacts').getStore().getProxy().extraParams.Id_job=response.Id_job;
+                App.get('TAffaire grid#gridContacts').getStore().load();
+                var html=[
+                    '<div class="job_title">',
+                    response.Intitule_job,
+                    '<div class="job_num">Id : ',
+                    response.Id_job,
+                    '</div>',
+                    '</div>'				
+                ];
+                p.up('window').close();	
+                App.get('TAffaire panel#Title').update(html.join(''));	
+                App.get('VSchedulerMain').hide();
+                var btns=App.getAll('menu>menuitem');
+                for (var i=0;i<btns.length;i++) {
+                    if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
+                };
+                App.get('TAffaire').show();		
+            });            
         });
         if (rec.data.Type==2) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
-            console.log(r); 
+            var id=r.result.data[0].Id_job; 
+            App.reset(App.get('TAffaire')); 
+            App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
+
+                response=response.data[0];
+                App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
+                App.get('TAffaire combo#cboservice').getStore().load();
+                App.get('TAffaire').ItemID=response.Id_job;
+                App.get('TAffaire grid#gridContacts').getStore().getProxy().extraParams.Id_job=response.Id_job;
+                App.get('TAffaire grid#gridContacts').getStore().load();
+                var html=[
+                    '<div class="job_title">',
+                    response.Intitule_job,
+                    '<div class="job_num">Id : ',
+                    response.Id_job,
+                    '</div>',
+                    '</div>'				
+                ];
+                p.up('window').close();	
+                App.get('TAffaire panel#Title').update(html.join(''));	
+                App.get('VSchedulerMain').hide();
+                var btns=App.getAll('menu>menuitem');
+                for (var i=0;i<btns.length;i++) {
+                    if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
+                };
+                App.get('TAffaire').show();		
+            });            
         });
     },
     hide_tip: function() {
