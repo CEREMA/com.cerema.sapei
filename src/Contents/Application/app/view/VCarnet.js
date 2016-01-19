@@ -27,6 +27,7 @@ App.view.define('VCarnet', {
                 items: [
                 {
                     xtype: "combo",
+                    itemId: "client",
                     padding: 10,
                     flex: 1,
                     fieldLabel: "Client",
@@ -38,6 +39,7 @@ App.view.define('VCarnet', {
                 },
                 {
                     xtype: "combo",
+                    itemId: "service",
                     padding: 10,
                     flex: 1,
                     fieldLabel: "Service",
@@ -49,6 +51,7 @@ App.view.define('VCarnet', {
                 },
                 {
                     xtype: "combo",
+                    itemId: "type",
                     padding: 10,
                     width: 100,
                     fieldLabel: "Type",
