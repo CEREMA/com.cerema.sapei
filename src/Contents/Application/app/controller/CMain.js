@@ -186,7 +186,6 @@ App.controller.define('CMain', {
 			items: items
 		});
 		x.on('click',function(z,p) {
-            alert(p.itemId);
 			if (p.itemId=="ctx-grid-delete") {
                 App.DB.del('sapei://job_contacts?Id_job_contact='+rec.data.Id_job_contact,function(o) {
                     App.get('TAffaire grid#gridContacts').getStore().load();        
