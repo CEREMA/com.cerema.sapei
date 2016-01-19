@@ -193,7 +193,7 @@ App.controller.define('CMain', {
                 });
             };
             if (p.itemId=="ctx-grid-mail") {
-                location.href="mailto:"+p.text;
+                window.location="mailto:"+p.text;
             }
         });
 		x.showAt(e.getXY());
