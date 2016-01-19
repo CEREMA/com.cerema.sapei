@@ -35,7 +35,8 @@ App.view.define('VCarnet', {
         this.items = [
             {
                 xtype: "textfield",
-                bind: "Id_contact_client"
+                bind: "Id_contact_client",
+                hidden: true
             },
             {
                 layout: "hbox",
