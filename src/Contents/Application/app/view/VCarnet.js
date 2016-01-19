@@ -2,7 +2,7 @@ App.view.define('VCarnet', {
     extend: "Ext.window.Window",
     alias: 'widget.VCarnet',
     initComponent: function() {
-        this.width = 730;
+        this.width = 750;
         this.height = 630;
 
         this.layout = {
