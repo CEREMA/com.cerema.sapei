@@ -64,9 +64,36 @@ App.view.define('VCarnet', {
                 ]
             },
             {
-                flex: 1,
-                border: false
+                xtype: "textfield",
+                fieldLabel: "Nom, Prénom",
+                labelAlign: "left"
             },
+            {
+                xtype: "textfield",
+                fieldLabel: "Téléphone",
+                labelAlign: "left"
+            },
+            {
+                xtype: "textfield",
+                fieldLabel: "Mobile",
+                labelAlign: "left"
+            },
+            {
+                xtype: "textfield",
+                fieldLabel: "Mail",
+                labelAlign: "left"
+            },
+            {
+                xtype: "textfield",
+                fieldLabel: "Fonction",
+                labelAlign: "left"
+            },            
+            {
+                xtype: "textarea",
+                fieldLabel: "Adresse",
+                flex: 1,
+                labelAlign: "left"
+            },            
             {
                 xtype: "grid",
                 width: "100%",
