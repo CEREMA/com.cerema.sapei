@@ -168,26 +168,29 @@ App.controller.define('CMain', {
             VSchedulerMain
             */
             "VSchedulerMain schedulergrid": {
-                beforeeventresize: Ext.emptyFn,
-				beforeeventdrag: Ext.emptyFn,
-				beforeeventadd: Ext.emptyFn,
-                eventresizeend: Ext.emptyFn,
-                eventdrop: Ext.emptyFn,
-                eventcontextmenu: Ext.emptyFn,
-				beforetooltipshow: Ext.emptyFn,
-                itemcontextmenu: Ext.emptyFn,
-                eventmouseleave: Ext.emptyFn,
-                eventmouseenter: Ext.emptyFn,
-				beforedragcreate: Ext.emptyFn,
-                dragcreateend: Ext.emptyFn,
-                eventdrop: Ext.emptyFn,
-                eventdblclick: Ext.emptyFn
+                beforeeventresize: "read_only",
+				beforeeventdrag: "read_only",
+				beforeeventadd: "read_only",
+                eventresizeend: "read_only",
+                eventdrop: "read_only",
+                eventcontextmenu: "read_only",
+				beforetooltipshow: "read_only",
+                itemcontextmenu: "read_only",
+                eventmouseleave: "read_only",
+                eventmouseenter: "read_only",
+				beforedragcreate: "read_only",
+                dragcreateend: "read_only",
+                eventdrop: "read_only",
+                eventdblclick: "read_only"
             }
 		});
 		
 		App.init('VMain',this.onLoad);
 		
 	},
+    read_only: function() {
+        return false;  
+    },
     contacts_context: function(view, rec, node, index, e)
     {
 		e.stopEvent();
