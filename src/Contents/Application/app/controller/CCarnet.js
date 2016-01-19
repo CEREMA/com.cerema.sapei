@@ -1,4 +1,4 @@
-App.controller.define('CMain', {
+App.controller.define('CCarnet', {
 
 	views: [
         "VCarnet"
