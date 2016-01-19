@@ -10,9 +10,13 @@ App.view.define('VContacts', {
         };
 
         this.bbar = [
-        ];
-
-        this.tbar = [
+            '->',
+            {
+                text: "Fermer",
+                handler: function(p){
+                    p.up('close');   
+                }
+            }
         ];
 		
         this.defaults = {
