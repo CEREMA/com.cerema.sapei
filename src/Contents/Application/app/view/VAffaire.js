@@ -389,7 +389,7 @@ App.view.define('VAffaire', {
 				{
 					header: "Matériel/Agent",
 					dataIndex: "libelle",
-					width: 250,
+				    flex: 1
 				},
 				{
 					header: "Période",
@@ -399,14 +399,14 @@ App.view.define('VAffaire', {
                 {
                     header: "Progression",
                     dataIndex: "step",
+                    width: 250,
                     editor: {
                         xtype: "combo",
                         editable: false,
                         store: App.store.create("sapei://steps",{autoLoad: true}),
                         displayField: "Lib_step",
                         valueField: "Lib_step"
-                    },
-                    flex: 1
+                    }
                 }
 				],
                 plugins: [ Ext.create('Ext.grid.plugin.CellEditing',{
