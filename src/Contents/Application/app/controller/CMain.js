@@ -77,6 +77,9 @@ App.controller.define('CMain', {
             "TAffaire textarea#comments": {
                 change: "textarea_change"
             },
+            "TAffaire textarea#nature": {
+                change: "textarea_nature_change"
+            },
 			"TAffaire combo": {
 				select: "affaire_combo_update",
                 change: "affaire_combo_change"
@@ -202,6 +205,21 @@ App.controller.define('CMain', {
                 });
             }          
         },1000);        
+    },
+    textarea_nature_change: function(p) {
+        if (App.timo) clearTimeout(App.timo);
+        App.timo=setTimeout(function() {
+            if (p.bind) {
+                // on met à jour l'enregistrement
+                var obj={};
+                obj.Id_job=App.get('TAffaire').ItemID;
+                obj[p.bind]=p.getValue();
+                App.DB.post('sapei://job',obj,function(e,r) {
+                    console.log(e);
+                    console.log(r);
+                });
+            }          
+        },1000);                        
     },
     textarea_change: function(p) {
         if (p.getValue()!='') App.get('TAffaire checkbox').setValue(true); else App.get('TAffaire checkbox').setValue(false);
