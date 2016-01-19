@@ -38,26 +38,34 @@ App.view.define('VCarnet', {
             {
                 xtype: "grid",
                 width: "100%",
+                flex: 1,
                 columns:[
                 {
+                    text: "Nom Prénom",
                     dataIndex: "NomPrenom_contact_client"
                 },
                 {
+                    text: "Téléphone",
                     dataIndex: "Tel_contact_client" 
                 },
                 {
+                    text: "Mobile",
                     dataIndex: "Mobile_contact_client" 
                 },
                 {
+                    text: "Mail",
                     dataIndex: "Mail_contact_client" 
                 },
                 {
+                    text: "Fonction",
                     dataIndex: "Fonction_contact_client" 
                 },
                 {
+                    text: "Service",
                     dataIndex: "Lib_client_rattache"
                 },
                 {
+                    text: "Type",
                     dataIndex: "Lib_type_contact"
                 }
                 ],
