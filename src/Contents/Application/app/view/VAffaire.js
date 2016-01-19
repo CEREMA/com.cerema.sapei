@@ -565,7 +565,8 @@ App.view.define('VAffaire', {
                 }				
             },			
             {
-                xtype: "textarea",			
+                xtype: "textarea",		
+                itemId: "comments",
                 width: "100%",
                 fieldLabel: "Commentaires",
                 bind: "Comment_dmd_protec_job",
