@@ -22,6 +22,7 @@ App.view.define('VCarnet', {
         this.items = [
             {
                 xtype: "combo",
+                padding: 10,
                 width: "100%",
                 fieldLabel: "Client",
                 editable: false,
