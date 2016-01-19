@@ -18,11 +18,29 @@ App.controller.define('CCarnet', {
                 click: "record_click"   
             },
             "VCarnet grid": {
-                itemclick: "grid_click"   
+                itemclick: "grid_click",
+                itemcontextmenu: "grid_context"
             }
 		});
 				
 	},
+    grid_context: function(view, rec, node, index, e) {
+    {
+		e.stopEvent();
+        var me=this;
+		var x=Ext.create('Ext.menu.Menu',{
+			items: [
+				{
+					itemId: 'ctx-grid-delete',
+					text: "Supprimer"
+				}				
+			]
+		});
+		x.on('click',function(z,p) {
+			if (p.itemId=="ctx-grid-delete") {
+            }
+        });
+    },
     grid_click: function(p,rec)
     {
         var id=rec.data.Id_contact_client;
