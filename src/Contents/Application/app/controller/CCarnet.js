@@ -43,6 +43,7 @@ App.controller.define('CCarnet', {
     grid_click: function(p,rec)
     {
         var id=rec.data.Id_contact_client;
+        App.reset(p.up('window'));
         App.DB.get('sapei://contact_client?Id_contact_client='+id,p.up('window'),function(r){
             var id=r.data[0].Id_client_rattache;
             App.get('VCarnet combo#service').getStore().getProxy().extraParams.Id_client_rattache=id;
