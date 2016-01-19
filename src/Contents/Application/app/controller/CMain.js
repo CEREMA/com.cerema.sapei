@@ -486,6 +486,8 @@ App.controller.define('CMain', {
             App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
             App.get('TAffaire combo#cboservice').getStore().load();
 			App.get('TAffaire').ItemID=response.Id_job;
+            App.get('TAffaire grid#gridContacts').getStore().getProxy().extraParams.Id_job=response.Id_job;
+            App.get('TAffaire grid#gridContacts').getStore().load();
 			var html=[
 				'<div class="job_title">',
 				response.Intitule_job,
