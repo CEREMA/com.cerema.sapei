@@ -2,7 +2,7 @@ App.view.define('VCarnet', {
     extend: "Ext.window.Window",
     alias: 'widget.VCarnet',
     initComponent: function() {
-        this.width = 1024;
+        this.width = 800;
         this.height = 660;
 
         this.layout = {
@@ -20,6 +20,16 @@ App.view.define('VCarnet', {
         };
 
         this.items = [
+            {
+                xtype: "combo",
+                width: "100%",
+                fieldLabel: "Client",
+                editable: false,
+                labelAlign: "left",
+                store: App.store.create('sapei://client_origine',{autoLoad: true}),
+                displayField: "Lib_client_origine",
+                valueField: "Id_client_origine"
+            }
 		];
 
         this.callParent();
