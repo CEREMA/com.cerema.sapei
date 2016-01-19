@@ -249,12 +249,28 @@ App.controller.define('CMain', {
     hide_tip: function() {
         $('.x-tip').hide();  
     },
-    schedule_tip: function(view, r, e, eOpts) {
+    schedule_tip: function(view, rec, e, eOpts) {
         view.tip = Ext.create('Ext.tip.ToolTip', {
             html: '...',
             listeners: {
                 beforeshow: function updateTipBody(tip) {
-                    tip.update("zzzz");
+                    if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_skills='+rec.data.Id,function(e,r) {
+                        var id=r.result.data[0].Id_job; 
+                        App.DB.get('sapei://job{*}?Id_job='+id,function(e,r) {
+                            var html=[];
+                            html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
+                            tip.update(html.join(''));
+                        });
+                    };
+                    if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
+                        var id=r.result.data[0].Id_job; 
+                        App.DB.get('sapei://job{*}?Id_job='+id,function(e,r) {
+                            var html=[];
+                            html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
+                            tip.update(html.join(''));
+                        });
+                    };
+                    
                 }
             }
         });
