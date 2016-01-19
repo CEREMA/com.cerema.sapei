@@ -75,6 +75,16 @@
 	background-color: green
 }
 
+.orange
+{
+	background-color: orange
+}
+
+.yellow
+{
+    background-color: yellow
+}
+
 .user
 {
 	background-image: url(webapp/user.png);
