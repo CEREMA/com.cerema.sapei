@@ -99,11 +99,10 @@ CREATE TABLE IF NOT EXISTS `bpclight_agents` (
   `dossier_r` int(11) DEFAULT NULL,
   `libelle_doc` longblob NOT NULL,
   PRIMARY KEY (`Kage`)
-) ENGINE=FEDERATED DEFAULT CHARSET=latin1 CONNECTION='mysql://root@127.0.0.1/bpclight/agents';
+) ENGINE=FEDERATED DEFAULT CHARSET=latin1 CONNECTION='mysql://root:root@172.23.210.13/bpclight/agents';
 
 -- Export de données de la table sapei.bpclight_agents: 1 427 rows
 DELETE FROM `bpclight_agents`;
-/*!40000 ALTER TABLE `bpclight_agents` DISABLE KEYS */;
 INSERT INTO `bpclight_agents` (`Kage`, `Kuni`, `Ksub`, `Kser`, `Kbat`, `Kgra`, `Kbur`, `Kres`, `Ksec`, `Nom`, `Prenom`, `Matri`, `DatCre`, `DatOuv`, `DatMod`, `DatClo`, `HorSect`, `CodHie`, `CodHor`, `LibHor`, `Telephone`, `Poste`, `Fax`, `Portable`, `Bureau`, `RoleDeta`, `DatMaj`, `DatNai`, `VilNai`, `DepNai`, `NomPre`, `Actif`, `IneTP`, `HSLabo`, `MissioLabo`, `LogUse`, `NumImmo`, `INSEE`, `Circe`, `PaysNai`, `Signat`, `Temptation`, `Verrou`, `NumautCond`, `Autorise`, `INM`, `AgGesper`, `AgRe`, `AgRisques`, `Ksec2`, `REHUCIT`, `libelle_poste`, `dossier_d`, `dossier_r`, `libelle_doc`) VALUES
 	(880, 5, 148, 0, 1, 47, 1014, 8, 0, 'MAGADDINO', 'Julien', '012435', '2003-12-01 00:00:00', '2003-12-01 00:00:00', '2006-09-26 00:00:00', '1970-01-01 00:59:59', '', 0, '1411', '4 B 38h30 100% 2003', '0442248373', '0442248373', '0442607937', '', '014B', '', '2009-01-21 00:00:00', '1978-03-31 00:00:00', 'LA SEYNE SUR MER', '83', 'MAGADDINO Julien', 0, 100, 1, 1, '', '', '1780383126086 60', 1, 'FRANCE', 0, 0, '', 252, 1, '', 'EQU000040186', '', 0, 0, '', '', NULL, NULL, _binary ''),
 	(881, 1, 88, 0, 5, 38, 1, 22, 0, 'AUMARECHAL', 'Jeanne', '012436', '2003-12-15 00:00:00', '2004-01-01 00:00:00', '2007-11-05 00:00:00', '2007-11-05 00:00:00', '', 0, '1411', '4 B 38h30 100% 2003', '0442247911', '0442247911', '0442607986', '', '224', '', '2008-11-27 00:00:00', '1947-10-14 00:00:00', 'HERICOURT', '70', 'AUMARECHAL Jeanne', 0, 100, 0, 0, '', '', ' ', 1, 'FRANCE', 0, 0, '', 22, 1, '', 'EQU013068445', '', 0, 0, '', '', NULL, NULL, _binary ''),
@@ -1532,7 +1531,6 @@ INSERT INTO `bpclight_agents` (`Kage`, `Kuni`, `Ksub`, `Kser`, `Kbat`, `Kgra`, `
 	(2722, 12, 116, NULL, 19, 66, NULL, NULL, NULL, 'KARABADJAKIAN', 'Mickaël', '210612', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, 0, 0, '56372c37cea0f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary ''),
 	(2723, 11, 65, NULL, 19, 66, NULL, NULL, NULL, 'OLIVA', 'Amandine', '210613', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, 0, 0, '563c81200913c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary ''),
 	(2724, 11, 65, NULL, 19, 66, NULL, NULL, NULL, 'DUBOCAGE', 'Xavier', '210614', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, 0, 0, '563c81650c871', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary '');
-/*!40000 ALTER TABLE `bpclight_agents` ENABLE KEYS */;
 
 
 -- Export de la structure de table sapei. client_origine
@@ -1644,16 +1642,16 @@ CREATE TABLE IF NOT EXISTS `contact_client` (
   KEY `FK_contact_client_client_rattache` (`Id_client_rattache`),
   CONSTRAINT `FK_contact client_type_contact` FOREIGN KEY (`Type_client`) REFERENCES `type_contact` (`Id_type_contact`),
   CONSTRAINT `FK_contact_client_client_rattache` FOREIGN KEY (`Id_client_rattache`) REFERENCES `client_rattache` (`Id_client_rattache`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Table des contacts clients';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Table des contacts clients';
 
 -- Export de données de la table sapei.contact_client: ~4 rows (environ)
 DELETE FROM `contact_client`;
 /*!40000 ALTER TABLE `contact_client` DISABLE KEYS */;
 INSERT INTO `contact_client` (`Id_contact_client`, `Id_client_rattache`, `NomPrenom_contact_client`, `Tel_contact_client`, `Mobile_contact_client`, `Mail_contact_client`, `Fonction_contact_client`, `Adresse_contact_client`, `Type_client`) VALUES
-	(1, 17, 'FOUQOU Bruno', '04 12 45 12 63', '06 15 47 45 65', 'bruno.fouqou@developpement-durable.gouv.fr', 'Chef du pôle conservation du patrimoine', '16, rue Bernard du Bois\r\n13001 Marseille', '1'),
+	(1, 17, 'FOUQOU Bruno', '04 12 45 12 63', '06 15 47 45 65', 'bruno.fouqou@developpement-durable.gouv.fr', 'Chef du pôle conservation du patrimoine', '16, rue Bernard du Bois\n13001 Marseille', '1'),
 	(2, 1, 'FABRE Emmanuel', '04 90 18 32 53', '-', 'Emmanuel.Fabre@developpement-durable.gouv.fr', 'Chef du CEI de de Saint Martin de Crau', 'Zone du Salat\r\n13, av. Galilée\r\n13310 Saint-Martin-de-Crau', '2'),
-	(3, 1, 'COUTANT Bruno', '04 67 13 74 42', '06 80 17 24 37', 'bruno.coutant@developpement-durable.gouv.fr', 'Chef de  Projet au SIR de Montpellier', NULL, '2'),
-	(4, 1, 'XXX', '-', '-', '-', NULL, NULL, '1');
+	(3, 1, 'COUTANT Bruno', '04 67 13 74 42', '06 80 17 24 37', 'bruno.coutant@developpement-durable.gouv.fr', 'Chef de  Projet au SIR de Montpellier', NULL, '1'),
+	(4, 1, 'XXX', '00000', '-', '-', 'Chef du CEI de de Saint Martin de Crau', 'Zone du Salat\n13, av. Galilée\n13310 Saint-Martin-de-Crau', '2');
 /*!40000 ALTER TABLE `contact_client` ENABLE KEYS */;
 
 
@@ -1885,13 +1883,14 @@ CREATE TABLE IF NOT EXISTS `job` (
   CONSTRAINT `FK_job_sens` FOREIGN KEY (`Sens_job`) REFERENCES `sens` (`Id_sens`),
   CONSTRAINT `FK_job_type_chaussee` FOREIGN KEY (`Id_type_chaussee`) REFERENCES `type_chaussee` (`Id_type_chaussee`),
   CONSTRAINT `FK_job_type_prestation` FOREIGN KEY (`Id_type_prestation`) REFERENCES `type_prestation` (`Id_type_prestation`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Table d''initialisation de l''activité';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Table d''initialisation de l''activité';
 
--- Export de données de la table sapei.job: ~1 rows (environ)
+-- Export de données de la table sapei.job: ~2 rows (environ)
 DELETE FROM `job`;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
 INSERT INTO `job` (`Id_job`, `Id_contact_client`, `Id_client_rattache`, `Id_client_principal`, `Date_prise_job`, `Id_type_prestation`, `Intitule_job`, `Nature_job`, `Date_livrable_job`, `Id_type_chaussee`, `Date_affectation_job`, `Dmd_protection_job`, `Id_pilote_job`, `Statut_job`, `PRD_job`, `PRD`, `PRF`, `ABD_job`, `PRF_job`, `ABF_job`, `Sens_job`, `Comment_sens_job`, `Comment_avance_mesure_job`, `Comment_avance_traite_job`, `Longueur_mesure_job`, `Etat_avance_job`, `Suivi_job`, `Comment_dmd_protec_job`, `Num_SIGMA_job`, `PJ_job`, `Id_axe`, `Id_dpt`) VALUES
-	(7, 2, 17, 1, '2015-10-23', 1, 'Retroréflexion sur l\'ensemble du réseau de la DIR MED. Commande 2016', 'Retroréflexion sur l\'ensemble du réseau de la DIR MED. Commande 2016', NULL, 1, NULL, NULL, 614, NULL, NULL, '0+1', NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'xxx', NULL, 36, 4);
+	(7, 2, 17, 1, '2015-10-23', 1, 'Retroréflexion sur l\'ensemble du réseau de la DIR MED. Commande 2016', 'test', '2016-01-28', 1, NULL, NULL, 614, NULL, NULL, '0+1', '0+0', NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'qddqsdqsd', 'xxx', NULL, 36, 4),
+	(9, 2, NULL, NULL, '2016-01-19', 1, 'test', 'dsfsdfsdf', NULL, NULL, NULL, NULL, 614, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 2);
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 
 
@@ -1941,11 +1940,13 @@ CREATE TABLE IF NOT EXISTS `job_contacts` (
   KEY `Id_client` (`Id_client`),
   CONSTRAINT `FK_job_contacts_contact_client` FOREIGN KEY (`Id_client`) REFERENCES `contact_client` (`Id_contact_client`),
   CONSTRAINT `FK_job_contacts_job` FOREIGN KEY (`Id_job`) REFERENCES `job` (`Id_job`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.job_contacts: ~0 rows (environ)
+-- Export de données de la table sapei.job_contacts: ~1 rows (environ)
 DELETE FROM `job_contacts`;
 /*!40000 ALTER TABLE `job_contacts` DISABLE KEYS */;
+INSERT INTO `job_contacts` (`Id_job_contact`, `Id_job`, `Id_client`) VALUES
+	(5, 7, 3);
 /*!40000 ALTER TABLE `job_contacts` ENABLE KEYS */;
 
 
@@ -1985,11 +1986,15 @@ CREATE TABLE IF NOT EXISTS `ope` (
   CONSTRAINT `FK_ope_schedule_users` FOREIGN KEY (`Id_users`) REFERENCES `schedule_users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_ope_steps` FOREIGN KEY (`Stat`) REFERENCES `steps` (`Id_step`),
   CONSTRAINT `FK_ope_type_ope` FOREIGN KEY (`type_ope`) REFERENCES `type_ope` (`id_type_ope`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des opérations de mesure menées dans le cadre d''une activité';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Table des opérations de mesure menées dans le cadre d''une activité';
 
--- Export de données de la table sapei.ope: ~0 rows (environ)
+-- Export de données de la table sapei.ope: ~3 rows (environ)
 DELETE FROM `ope`;
 /*!40000 ALTER TABLE `ope` DISABLE KEYS */;
+INSERT INTO `ope` (`Id_ope`, `Id_job`, `Id_skills`, `Id_users`, `Stat`, `type_ope`, `bool_traitement`) VALUES
+	(16, 7, NULL, 11, 4, 1, NULL),
+	(17, 7, NULL, 12, 4, 4, NULL),
+	(18, 7, 6, NULL, 4, 4, NULL);
 /*!40000 ALTER TABLE `ope` ENABLE KEYS */;
 
 
@@ -2111,7 +2116,7 @@ INSERT INTO `role` (`Id_role_agent`, `Descriptif_role_agent`) VALUES
 CREATE TABLE IF NOT EXISTS `schedule_skills` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `ResourceId` int(11) NOT NULL DEFAULT '0',
-  `TaskId` int(11) NOT NULL DEFAULT '0',
+  `Type` int(11) NOT NULL DEFAULT '1',
   `Name` varchar(255) DEFAULT '0',
   `StartDate` datetime NOT NULL,
   `EndDate` datetime NOT NULL,
@@ -2120,11 +2125,13 @@ CREATE TABLE IF NOT EXISTS `schedule_skills` (
   PRIMARY KEY (`Id`),
   KEY `FK_schedule_skills_porteur_outils` (`ResourceId`),
   CONSTRAINT `FK_schedule_skills_porteur_outils` FOREIGN KEY (`ResourceId`) REFERENCES `porteur_outils` (`Id_porteur_outils`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.schedule_skills: ~0 rows (environ)
+-- Export de données de la table sapei.schedule_skills: ~1 rows (environ)
 DELETE FROM `schedule_skills`;
 /*!40000 ALTER TABLE `schedule_skills` DISABLE KEYS */;
+INSERT INTO `schedule_skills` (`Id`, `ResourceId`, `Type`, `Name`, `StartDate`, `EndDate`, `Cls`, `User`) VALUES
+	(6, 10, 1, NULL, '2016-01-20 09:00:00', '2016-01-21 18:00:00', 'orange', 614);
 /*!40000 ALTER TABLE `schedule_skills` ENABLE KEYS */;
 
 
@@ -2133,6 +2140,7 @@ CREATE TABLE IF NOT EXISTS `schedule_users` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `ResourceId` int(11) NOT NULL DEFAULT '0',
   `Name` varchar(255) DEFAULT '0',
+  `Type` int(11) DEFAULT '2',
   `StartDate` datetime NOT NULL,
   `EndDate` datetime NOT NULL,
   `Cls` varchar(50) DEFAULT NULL,
@@ -2140,11 +2148,14 @@ CREATE TABLE IF NOT EXISTS `schedule_users` (
   PRIMARY KEY (`Id`),
   KEY `FK_schedule_users_user` (`ResourceId`),
   CONSTRAINT `FK_schedule_users_user` FOREIGN KEY (`ResourceId`) REFERENCES `user` (`Id_agent`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
--- Export de données de la table sapei.schedule_users: ~0 rows (environ)
+-- Export de données de la table sapei.schedule_users: ~2 rows (environ)
 DELETE FROM `schedule_users`;
 /*!40000 ALTER TABLE `schedule_users` DISABLE KEYS */;
+INSERT INTO `schedule_users` (`Id`, `ResourceId`, `Name`, `Type`, `StartDate`, `EndDate`, `Cls`, `User`) VALUES
+	(11, 148, NULL, 2, '2016-01-19 09:00:00', '2016-01-19 17:00:00', 'yellow', 614),
+	(12, 1593, NULL, 2, '2016-01-20 09:00:00', '2016-01-21 17:00:00', 'orange', 614);
 /*!40000 ALTER TABLE `schedule_users` ENABLE KEYS */;
 
 
@@ -2293,15 +2304,17 @@ CREATE TABLE IF NOT EXISTS `type_ope` (
   `id_type_ope` int(11) NOT NULL AUTO_INCREMENT,
   `libelle_ope` varchar(150) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_type_ope`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Export de données de la table sapei.type_ope: ~2 rows (environ)
+-- Export de données de la table sapei.type_ope: ~5 rows (environ)
 DELETE FROM `type_ope`;
 /*!40000 ALTER TABLE `type_ope` DISABLE KEYS */;
 INSERT INTO `type_ope` (`id_type_ope`, `libelle_ope`) VALUES
-	(1, 'Etudes'),
-	(2, 'Mesures'),
-	(3, 'Traitement des données');
+	(1, 'Etudes : Contact client - Définition du cahier des charges'),
+	(2, 'Etudes : Diagnostic, modélisation'),
+	(3, 'Etudes : Rapport et solution de travaux'),
+	(4, 'Mesures'),
+	(5, 'Traitement des données');
 /*!40000 ALTER TABLE `type_ope` ENABLE KEYS */;
 
 
@@ -2360,7 +2373,7 @@ INSERT INTO `user` (`Id_user`, `Id_agent`, `Id_role_agent`, `Droit_agent`, `Etat
 CREATE TABLE IF NOT EXISTS `wiki` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `poster` int(11) NOT NULL DEFAULT '0',
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT TIMESTAMP,
   `job` int(11) NOT NULL DEFAULT '0',
   `blog` text,
   PRIMARY KEY (`id`),
