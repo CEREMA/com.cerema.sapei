@@ -147,6 +147,7 @@ App.view.define('VAffaire', {
 		},
 		{
 			xtype: "textarea",
+            itemId: "nature",
 			padding: 4,
 			bind: "Nature_job",
 			fieldLabel: "Nature de la tâche",
