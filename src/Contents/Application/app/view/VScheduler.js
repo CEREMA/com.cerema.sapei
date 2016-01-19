@@ -107,7 +107,7 @@ App.view.define('VScheduler', {
 					displayField: "libelle_ope",
 					fieldLabel: "Nature",
 					labelAlign: "top",
-					width: 170,
+					width: 270,
 					store: App.store.create("sapei://type_ope",{autoLoad: true})
 				},
 				'->',
