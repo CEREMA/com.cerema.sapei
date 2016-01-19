@@ -65,13 +65,15 @@ App.view.define('VCarnet', {
                     labelAlign: "top",
                     store: App.store.create('sapei://type_contact',{autoLoad: true}),
                     displayField: "Lib_type_contact",
-                    valueField: "Id_type_contact"
+                    valueField: "Id_type_contact",
+                    bind: "Type_client"
                 }                    
                 ]
             },
             {
                 xtype: "textfield",
                 fieldLabel: "Nom, Prénom",
+                bind: "NomPrenom_contact_client",
                 padding: 10,
                 width: "100%",
                 labelAlign: "left"
@@ -79,6 +81,7 @@ App.view.define('VCarnet', {
             {
                 xtype: "textfield",
                 fieldLabel: "Téléphone",
+                bind: "Tel_contact_client",
                 padding: 10,
                 width: "100%",
                 labelAlign: "left"
@@ -86,6 +89,7 @@ App.view.define('VCarnet', {
             {
                 xtype: "textfield",
                 fieldLabel: "Mobile",
+                bind: "Mobile_contact_client",
                 padding: 10,
                 width: "100%",
                 labelAlign: "left"
@@ -93,6 +97,7 @@ App.view.define('VCarnet', {
             {
                 xtype: "textfield",
                 fieldLabel: "Mail",
+                bind: "Mail_contact_client",
                 padding: 10,
                 width: "100%",
                 labelAlign: "left"
@@ -100,6 +105,7 @@ App.view.define('VCarnet', {
             {
                 xtype: "textfield",
                 fieldLabel: "Fonction",
+                bind: "Fonction_contact_client",
                 padding: 10,
                 width: "100%",
                 labelAlign: "left"
@@ -107,6 +113,7 @@ App.view.define('VCarnet', {
             {
                 xtype: "textarea",
                 fieldLabel: "Adresse",
+                bind: "Adresse_contact_client",
                 padding: 10,
                 width: "100%",
                 flex: 1,
