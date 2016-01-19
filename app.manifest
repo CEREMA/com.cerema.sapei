@@ -51,7 +51,8 @@
     ],
     "paths": {},
     "controllers": [
-        "CMain"
+        "CMain",
+        "CCarnet"
     ],
     "modules": [
         "Ext.ux.Scheduler",
