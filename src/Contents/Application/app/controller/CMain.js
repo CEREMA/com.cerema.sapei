@@ -103,6 +103,11 @@ App.controller.define('CMain', {
             "TAffaire grid#gridContacts": {
                 itemcontextmenu:  "contacts_context"  
             },
+            "TAffaire datefield": {
+                select: function() {
+                    alert('x');   
+                }
+            },
 			/*
 			Scheduler 
 			*/
