@@ -261,7 +261,7 @@ App.controller.define('CMain', {
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
                             tip.update(html.join(''));
                         });
-                    };
+                    });
                     if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
                         var id=r.result.data[0].Id_job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,r) {
@@ -269,7 +269,7 @@ App.controller.define('CMain', {
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
                             tip.update(html.join(''));
                         });
-                    };
+                    });
                     
                 }
             }
