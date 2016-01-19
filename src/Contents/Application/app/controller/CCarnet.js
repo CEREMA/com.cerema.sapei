@@ -16,10 +16,17 @@ App.controller.define('CCarnet', {
             },
             "VCarnet button#record": {
                 click: "record_click"   
+            },
+            "VCarnet grid": {
+                itemclick: "grid_click"   
             }
 		});
 				
 	},
+    grid_click: function(p,rec)
+    {
+        console.log(rec);
+    },
     record_click: function(p)
     {
         App.DB.post('sapei://contact_client',p.up('window'),function(e) {
