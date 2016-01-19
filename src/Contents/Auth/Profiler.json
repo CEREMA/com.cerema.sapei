@@ -1,6 +1,17 @@
 {
 	"profiles": [
+		"Admin","Users"
 	],
 	"profile": {
+		"Admin": [
+			"sebastien.wasner",
+			"nadege.sagnard"
+			"olivier.ruiz",
+			"stephane.zucatti",
+			"gil.romand"
+		],
+		"Users": [
+		
+		]
 	}
 }
