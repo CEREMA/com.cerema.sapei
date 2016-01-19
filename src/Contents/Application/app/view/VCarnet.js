@@ -2,8 +2,8 @@ App.view.define('VCarnet', {
     extend: "Ext.window.Window",
     alias: 'widget.VCarnet',
     initComponent: function() {
-        this.width = 700;
-        this.height = 680;
+        this.width = 730;
+        this.height = 580;
 
         this.layout = {
             type: 'vbox'
