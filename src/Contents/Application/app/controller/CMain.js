@@ -535,8 +535,8 @@ App.controller.define('CMain', {
 			type_ope: App.get('VScheduler combo#type_ope').getValue()
 		});
         if (posts.type_ope<=3) posts.Cls="yellow";
-        if (posts.type==4) posts.Cls="orange";
-        if (posts.type==5) posts.Cls="red";
+        if (posts.type_ope==4) posts.Cls="orange";
+        if (posts.type_ope==5) posts.Cls="red";
 		// Mise à jour de l'opération
 		App.DB.post('sapei://ope',posts,function(r) {
 			App.notify("La tâche a bien été enregistrée.");
