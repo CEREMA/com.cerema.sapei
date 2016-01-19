@@ -73,7 +73,7 @@ App.controller.define('CMain', {
             },
             "TAffaire textarea#comments": {
                 change: function(p) {
-                    if (p.getValue()!='') App.get('TAffaire checkbox').setChecked(true);
+                    if (p.getValue()!='') App.get('TAffaire checkbox').setValue(true); else App.get('TAffaire checkbox').setValue(false);
                 }
             },
 			"TAffaire combo": {
