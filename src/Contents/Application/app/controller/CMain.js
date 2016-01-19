@@ -174,19 +174,22 @@ App.controller.define('CMain', {
 		e.stopEvent();
         console.log(rec);
         var me=this;
-		var x=Ext.create('Ext.menu.Menu',{
-			items: [
-				{
+        var items=[];
+        items.push({
+            text: rec.data.Mail_contact_client 
+        });
+        items.push({
 					itemId: 'ctx-grid-delete',
 					text: "Supprimer"
-				}				
-			]
+        });
+		var x=Ext.create('Ext.menu.Menu',{
+			items: items
 		});
-		x.on('click',function(p) {
+		/*x.on('click',function(p) {
 			if (p.itemId="ctx-grid-delete") {
                 
             }
-        });
+        });*/
     },
     contacts_choose: function(p,record)
     {
