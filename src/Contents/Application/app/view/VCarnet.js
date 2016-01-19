@@ -12,6 +12,10 @@ App.view.define('VCarnet', {
         this.bodyStyle="background-color:white";
 
         this.bbar = [
+            {
+                itemId: "record",
+                text: "Enregistrer"
+            }
         ];
 
         this.tbar = [
