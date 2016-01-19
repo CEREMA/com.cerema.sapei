@@ -190,6 +190,8 @@ App.controller.define('CMain', {
                 
             }
         });*/
+		x.showAt(e.getXY());
+		return false;        
     },
     contacts_choose: function(p,record)
     {
