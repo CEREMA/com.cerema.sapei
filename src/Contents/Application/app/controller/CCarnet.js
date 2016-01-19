@@ -27,7 +27,9 @@ App.controller.define('CCarnet', {
     {
         var id=rec.data.Id_contact_client;
         App.DB.get('sapei://contact_client?Id_contact_client='+id,p.up('window'),function(r){
-            console.log(r);   
+            var id=r.data[0].Id_client_rattache;
+            App.get('VCarnet combo#service').getStore().getProxy().extraParams.Id_client_origine=id;
+            App.get('VCarnet combo#service').getStore().load();
         });
     },
     record_click: function(p)
