@@ -349,7 +349,11 @@ App.view.define('VAffaire', {
                     text: "Service"
                 }
                 ],
-                store: App.store.create("sapei://job_contacts{*,contact_client.*}",{autoLoad: true}),
+                store: App.store.create("sapei://job_contacts{*,contact_client.*}",{autoLoad: true,listeners:{
+                    load: function() {
+                        alert('x');   
+                    }
+                }}),
                 width: "100%",
                 height:250
             }                
