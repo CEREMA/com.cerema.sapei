@@ -20,6 +20,12 @@ App.view.define('VCarnet', {
         ];
 
         this.tbar = [
+            {
+                text: "Nouveau",
+                handler: function(p) {
+                    App.reset(p.up('window'));   
+                }
+            }
         ];
 		
         this.defaults = {
@@ -27,6 +33,10 @@ App.view.define('VCarnet', {
         };
 
         this.items = [
+            {
+                xtype: "textfield",
+                bind: "Id_contact_client"
+            },
             {
                 layout: "hbox",
                 width: "100%",
