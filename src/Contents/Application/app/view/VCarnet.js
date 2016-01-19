@@ -4,6 +4,8 @@ App.view.define('VCarnet', {
     initComponent: function() {
         this.width = 750;
         this.height = 630;
+        
+        this.title="Carnet d'adresses";
 
         this.layout = {
             type: 'vbox'
