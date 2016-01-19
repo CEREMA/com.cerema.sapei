@@ -45,6 +45,7 @@ App.controller.define('CCarnet', {
     },
     client_select: function(p)
     {
+        App.get('VCarnet combo#service').setValue('');
         App.get('VCarnet combo#service').getStore().getProxy().extraParams={Id_client_origine: p.getValue()};
         App.get('VCarnet combo#service').getStore().load();
     }
