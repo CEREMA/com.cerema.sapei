@@ -71,7 +71,7 @@ App.controller.define('CMain', {
             "TAffaire button#addContact": {
                   click: "on_add_contact"
             },
-            "TAffaire texfield": {
+            "TAffaire textfield": {
                 change: "textfield_change"  
             },
             "TAffaire textarea#comments": {
