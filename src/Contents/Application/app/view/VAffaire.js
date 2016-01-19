@@ -339,19 +339,12 @@ App.view.define('VAffaire', {
                 columns: [
                 {
                     text: "Contact",
-                    dataIndex: "NomPrenom_contact_client"
+                    dataIndex: "NomPrenom_contact_client",
+                    flex: 1
                 },
                 {
                     text: "Téléphone",
                     dataIndex: "Tel_contact_client"
-                },
-                {
-                    text: "Mail",
-                    dataIndex: "Mail_contact_client"
-                },
-                {
-                    text: "Service",
-                    dataIndex: "Fonction_contact_client"
                 }
                 ],
                 store: App.store.create("sapei://job_contacts{*,contact_client.*}",{autoLoad: true}),
