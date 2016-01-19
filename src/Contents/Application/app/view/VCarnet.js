@@ -23,11 +23,12 @@ App.view.define('VCarnet', {
             {
                 layout: "hbox",
                 width: "100%",
+                border: false,
                 items: [
                 {
                     xtype: "combo",
                     padding: 10,
-                    width: "100%",
+                    flex: 1,
                     fieldLabel: "Client",
                     editable: false,
                     labelAlign: "left",
@@ -38,7 +39,7 @@ App.view.define('VCarnet', {
                 {
                     xtype: "combo",
                     padding: 10,
-                    width: "100%",
+                    flex: 1,
                     fieldLabel: "Service",
                     editable: false,
                     labelAlign: "left",
@@ -49,7 +50,7 @@ App.view.define('VCarnet', {
                 {
                     xtype: "combo",
                     padding: 10,
-                    width: "100%",
+                    flex: 1,
                     fieldLabel: "Type",
                     editable: false,
                     labelAlign: "left",
