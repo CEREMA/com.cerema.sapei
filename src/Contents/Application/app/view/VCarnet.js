@@ -50,6 +50,7 @@ App.view.define('VCarnet', {
                     padding: 10,
                     flex: 1,
                     fieldLabel: "Service",
+                    bind: "Id_client_rattache",
                     editable: false,
                     labelAlign: "top",
                     store: App.store.create('sapei://client_rattache{Id_client_rattache,Lib_client_rattache+}'),
