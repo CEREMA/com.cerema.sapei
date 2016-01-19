@@ -21,37 +21,43 @@ App.view.define('VCarnet', {
 
         this.items = [
             {
-                xtype: "combo",
-                padding: 10,
+                layout: "hbox",
                 width: "100%",
-                fieldLabel: "Client",
-                editable: false,
-                labelAlign: "left",
-                store: App.store.create('sapei://client_origine',{autoLoad: true}),
-                displayField: "Lib_client_origine",
-                valueField: "Id_client_origine"
-            },
-            {
-                xtype: "combo",
-                padding: 10,
-                width: "100%",
-                fieldLabel: "Service",
-                editable: false,
-                labelAlign: "left",
-                store: App.store.create('sapei://client_rattache'),
-                displayField: "Lib_client_rattache",
-                valueField: "Id_client_rattache"
-            },
-            {
-                xtype: "combo",
-                padding: 10,
-                width: "100%",
-                fieldLabel: "Type",
-                editable: false,
-                labelAlign: "left",
-                store: App.store.create('sapei://type_contact',{autoLoad: true}),
-                displayField: "Lib_type_contact",
-                valueField: "Id_type_contact"
+                items: [
+                {
+                    xtype: "combo",
+                    padding: 10,
+                    width: "100%",
+                    fieldLabel: "Client",
+                    editable: false,
+                    labelAlign: "left",
+                    store: App.store.create('sapei://client_origine',{autoLoad: true}),
+                    displayField: "Lib_client_origine",
+                    valueField: "Id_client_origine"
+                },
+                {
+                    xtype: "combo",
+                    padding: 10,
+                    width: "100%",
+                    fieldLabel: "Service",
+                    editable: false,
+                    labelAlign: "left",
+                    store: App.store.create('sapei://client_rattache'),
+                    displayField: "Lib_client_rattache",
+                    valueField: "Id_client_rattache"
+                },
+                {
+                    xtype: "combo",
+                    padding: 10,
+                    width: "100%",
+                    fieldLabel: "Type",
+                    editable: false,
+                    labelAlign: "left",
+                    store: App.store.create('sapei://type_contact',{autoLoad: true}),
+                    displayField: "Lib_type_contact",
+                    valueField: "Id_type_contact"
+                }                    
+                ]
             },
             {
                 flex: 1,
