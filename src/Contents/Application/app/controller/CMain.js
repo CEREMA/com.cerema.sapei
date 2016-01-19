@@ -71,9 +71,6 @@ App.controller.define('CMain', {
             "TAffaire button#addContact": {
                   click: "on_add_contact"
             },
-            "TAffaire button#MAJ": {
-                click: "on_MAJ"    
-            },
 			"TAffaire combo": {
 				select: "affaire_combo_update",
                 change: "affaire_combo_change"
@@ -340,13 +337,6 @@ App.controller.define('CMain', {
             App.get('AffairesVNewAxe textfield#axe').setValue("multi-axes"); 
         else 
             App.get('AffairesVNewAxe textfield#axe').setValue(App.get('AffairesVNewAxe combo#cbo_axe').getRawValue()+App.get('AffairesVNewAxe combo#cboDepartement').getRawValue().split(' - ')[0]); 
-    },
-    on_MAJ: function(p)
-    {
-        var obj=App.getData(p.up('panel').up('panel'));
-        obj.Id_job=p.up('panel').up('panel').ItemID;
-        console.log(obj);
-        App.DB.post('sapei://job',obj)
     },
     Task_edit: function()
     {
