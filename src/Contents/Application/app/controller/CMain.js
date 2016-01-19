@@ -192,7 +192,7 @@ App.controller.define('CMain', {
                     App.get('TAffaire grid#gridContacts').getStore().load();        
                 });
             };
-            if (p.itemId=="ctx-grid-delete") {
+            if (p.itemId=="ctx-grid-mail") {
                 location.href="mailto:"+p.text;
             }
         });
