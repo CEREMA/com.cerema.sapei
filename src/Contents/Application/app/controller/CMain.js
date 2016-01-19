@@ -71,10 +71,11 @@ App.controller.define('CMain', {
             "TAffaire button#addContact": {
                   click: "on_add_contact"
             },
+            "TAffaire texfield": {
+                change: "textfield_change"  
+            },
             "TAffaire textarea#comments": {
-                change: function(p) {
-                    if (p.getValue()!='') App.get('TAffaire checkbox').setValue(true); else App.get('TAffaire checkbox').setValue(false);
-                }
+                change: "textarea_change"
             },
 			"TAffaire combo": {
 				select: "affaire_combo_update",
@@ -187,6 +188,37 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    textfield_change: function(p) {
+        if (App.timo) clearTimeout(App.timo);
+        App.timo=setTimeout(function() {
+            if (p.bind) {
+                // on met à jour l'enregistrement
+                var obj={};
+                obj.Id_job=App.get('TAffaire').ItemID;
+                obj[p.bind]=p.getValue();
+                App.DB.post('sapei://job',obj,function(e,r) {
+                    console.log(e);
+                    console.log(r);
+                });
+            }          
+        },1000);        
+    },
+    textarea_change: function(p) {
+        if (p.getValue()!='') App.get('TAffaire checkbox').setValue(true); else App.get('TAffaire checkbox').setValue(false);
+        if (App.timo) clearTimeout(App.timo);
+        App.timo=setTimeout(function() {
+            if (p.bind) {
+                // on met à jour l'enregistrement
+                var obj={};
+                obj.Id_job=App.get('TAffaire').ItemID;
+                obj[p.bind]=p.getValue();
+                App.DB.post('sapei://job',obj,function(e,r) {
+                    console.log(e);
+                    console.log(r);
+                });
+            }          
+        },1000);                
+    },
     datefield_onchange: function(p) {
 		if (p.bind) {
 			// on met à jour l'enregistrement
