@@ -31,7 +31,7 @@ App.view.define('VCarnet', {
                     flex: 1,
                     fieldLabel: "Client",
                     editable: false,
-                    labelAlign: "left",
+                    labelAlign: "top",
                     store: App.store.create('sapei://client_origine',{autoLoad: true}),
                     displayField: "Lib_client_origine",
                     valueField: "Id_client_origine"
@@ -42,7 +42,7 @@ App.view.define('VCarnet', {
                     flex: 1,
                     fieldLabel: "Service",
                     editable: false,
-                    labelAlign: "left",
+                    labelAlign: "top",
                     store: App.store.create('sapei://client_rattache'),
                     displayField: "Lib_client_rattache",
                     valueField: "Id_client_rattache"
@@ -53,7 +53,7 @@ App.view.define('VCarnet', {
                     flex: 1,
                     fieldLabel: "Type",
                     editable: false,
-                    labelAlign: "left",
+                    labelAlign: "top",
                     store: App.store.create('sapei://type_contact',{autoLoad: true}),
                     displayField: "Lib_type_contact",
                     valueField: "Id_type_contact"
