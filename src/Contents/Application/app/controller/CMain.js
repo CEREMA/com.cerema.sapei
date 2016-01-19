@@ -99,6 +99,9 @@ App.controller.define('CMain', {
                 itemcontextmenu:  "Task_delete",
                 edit: "Task_edit"
             },
+            "TAffaire grid#gridContacts": {
+                itemcontextmenu:  "contacts_context"  
+            },
 			/*
 			Scheduler 
 			*/
@@ -159,8 +162,7 @@ App.controller.define('CMain', {
                 show: "Contacts_onshow"
             },
             "Contacts grid": {
-                itemdblclick: "contacts_choose",
-                itemcontextmenu:  "contacts_context"
+                itemdblclick: "contacts_choose"
             }
 		});
 		
@@ -169,7 +171,6 @@ App.controller.define('CMain', {
 	},
     contacts_context: function(view, rec, node, index, e)
     {
-        alert('x');
 		e.stopEvent();
         console.log(rec);
         var me=this;
