@@ -25,7 +25,8 @@ App.controller.define('CCarnet', {
 	},
     grid_click: function(p,rec)
     {
-        console.log(rec);
+        var id=rec.data.Id_contact_client;
+        App.DB.get('sapei://contact_client?Id_contact_client='+id,p.up('window'));
     },
     record_click: function(p)
     {
