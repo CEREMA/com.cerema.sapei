@@ -163,6 +163,25 @@ App.controller.define('CMain', {
             },
             "Contacts grid": {
                 itemdblclick: "contacts_choose"
+            },
+            /*
+            VSchedulerMain
+            */
+            "VSchedulerMain schedulergrid": {
+                beforeeventresize: Ext.emptyFn,
+				beforeeventdrag: Ext.emptyFn,
+				beforeeventadd: Ext.emptyFn,
+                eventresizeend: Ext.emptyFn,
+                eventdrop: Ext.emptyFn,
+                eventcontextmenu: Ext.emptyFn,
+				beforetooltipshow: Ext.emptyFn,
+                itemcontextmenu: Ext.emptyFn,
+                eventmouseleave: Ext.emptyFn,
+                eventmouseenter: Ext.emptyFn,
+				beforedragcreate: Ext.emptyFn,
+                dragcreateend: Ext.emptyFn,
+                eventdrop: Ext.emptyFn,
+                eventdblclick: Ext.emptyFn
             }
 		});
 		
