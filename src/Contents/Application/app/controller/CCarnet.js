@@ -37,7 +37,7 @@ App.controller.define('CCarnet', {
 		});
 		x.on('click',function(z,p) {
 			if (p.itemId=="ctx-grid-delete") {
-                console.log(rec.data.Id_contact_client);
+                console.log(rec.data);
                 App.DB.del('sapei://contact_client?Id_contact_client?Id_contact_client='+rec.data.Id_contact_client,function(e,r) {
                     App.get('VCarnet grid').getStore().load(); 
                 });
