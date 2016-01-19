@@ -157,12 +157,25 @@ App.controller.define('CMain', {
             */
             "Contacts": {
                 show: "Contacts_onshow"
+            },
+            "Contacts grid": {
+                itemdblclick: "contacts_choose"   
             }
 		});
 		
 		App.init('VMain',this.onLoad);
 		
 	},
+    contacts_choose: function(p,record)
+    {
+        console.log(record);
+        /*App.DB.post('sapei://job_contacts',{
+            Id_job: App.get('TAffaire').ItemID,
+            Id_client: 
+        },function(o) {
+            console.log(o); 
+        });*/
+    },
     newaxe_axe_onchange: function()
     {
         if (App.get('AffairesVNewAxe combo#cbo_axe').getValue()==3) 
