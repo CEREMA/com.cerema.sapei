@@ -14,10 +14,14 @@ App.view.define('VOpenAffaire', {
         this.bbar = [
 		'->',
 		{
-			text: "Fermer"
+			text: "Fermer",
+            handler: function(p) {
+                p.up('window').close();   
+            }
 		},
 		{
-			text: "Ouvrir"
+			text: "Ouvrir",
+            itemId: "openAffaire"
 		}
         ];
 		
