@@ -172,7 +172,7 @@ App.controller.define('CMain', {
             Id_job: App.get('TAffaire').ItemID,
             Id_client: record.data.Id_contact_client
         },function(o) {
-            
+            App.get('TAffaire grid#gridContacts').getStore().load();
             p.up('window').close();
         });
     },
