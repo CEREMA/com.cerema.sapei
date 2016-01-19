@@ -23,7 +23,7 @@ App.view.define('VCarnet', {
 
         this.tbar = [
             {
-                text: "Nouveau",
+                text: "Nouveau contact",
                 handler: function(p) {
                     App.reset(p.up('window'));   
                 }
