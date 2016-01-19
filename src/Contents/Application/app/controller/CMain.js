@@ -202,6 +202,7 @@ App.controller.define('CMain', {
                 App.DB.post('sapei://job',obj,function(e,r) {
                     console.log(e);
                     console.log(r);
+                    clearTimeout(App.timo);
                 });
             }          
         },1000);        
@@ -217,6 +218,7 @@ App.controller.define('CMain', {
                 App.DB.post('sapei://job',obj,function(e,r) {
                     console.log(e);
                     console.log(r);
+                    clearTimeout(App.timo);
                 });
             }          
         },1000);                        
@@ -246,6 +248,7 @@ App.controller.define('CMain', {
 			App.DB.post('sapei://job',obj,function(e,r) {
 				console.log(e);
 				console.log(r);
+                clearTimeout(App.timo);
 			});
 		}          
     },
