@@ -193,10 +193,10 @@ App.controller.define('CMain', {
     },
     schedule_tip: function(view, r, e, eOpts) {
         view.tip = Ext.create('Ext.tip.ToolTip', {
-            html: 'xxx',
+            html: '...',
             listeners: {
                 beforeshow: function updateTipBody(tip) {
-                    
+                    tip.update("zzzz");
                 }
             }
         });
