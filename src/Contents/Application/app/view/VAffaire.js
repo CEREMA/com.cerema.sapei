@@ -345,6 +345,11 @@ App.view.define('VAffaire', {
                 {
                     text: "Téléphone",
                     dataIndex: "Tel_contact_client"
+                },
+                {
+                    hidden: true,
+                    text: "Mobile",
+                    dataIndex: "Mobile_contact_client"
                 }
                 ],
                 store: App.store.create("sapei://job_contacts{*,contact_client.*}",{autoLoad: true}),
