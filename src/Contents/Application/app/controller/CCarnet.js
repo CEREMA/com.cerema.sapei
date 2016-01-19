@@ -23,7 +23,10 @@ App.controller.define('CCarnet', {
     record_click: function(p)
     {
         App.DB.post('sapei://contact_client',p.up('window'),function(e) {
-            console.log(e);
+            if (e.errno) {
+                alert("La fiche ne s'est pas enregistrée.");
+                return;  
+            };
             App.reset(p.up('window'));
             App.get('VCarnet grid').getStore().load();
         });
