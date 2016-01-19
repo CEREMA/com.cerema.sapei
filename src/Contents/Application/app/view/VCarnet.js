@@ -9,7 +9,7 @@ App.view.define('VCarnet', {
             type: 'vbox'
         };
         
-        this.bodyStyle = "background: transparent";
+        this.bodyStyle="background-color:white";
 
         this.bbar = [
         ];
