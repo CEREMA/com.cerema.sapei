@@ -104,9 +104,7 @@ App.controller.define('CMain', {
                 itemcontextmenu:  "contacts_context"  
             },
             "TAffaire datefield": {
-                select: function() {
-                    alert('x');   
-                }
+                select: "datefield_onchange"
             },
 			/*
 			Scheduler 
@@ -187,6 +185,18 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    datefield_onchange: function(p) {
+		if (p.bind) {
+			// on met à jour l'enregistrement
+			var obj={};
+			obj.Id_job=App.get('TAffaire').ItemID;
+			obj[p.bind]=p.getValue();
+			App.DB.post('sapei://job',obj,function(e,r) {
+				console.log(e);
+				console.log(r);
+			});
+		}          
+    },
     load_affaire: function(p,rec) {
         if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_skills='+rec.data.Id,function(e,r) {
             var id=r.result.data[0].Id_job; 
