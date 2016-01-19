@@ -181,13 +181,16 @@ App.controller.define('CMain', {
 				beforedragcreate: "read_only",
                 dragcreateend: "read_only",
                 eventdrop: "read_only",
-                eventdblclick: "read_only"
+                eventdblclick: "load_affaire"
             }
 		});
 		
 		App.init('VMain',this.onLoad);
 		
 	},
+    load_affaire: function(p,rec) {
+        console.log(rec);  
+    },
     hide_tip: function() {
         $('.x-tip').hide();  
     },
