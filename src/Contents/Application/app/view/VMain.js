@@ -33,7 +33,16 @@ App.view.define('VMain', {
                             hidden: true
 						}                        
 					]
-				}
+				},
+                {
+                    text: "Contacts",
+                    menu: [
+                        {
+                            itemId: "Carnet",
+                            text: "Carnet d'adresses"
+                        }
+                    ]
+                }
 			]		
 		},
 		{
