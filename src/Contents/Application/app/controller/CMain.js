@@ -737,7 +737,7 @@ App.controller.define('CMain', {
                 for (var i=0;i<r.result.data.length;i++) {
                     if (r.result.data[i].Stat==1) inc++;
                     if (r.result.data[i].Libelle_materiel) {
-                        var libelle='<b>'+r.result.data[i].Libelle_materiel+'</b>\n<i>'+r.result.data[i].Porteur_libelle+'</i>;
+                        var libelle='<b>'+r.result.data[i].Libelle_materiel+'</b>\n<i>'+r.result.data[i].Porteur_libelle+'</i>';
                         var periode="Du "+r.result.data[i].skillsD0.toDate().toString("dd/MM/yyyy")+" au "+r.result.data[i].skillsD1.toDate().toString("dd/MM/yyyy");
                     } else {
                         var libelle=r.result.data[i].Nom+'\n'+r.result.data[i].Prenom;
