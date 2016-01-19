@@ -166,7 +166,7 @@ App.view.define('VCarnet', {
                     dataIndex: "Lib_type_contact"
                 }
                 ],
-                store: App.store.create('sapei://contact_client{*,client_rattache.Lib_client_rattache,type_contact.Lib_type_contact}',{autoLoad: true})
+                store: App.store.create('sapei://contact_client{*,NomPrenom_contact_client+,client_rattache.Lib_client_rattache,type_contact.Lib_type_contact}',{autoLoad: true})
             }
 		];
 
