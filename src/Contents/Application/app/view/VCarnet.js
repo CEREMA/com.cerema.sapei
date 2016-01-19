@@ -50,7 +50,7 @@ App.view.define('VCarnet', {
                 {
                     xtype: "combo",
                     padding: 10,
-                    flex: 1,
+                    width: 100,
                     fieldLabel: "Type",
                     editable: false,
                     labelAlign: "top",
