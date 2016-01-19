@@ -32,6 +32,28 @@ App.view.define('VCarnet', {
                 valueField: "Id_client_origine"
             },
             {
+                xtype: "combo",
+                padding: 10,
+                width: "100%",
+                fieldLabel: "Service",
+                editable: false,
+                labelAlign: "left",
+                store: App.store.create('sapei://client_rattache'),
+                displayField: "Lib_client_rattache",
+                valueField: "Id_client_rattache"
+            },
+            {
+                xtype: "combo",
+                padding: 10,
+                width: "100%",
+                fieldLabel: "Type",
+                editable: false,
+                labelAlign: "left",
+                store: App.store.create('sapei://type_contact'),
+                displayField: "Lib_type_contact",
+                valueField: "Id_client_rattache"
+            },
+            {
                 flex: 1,
                 border: false
             },
