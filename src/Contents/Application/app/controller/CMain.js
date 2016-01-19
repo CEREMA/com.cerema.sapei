@@ -629,7 +629,8 @@ App.controller.define('CMain', {
     {
 		App.reset(App.get('TAffaire')); 
         var record=App.get('VOpenAffaire grid').getSelectionModel().getSelection();
-        console.log(record);
+        if (record.length<=0) return;
+        record=record[0];
 		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
             
 			response=response.data[0];
