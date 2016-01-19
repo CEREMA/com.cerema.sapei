@@ -30,6 +30,10 @@ App.controller.define('CCarnet', {
             var id=r.data[0].Id_client_rattache;
             App.get('VCarnet combo#service').getStore().getProxy().extraParams.Id_client_rattache=id;
             App.get('VCarnet combo#service').getStore().load();
+            App.DB.get('sapei://client_rattache{Id_client_origine}?Id_client_rattache='+App.get('VCarnet combo#service').getValue(),function(e,r) {
+                console.log(e);
+                console.log(r);
+            });            
         });
     },
     record_click: function(p)
