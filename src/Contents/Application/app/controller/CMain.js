@@ -174,10 +174,10 @@ App.controller.define('CMain', {
                 eventresizeend: "read_only",
                 eventdrop: "read_only",
                 eventcontextmenu: "read_only",
-				beforetooltipshow: "read_only",
+				beforetooltipshow: "tooltip_schedule",
                 itemcontextmenu: "read_only",
-                eventmouseleave: "read_only",
-                eventmouseenter: "read_only",
+                eventmouseleave: "hide_tip",
+                eventmouseenter: "schedule_tip",
 				beforedragcreate: "read_only",
                 dragcreateend: "read_only",
                 eventdrop: "read_only",
@@ -188,6 +188,17 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    schedule_tip: function(view, r, e, eOpts) {
+        view.tip = Ext.create('Ext.tip.ToolTip', {
+            html: 'xxx',
+            listeners: {
+                beforeshow: function updateTipBody(tip) {
+                    
+                }
+            }
+        });
+        view.tip.showAt(e.getXY());
+    },
     read_only: function() {
         return false;  
     },
