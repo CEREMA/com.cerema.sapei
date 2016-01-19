@@ -40,6 +40,7 @@ App.view.define('VMain', {
 			region: "center",			
 			split:true,
 			layout: "fit",
+            border: false,
 			bbar: [
 				'->',
 				{
