@@ -176,6 +176,7 @@ App.controller.define('CMain', {
         var me=this;
         var items=[];
         items.push({
+            itemId: 'ctx-grid-mail',
             text: rec.data.Mail_contact_client 
         });
         items.push({
@@ -190,6 +191,9 @@ App.controller.define('CMain', {
                 App.DB.del('sapei://job_contacts?Id_job_contact='+rec.data.Id_job_contact,function(o) {
                     App.get('TAffaire grid#gridContacts').getStore().load();        
                 });
+            };
+            if (p.itemId="ctx-grid-delete") {
+                location.href="mailto:"+p.text;
             }
         });
 		x.showAt(e.getXY());
