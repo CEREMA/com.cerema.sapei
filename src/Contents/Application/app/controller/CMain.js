@@ -185,7 +185,7 @@ App.controller.define('CMain', {
 		var x=Ext.create('Ext.menu.Menu',{
 			items: items
 		});
-		x.on('click',function(x,p) {
+		x.on('click',function(z,p) {
 			if (p.itemId=="ctx-grid-delete") {
                 App.DB.del('sapei://job_contacts?Id_job_contact='+rec.data.Id_job_contact,function(o) {
                     App.get('TAffaire grid#gridContacts').getStore().load();        
@@ -263,7 +263,7 @@ App.controller.define('CMain', {
 				}				
 			]
 		});
-		x.on('click',function(p) {
+		x.on('click',function(z,p) {
 			if (p.itemId=="ctx-grid-delete") {
                 App.DB.get('sapei://ope?Id_ope='+rec.data.Id,function(e,response) {
                     var skills=response.result.data[0].Id_skills;
@@ -662,7 +662,7 @@ App.controller.define('CMain', {
 				}				
 			]
 		});
-		x.on('click',function(p) {
+		x.on('click',function(z,p) {
 			if (p.itemId=="ctx-grid-delete") {
 				App.DB.del('sapei://axe?id='+rec.data.Id_axe,function(response) {
 					console.log(response);
