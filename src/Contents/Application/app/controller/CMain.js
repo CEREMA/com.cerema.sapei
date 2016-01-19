@@ -720,6 +720,7 @@ App.controller.define('CMain', {
 	newAffaires: function(me)
 	{
 		App.get('TAffaire').hide();
+        App.get('VSchedulerMain schedulergrid').getStore().load();
         App.get('VSchedulerMain').show();
 		delete App.get('TAffaire').wiki;
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);	
@@ -731,6 +732,7 @@ App.controller.define('CMain', {
 	{
 		App.get('TAffaire').hide();
         App.get('VSchedulerMain').show();
+        App.get('VSchedulerMain schedulergrid').getStore().load();
 		delete App.get('TAffaire').wiki;
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);
 		App.view.create('VOpenAffaire',{modal: true}).show();
@@ -742,6 +744,7 @@ App.controller.define('CMain', {
             if (btns[i].itemId=="mnu_aff_close") btns[i].hide();  
         };
         App.get("TAffaire").hide();
+        App.get('VSchedulerMain schedulergrid').getStore().load();
         App.get("VSchedulerMain").show();
     },
 	Menu_onClick: function(p)
