@@ -21,7 +21,8 @@ App.view.define('VMain', {
 					menu: [
 						{
 							itemId: "mnu_aff_new",
-							text: "Nouveau"
+							text: "Nouveau",
+                            hidden: true
 						},
 						{
 							itemId: "mnu_aff_open",
