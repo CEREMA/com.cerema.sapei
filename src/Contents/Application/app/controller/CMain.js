@@ -991,7 +991,9 @@ App.controller.define('CMain', {
 	{
 		// form loaded
 		Auth.login(function(auth) {
+            console.log(Auth.profiles);
             if (Auth.profiles.indexOf('Admin')>-1) {
+                alert('x');
                 var btns=App.getAll('menu>menuitem');
                 for (var i=0;i<btns.length;i++) {
                     if (btns[i].itemId=="mnu_aff_new") btns[i].show();  
