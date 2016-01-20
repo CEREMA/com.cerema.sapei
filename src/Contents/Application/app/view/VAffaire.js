@@ -373,7 +373,8 @@ App.view.define('VAffaire', {
 			tbar: [
 			{
 				text: "Nouvelle tâche",
-				itemId: "newtask"
+				itemId: "newtask",
+                hidden: true
 			}
 			],
 			items: [
