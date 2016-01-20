@@ -991,6 +991,7 @@ App.controller.define('CMain', {
 	{
 		// form loaded
 		Auth.login(function(auth) {
+            console.log(auth);
             console.log(Auth.profiles);
             if (Auth.profiles.indexOf('Admin')>-1) {
                 alert('x');
