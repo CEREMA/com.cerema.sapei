@@ -829,6 +829,7 @@ App.controller.define('CMain', {
     },
 	TAffaire_onshow: function(p)
 	{
+        if (Auth.User.profiles.indexOf('Admin')>-1) App.get('TAffaire button#newtask').show();
 		App.get('TAffaire').wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
 		App.get('TAffaire').runner=window.setInterval(function() {
