@@ -5,6 +5,7 @@ Officer = {
 			if (!profile.username) cb({});
 			var mail=profile.username.toLowerCase();
 			Officer.using('db').store('bpclight','select kage,nom,prenom from agents where kage in (select kage from mela where libmela="'+mail+'")',function(err,result){
+                console.log(Officer.getProfile(mail.split('@')[0]));
 				if (!err) {
 					var response={
 						lastname: result.data[0].nom,
