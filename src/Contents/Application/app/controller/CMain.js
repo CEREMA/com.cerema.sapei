@@ -991,7 +991,12 @@ App.controller.define('CMain', {
 	{
 		// form loaded
 		Auth.login(function(auth) {
-		
+            if (Auth.profiles.indexOf('Admin')>-1) {
+                var btns=App.getAll('menu>menuitem');
+                for (var i=0;i<btns.length;i++) {
+                    if (btns[i].itemId=="mnu_aff_new") btns[i].show();  
+                };                
+            }
 		});
 	}
 	
