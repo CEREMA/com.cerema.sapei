@@ -41,7 +41,7 @@ App.controller.define('CMain', {
 			"AffairesVNew combo#cbo_dpt": {
 				select: "cbo_dpt_onselect"
 			},
-            "mainform": {
+            "VSchedulerMain schedulergrid": {
                 render: function() {
                     // sync scrollbars
 
