@@ -557,6 +557,7 @@ App.controller.define('CMain', {
 		if (blog) {
 			App.DB.post('sapei://wiki',{
 				poster: Auth.User.uid,
+                date: new Date(),
 				job: App.get('TAffaire').ItemID,
 				blog: blog
 			},function(r) {
