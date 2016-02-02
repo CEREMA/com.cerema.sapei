@@ -34,7 +34,14 @@ App.view.define('Affaires.VNew', {
 			text: "Axe",
 			itemId: "newAxeBtn",
 			iconCls: "plus"
-		}
+		},
+        '->',
+        {
+            xtype: "button",
+            itemId: "adrbook",
+            text: "Carnet d'adresses",
+            iconCls: "adr"
+        }            
         ];
 		
         this.defaults = {
