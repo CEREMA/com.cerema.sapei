@@ -260,10 +260,12 @@ App.view.define('VAffaire', {
             itemId: "affaire_statut",
 			padding: 4,
 			bind: "Statut_job",
-			fieldLabel: "Nature de la tâche",
+			fieldLabel: "Statut",
 			labelAlign: "top",
 			width: "100%",
-			height: 100
+            valueField: "id",
+            displayField: "statut",
+            store: App.store.create('sapei://job_statut',{autoLoad: true})
 		},            
 /*		{
 			flex: 1,
