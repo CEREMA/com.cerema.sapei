@@ -33,7 +33,9 @@ App.controller.define('CMain', {
 				show: "AffairesVNew_onshow"
 			},
             "AffairesVNew button#adrbook": {
-                click: "AdrBookClick"
+                click: function(p) {
+                    alert('x');   
+                }
             },
 			"AffairesVNew button#VNewPost": {
 				click: "VNewPost_onclick"
