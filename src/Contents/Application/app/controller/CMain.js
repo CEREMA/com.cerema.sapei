@@ -846,29 +846,27 @@ App.controller.define('CMain', {
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
         AFFAIRE_ID=p.ItemID;
 		App.get('TAffaire').runner=window.setInterval(function() {
-            console.log(AFFAIRE_ID);
 			App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
 				if (r.data.length==0) {
 					if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
 					if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
 				};
 				if (r.data.length!=App.get('TAffaire').wiki) {
-                    console.log(AFFAIRE_ID);
 					App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
                         console.log(e);
                         console.log(r);
 						var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
 						var tpl=[];
 						for (var i=0;i<r.result.data.length;i++) {
-							var result=html;
-							result=result.replace('%DATE%',r.result.data[i].date.split('T')[0]+' '+r.result.data[i].date.split('T')[1].split('Z')[0].substr(0,5));
-							result=result.replace('%POSTER%',r.result.data[i].nomprenom);
-							result=result.replace('%COMMENT%',r.result.data[i].blog);
-							tpl.push(result);
+							var results=html;
+							results=results.replace('%DATE%',r.result.data[i].date.split('T')[0]+' '+r.result.data[i].date.split('T')[1].split('Z')[0].substr(0,5));
+							results=results.replace('%POSTER%',r.result.data[i].nomprenom);
+							results=results.replace('%COMMENT%',r.result.data[i].blog);
+							tpl.push(results);
 						};
-						result='<ul class="timeline">'+tpl.join('')+'</ul>';
-						if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update(result);
-						if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(result);
+						results='<ul class="timeline">'+tpl.join('')+'</ul>';
+						if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update(results);
+						if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(results);
 						App.get('TAffaire').wiki=r.result.data.length;
 					});				
 				};
