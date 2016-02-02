@@ -71,7 +71,7 @@ App.view.define('VScheduler', {
         this.height = 660;
 
         this.layout = {
-            type: 'hbox'
+            type: 'vbox'
         };
 
         this.tbar = [
@@ -128,37 +128,6 @@ App.view.define('VScheduler', {
 		this.bodyStyle="background:#FFFFFF";
 		
         this.items = [
-		{
-			layout: "vbox",
-			border: false,
-			height: "100%",
-			flex: 1,
-			items: [
-			{
-				xtype: "schedulergrid",
-				itemId: "schedule_agents",
-				timeAxis: new MyTimeAxis(),
-				enableEventDragDrop:true,
-				columnWidth: 2,
-				startDate     : new Date(),
-				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
-				viewPreset    : 'CEREMA_VIEW',
-				rowHeight: 32,
-				allowOverlap: false,
-				flex: 1,
-				heigth: 200,
-				width: "100%",
-				columns: [{
-					header: 'Agents',
-					dataIndex: 'NomPrenom',
-					width: 200,
-					tdCls: 'user',
-					sortable: true,
-					field: new Ext.form.TextField()
-				}],
-				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId,StartDate,EndDate,User,IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
-				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2")
-			},                
 			{
 				xtype: "schedulergrid",
 				itemId: "schedule_materiels",
@@ -171,7 +140,6 @@ App.view.define('VScheduler', {
 				rowHeight: 32,
 				flex: 1,
 				allowOverlap: false,
-				heigth: 200,
 				width: "100%",
 				columns: [{
 					header: 'Matériels',
@@ -183,9 +151,31 @@ App.view.define('VScheduler', {
 				}],
 				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
 				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}")
+			},                
+			{
+				xtype: "schedulergrid",
+				itemId: "schedule_agents",
+				timeAxis: new MyTimeAxis(),
+				enableEventDragDrop:true,
+				columnWidth: 2,
+				startDate     : new Date(),
+				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
+				viewPreset    : 'CEREMA_VIEW',
+				rowHeight: 32,
+				allowOverlap: false,
+				flex: 1,
+				width: "100%",
+				columns: [{
+					header: 'Agents',
+					dataIndex: 'NomPrenom',
+					width: 200,
+					tdCls: 'user',
+					sortable: true,
+					field: new Ext.form.TextField()
+				}],
+				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId,StartDate,EndDate,User,IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
+				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2")
 			}
-			]
-		}
 		];
 
         this.callParent();
