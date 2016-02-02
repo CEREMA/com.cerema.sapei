@@ -991,7 +991,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-        /*App.get('VSchedulerMain schedulergrid#schedule_agents').getStore().on('load',function() {
+        App.get('VSchedulerMain schedulergrid#schedule_agents').getStore().on('load',function() {
             // sync scrollbars
             App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
                 App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
@@ -999,7 +999,7 @@ App.controller.define('CMain', {
             App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
                 App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
             });                    
-        });*/
+        });
 		// form loaded
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
