@@ -991,11 +991,12 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{
 		// sync scrollbars
-		App.get('schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
-			App.get('schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+        alert(App.get('VSchedulerMain schedulergrid#schedule_agents'));
+		App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+			App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
 		});
-		App.get('schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
-			App.get('schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+		App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
+			App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
 		});        
         
 		// form loaded
