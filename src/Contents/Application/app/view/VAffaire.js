@@ -255,6 +255,16 @@ App.view.define('VAffaire', {
 			width: "100%",
 			height: 100
 		},
+		{
+			xtype: "combo",
+            itemId: "affaire_statut",
+			padding: 4,
+			bind: "Statut_job",
+			fieldLabel: "Nature de la tâche",
+			labelAlign: "top",
+			width: "100%",
+			height: 100
+		},            
 /*		{
 			flex: 1,
 			border: false
