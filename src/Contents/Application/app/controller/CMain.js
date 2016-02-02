@@ -857,7 +857,7 @@ App.controller.define('CMain', {
 						var tpl=[];
 						for (var i=0;i<r.result.data.length;i++) {
 							var results=html;
-							results=results.replace('%DATE%',r.result.data[i].date.toDate().toString('dd/MM/YYYY hh:mm'));
+							results=results.replace('%DATE%',r.result.data[i].date.toDate().toString('dd/MM/yyyy hh:mm'));
 							results=results.replace('%POSTER%',r.result.data[i].nomprenom);
 							results=results.replace('%COMMENT%',r.result.data[i].blog);
 							tpl.push(results);
