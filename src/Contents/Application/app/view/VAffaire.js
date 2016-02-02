@@ -261,6 +261,7 @@ App.view.define('VAffaire', {
 			padding: 4,
 			bind: "Statut_job",
 			fieldLabel: "Statut",
+            editable: false,
 			labelAlign: "top",
 			width: "100%",
             valueField: "id",
