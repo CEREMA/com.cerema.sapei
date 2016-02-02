@@ -271,6 +271,7 @@ App.view.define('VAffaire', {
 		{
             layout: "hbox",
             width: "100%",
+            border: false,
             items: [
             {
                 xtype: "combo",
@@ -288,7 +289,7 @@ App.view.define('VAffaire', {
             {
                 xtype: "datefield",
                 fieldLabel: "Date d'affectation",
-                bind: "Statut_job",
+                bind: "Date_affectation_job",
                 labelAlign: "top",
                 padding: 4,
                 width: 150
