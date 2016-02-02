@@ -10,7 +10,7 @@ Tasks={
     getUsers: function(o,cb)
     {
         var db=Tasks.using('db');
-        db.model('sapei','SELECT Kage, CONCAT(,"",) nomprenom FROM bpclight_agents WHERE Kage in (SELECT Id_agent FROM user)',cb);
+        db.model('sapei','SELECT Kage, CONCAT(Nom," ",Prenom) nomprenom FROM bpclight_agents WHERE Kage in (SELECT Id_agent FROM user)',cb);
     }
 };
 
