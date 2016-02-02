@@ -266,7 +266,7 @@ App.view.define('VAffaire', {
 			width: "100%",
             valueField: "Kage",
             displayField: "nomprenom",
-            store: App.store.create('sapei://bpclight_agents{Kage,Nom+" "+Prenom=nomprenom+}',{autoLoad: true})
+            store: App.store.create('App.Tasks.getUsers',{autoLoad: true})
 		},
 		{
             layout: "hbox",
