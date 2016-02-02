@@ -853,13 +853,12 @@ App.controller.define('CMain', {
 				};
 				if (r.data.length!=App.get('TAffaire').wiki) {
 					App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
-                        console.log(e);
-                        console.log(r);
 						var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
+                        console.log(r.result.data[i].date.split('T'));
 						var tpl=[];
 						for (var i=0;i<r.result.data.length;i++) {
 							var results=html;
-							results=results.replace('%DATE%',r.result.data[i].date.split('T')[0]);
+							results=results.replace('%DATE%',r.result.data[i].date.split('T')[0]+' '+r.result.data[i].date.split('T')[1]);
 							results=results.replace('%POSTER%',r.result.data[i].nomprenom);
 							results=results.replace('%COMMENT%',r.result.data[i].blog);
 							tpl.push(results);
