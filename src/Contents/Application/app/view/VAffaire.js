@@ -266,6 +266,19 @@ App.view.define('VAffaire', {
             valueField: "id",
             displayField: "statut",
             store: App.store.create('sapei://job_statut',{autoLoad: true})
+		},
+		{
+			xtype: "combo",
+            itemId: "affaire_statut",
+            selectable: false,
+			padding: 4,
+			bind: "Statut_job",
+			fieldLabel: "Statut",
+			labelAlign: "top",
+			width: "100%",
+            valueField: "id",
+            displayField: "statut",
+            store: App.store.create('sapei://job_statut',{autoLoad: true})
 		},            
 /*		{
 			flex: 1,
