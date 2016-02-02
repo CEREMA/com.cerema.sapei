@@ -195,7 +195,7 @@ App.controller.define('CMain', {
 		
 	},
     AdrBookClick: function(p) {
-        App.view.create('VContacts',{modal: true}).show();
+        this.Contacts();
     },
     textfield_change: function(p) {
         if (App.timo) clearTimeout(App.timo);
