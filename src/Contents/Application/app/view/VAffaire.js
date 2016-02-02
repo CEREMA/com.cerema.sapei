@@ -279,7 +279,7 @@ App.view.define('VAffaire', {
             valueField: "id",
             displayField: "statut",
             store: App.store.create('sapei://job_statut',{autoLoad: true})
-		}, */           
+		}*/,            
 /*		{
 			flex: 1,
 			border: false
