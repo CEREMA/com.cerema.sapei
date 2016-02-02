@@ -1,3 +1,103 @@
+/**
+ * @class Ext.ux.grid.CustomSortPlugin
+ * 
+ * Allows you to specify a custom sort function in the grid's ColumnModel.
+ * Especially useful for columns that use a renderer to display the
+ * data differently from the underlying source data.
+ * 
+ * To use, add a <b>sortByFn</b> config option to the columns in the ColumnModel
+ * you want to add custom sorting.  The function will be passed two records as parameters
+ * and should return 1, -1 or 0, indicating the first record is comes before, after, or
+ * in the same position as the second record. 
+ * 
+ * Example Usage:
+ *<pre><code>// Create a grid where the employee id column displays as the
+	// employee's full name (first mi last), but sorts on the last
+	// name.
+	 
+	//renderer function to display name as First MI Last.
+ 	var EmployeeRenderer = function( val, meta, rec, row, col, store ) {
+ 		return rec.get( "first_name" ) + 
+ 			( rec.get( "middle_name" ) ? " " + rec.get( "middle_name" ).charAt(0) + "." : "" ) +
+ 			" " + rec.get( "last_name" );
+	};
+	
+	//comparison function to determine what order two records should appear
+	var EmployeeSortFn = function( rec1, rec2 ) {
+		var name1 = rec1.get( "last_name" ).toUpperCase();
+		var name2 = rec2.get( "last_name" ).toUpperCase();
+		return name1 > name2 ? 1 : ( name1 < name2 ? -1 : 0 );
+	};
+	
+	var grid = new Ext.grid.GridPanel( {
+		store: new Ext.data.JsonStore({
+			url: '/my/data/url',
+			fields: [ "id", "first_name", "middle_name", "last_name" ]
+		}),
+		columns: [
+			{header: "Employee", dataIndex: "id", renderer: EmployeeRenderer, sortByFn: EmployeeSortFn, sortable: true }
+		],
+		plugins: new Ext.ux.grid.CustomSortPlugin()
+	} );
+ </code></pre>
+ */
+
+Ext.namespace('Ext.ux.grid');
+
+Ext.ux.grid.CustomSortPlugin = function(config) {
+    Ext.apply(this, config);
+}
+
+Ext.ux.grid.CustomSortPlugin.prototype = {
+
+    init: function(grid) {
+        var store = grid.getStore();
+
+        var plugin = this;
+
+        if (typeof this.usePaging == "undefined") {
+            this.usePaging = (typeof store.applyPaging == "function");
+        }
+
+        //override default sortData method with this one
+        store.sortData = function(f, direction) {
+            direction = direction || 'ASC';
+
+            var cm = grid.getColumnModel();
+            var colCfg = cm.getColumnsBy(function(cfg, ix) {
+                return cfg.dataIndex === f
+            })[0];
+
+            var fn = Ext.emptyFn;
+
+            if (colCfg && typeof colCfg.sortByFn == "function") {
+                fn = colCfg.sortByFn
+            }
+            else {
+                var st = this.fields.get(f).sortType;
+                fn = function(r1, r2) {
+                    var v1 = st(r1.data[f]),
+                    v2 = st(r2.data[f]);
+                    return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+                };
+            }
+
+            if (plugin.usePaging && this.allData) {
+                this.data = this.allData;
+                delete this.allData;
+            }
+
+            this.data.sort(direction, fn);
+            if (this.snapshot && this.snapshot != this.data) {
+                this.snapshot.sort(direction, fn);
+            }
+
+            if (plugin.usePaging) this.applyPaging();
+
+        }
+    }
+};
+
 App.view.define('VAffaire', {
 
     extend: 'Ext.Panel',
@@ -415,7 +515,7 @@ App.view.define('VAffaire', {
 				],
 				width: "100%",
 				flex: 1,
-				store: App.store.create({fields:["Id","libelle_ope","step","modID","libelle","periode","type"],groupField: "libelle_ope",data:[]},{autoLoad: true})
+				store: App.store.create({fields:["Id","libelle_ope","step","modID","libelle","periode","type"],sortInfo:{field: 'order_id', direction: "ASC"},groupField: "libelle_ope",data:[]},{autoLoad: true})
 			}
 			]
 		},
