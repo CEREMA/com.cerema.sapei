@@ -41,6 +41,18 @@ App.controller.define('CMain', {
 			"AffairesVNew combo#cbo_dpt": {
 				select: "cbo_dpt_onselect"
 			},
+            "mainform": {
+                render: function() {
+                    // sync scrollbars
+
+                    App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+                        App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+                    });
+                    App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
+                        App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+                    });                    
+                }
+            },
             /*
             AffairesVNewAxe
             */
@@ -990,14 +1002,6 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-		// sync scrollbars
-        alert(App.get('VSchedulerMain schedulergrid#schedule_agents'));
-		App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
-			App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-		});
-		App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
-			App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-		});        
         
 		// form loaded
 		Auth.login(function(auth) {
