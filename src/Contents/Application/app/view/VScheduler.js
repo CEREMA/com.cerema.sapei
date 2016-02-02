@@ -136,6 +136,31 @@ App.view.define('VScheduler', {
 			items: [
 			{
 				xtype: "schedulergrid",
+				itemId: "schedule_agents",
+				timeAxis: new MyTimeAxis(),
+				enableEventDragDrop:true,
+				columnWidth: 2,
+				startDate     : new Date(),
+				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
+				viewPreset    : 'CEREMA_VIEW',
+				rowHeight: 32,
+				allowOverlap: false,
+				flex: 1,
+				heigth: 200,
+				width: "100%",
+				columns: [{
+					header: 'Agents',
+					dataIndex: 'NomPrenom',
+					width: 200,
+					tdCls: 'user',
+					sortable: true,
+					field: new Ext.form.TextField()
+				}],
+				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId,StartDate,EndDate,User,IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
+				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2")
+			},                
+			{
+				xtype: "schedulergrid",
 				itemId: "schedule_materiels",
 				timeAxis: new MyTimeAxis(),
 				enableEventDragDrop:true,
@@ -158,48 +183,7 @@ App.view.define('VScheduler', {
 				}],
 				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
 				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}")
-			},                
-			{
-				xtype: "schedulergrid",
-				itemId: "schedule_agents",
-				timeAxis: new MyTimeAxis(),
-				enableEventDragDrop:true,
-				columnWidth: 2,
-				startDate     : new Date(),
-				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
-				viewPreset    : 'CEREMA_VIEW',
-				rowHeight: 32,
-				allowOverlap: false,
-				flex: 1,
-				heigth: 200,
-				width: "100%",
-				columns: [{
-					header: 'Agents',
-					dataIndex: 'NomPrenom',
-					width: 200,
-					tdCls: 'user',
-					sortable: true,
-					field: new Ext.form.TextField()
-				}],
-				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId,StartDate,EndDate,User,IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
-				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent}?Id_role_agent=2")
 			}
-			]
-		},
-		{
-			width: 250,
-			hidden: true,
-			border: false,
-			items: [
-                {
-                    xtype: "grid",
-                    flex: 1,
-                    height: "100%",
-                    store: App.store.create({fields:[],data:[]}),
-                    columns:[
-                    
-                    ]
-                }
 			]
 		}
 		];
