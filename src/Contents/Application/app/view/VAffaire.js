@@ -257,30 +257,42 @@ App.view.define('VAffaire', {
 		},
 		{
 			xtype: "combo",
-            itemId: "affaire_statut",
+            itemId: "affaire_pilote",
 			padding: 4,
-			bind: "Statut_job",
-			fieldLabel: "Statut",
+			bind: "Id_pilote_job",
+			fieldLabel: "Affaire pilotée par",
             editable: false,
 			labelAlign: "top",
 			width: "100%",
-            valueField: "id",
-            displayField: "statut",
-            store: App.store.create('sapei://job_statut',{autoLoad: true})
-		}/*,
+            valueField: "Kage",
+            displayField: "nomprenom",
+            store: App.store.create('sapei://bpclight_agents{Kage,Nom+" "+Prenom=nomprenom+}',{autoLoad: true})
+		},
 		{
-			xtype: "combo",
-            itemId: "affaire_statut",
-            selectable: false,
-			padding: 4,
-			bind: "Statut_job",
-			fieldLabel: "Statut",
-			labelAlign: "top",
-			width: "100%",
-            valueField: "id",
-            displayField: "statut",
-            store: App.store.create('sapei://job_statut',{autoLoad: true})
-		}*/,            
+            layout: "hbox",
+            width: "100%",
+            items: [
+            {
+                xtype: "combo",
+                itemId: "affaire_statut",
+                padding: 4,
+                bind: "Statut_job",
+                fieldLabel: "Statut",
+                editable: false,
+                labelAlign: "top",
+                flex: 1,
+                valueField: "id",
+                displayField: "statut",
+                store: App.store.create('sapei://job_statut',{autoLoad: true})
+            },
+            {
+                xtype: "datefield",
+                fieldLabel: "Date d'affectation",
+                labelAlign: "top",
+                width: 150
+            }
+            ]
+		},            
 /*		{
 			flex: 1,
 			border: false
