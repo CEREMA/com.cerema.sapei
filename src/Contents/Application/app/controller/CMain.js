@@ -524,6 +524,7 @@ App.controller.define('CMain', {
 			var obj={};
 			obj.Id_job=App.get('TAffaire').ItemID;
 			obj[p.bind]=p.getValue();
+            if (!obj.Id_job) alert("somethin' went wrong");
 			App.DB.post('sapei://job',obj,function(e,r) {
 				console.log(e);
 				console.log(r);
