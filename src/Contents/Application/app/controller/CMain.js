@@ -843,6 +843,7 @@ App.controller.define('CMain', {
 		App.get('TAffaire').wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
 		App.get('TAffaire').runner=window.setInterval(function() {
+            console.log(p.itemId);
 			App.DB.get('sapei://wiki{id}?job='+p.ItemID,function(r) {
 				if (r.data.length==0) {
 					if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
