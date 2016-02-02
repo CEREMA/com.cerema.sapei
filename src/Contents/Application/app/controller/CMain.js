@@ -248,6 +248,7 @@ App.controller.define('CMain', {
     datefield_onchange: function(p) {
 		if (p.bind) {
 			// on met à jour l'enregistrement
+            alert('x');
 			var obj={};
 			obj.Id_job=App.get('TAffaire').ItemID;
 			obj[p.bind]=p.getValue();
@@ -519,6 +520,7 @@ App.controller.define('CMain', {
         });
     },
     affaire_combo_update: function(p) {
+        alert('x');
 		if (p.bind) {
 			// on met à jour l'enregistrement
 			var obj={};
