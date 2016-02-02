@@ -71,7 +71,7 @@ App.view.define('VScheduler', {
         this.height = 660;
 
         this.layout = {
-            type: 'vbox'
+            type: 'hbox'
         };
 
         this.tbar = [
@@ -128,6 +128,12 @@ App.view.define('VScheduler', {
 		this.bodyStyle="background:#FFFFFF";
 		
         this.items = [
+		{
+			layout: "vbox",
+			border: false,
+			height: "100%",
+			flex: 1,
+			items: [
 			{
 				xtype: "schedulergrid",
 				itemId: "schedule_materiels",
@@ -138,8 +144,9 @@ App.view.define('VScheduler', {
 				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
 				viewPreset    : 'CEREMA_VIEW',
 				rowHeight: 32,
-				height: 330,
+				flex: 1,
 				allowOverlap: false,
+				heigth: 200,
 				width: "100%",
 				columns: [{
 					header: 'Matériels',
@@ -149,8 +156,8 @@ App.view.define('VScheduler', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
-				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}")
+				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}",{autoLoad: true}),
+				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}",{autoLoad: true})
 			},                
 			{
 				xtype: "schedulergrid",
@@ -162,9 +169,9 @@ App.view.define('VScheduler', {
 				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
 				viewPreset    : 'CEREMA_VIEW',
 				rowHeight: 32,
-                height: 330,
 				allowOverlap: false,
 				flex: 1,
+				heigth: 200,
 				width: "100%",
 				columns: [{
 					header: 'Agents',
@@ -174,9 +181,27 @@ App.view.define('VScheduler', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId,StartDate,EndDate,User,IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}"),
-				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2")
+				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId, StartDate, EndDate, User, IF(User='"+Auth.User.uid+"';'blue';'red')=Cls}",{autoLoad: true}),
+				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2",{autoLoad: true})
 			}
+			]
+		},
+		{
+			width: 250,
+			hidden: true,
+			border: false,
+			items: [
+                {
+                    xtype: "grid",
+                    flex: 1,
+                    height: "100%",
+                    store: App.store.create({fields:[],data:[]}),
+                    columns:[
+                    
+                    ]
+                }
+			]
+		}
 		];
 
         this.callParent();
