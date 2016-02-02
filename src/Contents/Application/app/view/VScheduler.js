@@ -138,7 +138,7 @@ App.view.define('VScheduler', {
 				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
 				viewPreset    : 'CEREMA_VIEW',
 				rowHeight: 32,
-				flex: 1,
+				height: 330,
 				allowOverlap: false,
 				width: "100%",
 				columns: [{
@@ -162,6 +162,7 @@ App.view.define('VScheduler', {
 				endDate       : new Date(new Date().setMonth(new Date().getMonth()+4)),
 				viewPreset    : 'CEREMA_VIEW',
 				rowHeight: 32,
+                height: 330,
 				allowOverlap: false,
 				flex: 1,
 				width: "100%",
