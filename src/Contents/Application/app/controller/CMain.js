@@ -44,7 +44,7 @@ App.controller.define('CMain', {
             "VSchedulerMain schedulergrid": {
                 render: function() {
                     // sync scrollbars
-
+alert('x');
                     App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
                         App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
                     });
