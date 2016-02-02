@@ -128,3 +128,8 @@
     border-radius: 100%;
   }
 }
+
+.adr
+{
+	background-image:url(webapp/address_book.png);
+}

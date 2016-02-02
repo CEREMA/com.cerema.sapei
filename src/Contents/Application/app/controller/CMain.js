@@ -793,9 +793,6 @@ App.controller.define('CMain', {
 			startDate     : new Date(),
             endDate       : new Date(new Date().setMonth(new Date().getMonth()+4))
 		});
-        // update Scheduler
-        App.get('VScheduler schedulergrid#schedule_agents').getResourceStore().load();
-        App.get('VScheduler schedulergrid#schedule_materiels').getResourceStore().load();
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
