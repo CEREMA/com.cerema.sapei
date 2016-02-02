@@ -846,14 +846,17 @@ App.controller.define('CMain', {
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
         AFFAIRE_ID=p.ItemID;
 		App.get('TAffaire').runner=window.setInterval(function() {
-            
+            console.log(AFFAIRE_ID);
 			App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
 				if (r.data.length==0) {
 					if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
 					if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
 				};
 				if (r.data.length!=App.get('TAffaire').wiki) {
+                    console.log(AFFAIRE_ID);
 					App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
+                        console.log(e);
+                        console.log(r);
 						var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
 						var tpl=[];
 						for (var i=0;i<r.result.data.length;i++) {
