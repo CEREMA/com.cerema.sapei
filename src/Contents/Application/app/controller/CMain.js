@@ -170,6 +170,9 @@ App.controller.define('CMain', {
             /*
             VSchedulerMain
             */
+            "VSchedulerMain": {
+                show: "VSchedulerMain_onshow"  
+            },
             "VSchedulerMain schedulergrid": {
                 beforeeventresize: "read_only",
 				beforeeventdrag: "read_only",
@@ -191,6 +194,16 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    VSchedulerMain_onshow: function()
+    {
+		// sync scrollbars
+		App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+			App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+		});
+		App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
+			App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+		});        
+    },
     textfield_change: function(p) {
         if (App.timo) clearTimeout(App.timo);
         App.timo=setTimeout(function() {
