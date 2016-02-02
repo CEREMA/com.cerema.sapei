@@ -33,9 +33,7 @@ App.controller.define('CMain', {
 				show: "AffairesVNew_onshow"
 			},
             "AffairesVNew button#adrbook": {
-                click: function(p) {
-                    alert('x');   
-                }
+                click: "AdrBookClick"
             },
 			"AffairesVNew button#VNewPost": {
 				click: "VNewPost_onclick"
@@ -197,7 +195,7 @@ App.controller.define('CMain', {
 		
 	},
     AdrBookClick: function(p) {
-        App.view.create('Contacts',{modal: true}).show();
+        App.view.create('VContacts',{modal: true}).show();
     },
     textfield_change: function(p) {
         if (App.timo) clearTimeout(App.timo);
