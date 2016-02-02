@@ -1,5 +1,6 @@
 SELECT ope.Id_ope,
-       type_ope.libelle_ope,
+    type_ope.libelle_ope,
+    type_ope.order_id,
        ope.type_ope,
        ope.Stat,
        ope.Id_job,
