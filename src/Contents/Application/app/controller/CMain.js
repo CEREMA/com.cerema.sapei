@@ -258,8 +258,6 @@ App.controller.define('CMain', {
 			obj.Id_job=App.get('TAffaire').ItemID;
 			obj[p.bind]=p.getValue();
 			App.DB.post('sapei://job',obj,function(e,r) {
-				console.log(e);
-				console.log(r);
                 clearTimeout(App.timo);
 			});
 		}          
