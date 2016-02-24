@@ -835,6 +835,12 @@ App.controller.define('CMain', {
                         data1: (inc/total)*100
                     }]);
                     App.get('TAffaire chart').redraw();
+                    // on met à jour l'affaire
+                    App.DB.post('sapei://jobs',{
+                        Id_job: App.get('TAffaire').ItemID,
+                        avancement: inc,
+                        total: total
+                    },Ext.emptyFn);
                 };
                 App.get('TAffaire grid#tasks').getStore().loadData(data);
             };
