@@ -53,7 +53,7 @@ App.view.define('VOpenAffaire', {
 			{
 				text: "Axe",
 				dataIndex: "Axe",
-				width: 30
+				width: 70
 			},                
 			{
 				text: "Intitulé",
