@@ -146,7 +146,7 @@ App.controller.define('CMain', {
 			OpenAffaire
 			*/
 			"VOpenAffaire": {
-			
+                show: "VOpenAffaire_onshow"
 			},
 			"VOpenAffaire grid#open": {
 				itemdblclick: "grid_open_dblclick"
@@ -196,6 +196,10 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    VOpenAffaire_onshow: function(p)
+    {
+        App.get(p,'grid#open').getStore().load();
+    },
     AdrBookClick: function(p) {
         this.Contacts();
     },
