@@ -43,13 +43,22 @@ App.view.define('VOpenAffaire', {
 				width: 30
 			},
 			{
+				text: "Type",
+				dataIndex:"Libelle_type_prestation"
+			},
+			{
+				text: "Département",
+				dataIndex: "Lib_dpt"
+			},
+			{
+				text: "Axe",
+				dataIndex: "Axe",
+				width: 30
+			},                
+			{
 				text: "Intitulé",
 				dataIndex: "Intitule_job",
 				flex: 1
-			},
-			{
-				text: "Client",
-				dataIndex:"Lib_client_origine"
 			},
 			{
 				text: "Prise d'affaire",
@@ -62,18 +71,12 @@ App.view.define('VOpenAffaire', {
 				renderer: Ext.util.Format.dateRenderer("d/m/Y")
 			},
 			{
-				text: "Type",
-				dataIndex:"Libelle_type_prestation"
-			},
-			{
-				text: "Département",
-				dataIndex: "Lib_dpt"
-			},
-			{
-				text: "Axe",
-				dataIndex: "Axe",
-				width: 30
-			}			
+				text: "Avancement",
+				dataIndex:"Lib_client_origine",
+                render: function(value) {
+                    
+                }
+			}
 			],
             features: [
 				    Ext.create('Ext.grid.feature.Grouping',{
