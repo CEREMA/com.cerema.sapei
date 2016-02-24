@@ -79,9 +79,9 @@ App.view.define('VOpenAffaire', {
 			}
 			],
             features: [
-				    Ext.create('Ext.grid.feature.Grouping',{
-					   groupHeaderTpl: '{name}'
-				    })
+                Ext.create('Ext.grid.feature.Grouping',{
+                   groupHeaderTpl: '{name}'
+                })
             ],            
 			store: App.store.create('sapei://job{Id_job,axe.Axe,axe.dpt.Lib_dpt,Intitule_job+,type_prestation.Libelle_type_prestation,Date_prise_job,Date_livrable_job,Num_SIGMA_job,client_origine.Lib_client_origine}',{groupField:"Lib_client_origine",autoLoad:true})
 		}
