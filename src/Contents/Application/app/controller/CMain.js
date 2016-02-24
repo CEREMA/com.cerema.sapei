@@ -198,6 +198,7 @@ App.controller.define('CMain', {
 	},
     VOpenAffaire_onshow: function(p)
     {
+        alert('x');
         App.get(p,'grid#open').getStore().load();
     },
     AdrBookClick: function(p) {
