@@ -237,8 +237,9 @@
                             "io": '/socket.io/socket.io.js'
                         }
                     });				
-                    require(['io'],function(io) {
+                    require(['io'],function(io) {						
                         var socket = io.connect();
+						document.socket=socket;
                         socket.on('connect', function () {
                             try {
                                 App.unblur();
