@@ -263,4 +263,28 @@
 							console.debug('%c' + 'DEBUG: SERVER \n', 'color: black; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
 						socket.on('error',function(data) {
-							console.error('%c' + 'ERROR: SERVER \n'
+							console.error('%c' + 'ERROR: SERVER \n', 'color: red; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
+						});
+                        socket.on('session', function (data) {
+                            var data=JSON.parse(data);
+                            if (!localStorage.getItem("session")) localStorage.setItem('session',data.session); else {
+                                if (localStorage.getItem("session")!=data.session) {
+                                    localStorage.setItem('session',data.session);
+                                    try {										
+                                        App.blur();
+                                    }catch(e) {
+                                    };
+                                    location.reload();
+                                }
+                            };
+                        });																				
+                    });	
+					require(["Contents/Application/app"], function() {					
+						
+					});
+				});		
+			});
+		},1000);
+		</script>
+	</body>
+</html>
