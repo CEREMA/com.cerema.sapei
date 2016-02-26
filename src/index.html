@@ -238,35 +238,34 @@
                         }
                     });				
                     require(['io'],function(io) {						
-                        var socket = io.connect();
-						document.socket=socket;
-                        socket.on('connect', function () {
+						document.socket=io.connect();
+                        document.socket.on('connect', function () {
                             try {
                                 App.unblur();
                             } catch(e) {};						
                             $('.omneedia-overlay').hide();
                         });
-                        socket.on('disconnect', function () {
+                        document.socket.on('disconnect', function () {
                             try {
                                 App.blur();
                             } catch(e) {};
                         });
-						socket.on('log',function(data) {
+						document.socket.on('log',function(data) {
 							console.log('%c ' + 'LOG: SERVER \n', 'color: #00F; border:1px solid #00F; border-radius: 10px; padding: 2px; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});						
-						socket.on('info',function(data) {
+						document.socket.on('info',function(data) {
 							console.info('%c' + 'INFO: SERVER \n', 'color: green; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
-						socket.on('warn',function(data) {
+						document.socket.on('warn',function(data) {
 							console.warn('%c' + 'WARN: SERVER \n', 'color: orange; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
-						socket.on('debug',function(data) {
+						document.socket.on('debug',function(data) {
 							console.debug('%c' + 'DEBUG: SERVER \n', 'color: black; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
-						socket.on('error',function(data) {
+						document.socket.on('error',function(data) {
 							console.error('%c' + 'ERROR: SERVER \n', 'color: red; font-family:"Arial", Helevetica; font-size:10px;font-weight:bold', data);
 						});
-                        socket.on('session', function (data) {
+                        document.socket.on('session', function (data) {
                             var data=JSON.parse(data);
                             if (!localStorage.getItem("session")) localStorage.setItem('session',data.session); else {
                                 if (localStorage.getItem("session")!=data.session) {
