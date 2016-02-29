@@ -62,6 +62,11 @@ App.view.define('VMain', {
                 activeTab: 0,
                 items: [
                 {
+                    xtype: "panel",
+                    title: "hello",
+                    html: "hello world"
+                },
+                {
                     xtype: "VSchedulerMain",
                     title: "Planification",
                     hidden: false,
