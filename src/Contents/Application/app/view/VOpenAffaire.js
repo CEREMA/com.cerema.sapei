@@ -83,8 +83,9 @@ App.view.define('VOpenAffaire', {
                     var pt = (record.data.avancement*100/record.data.total)/100;
                     var id = Ext.id();
                     Ext.defer(function (id,pt) {
+                        alert(Ext.getCmp(id));
                         var p = Ext.create('Ext.ProgressBar',{
-                            renderTo: id,
+                            renderTo: Ext.getCmp(id),
                             animate: true,
                             width: '100%',
                             value: pt,
