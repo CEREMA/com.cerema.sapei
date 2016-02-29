@@ -75,7 +75,7 @@ App.view.define('VOpenAffaire', {
 				dataIndex:"Lib_client_origine",
                 width: 80,
                 renderer: function(value, meta, record){
-                    var id = Ext.id();
+                  /*  var id = Ext.id();
                     Ext.defer(function () {
                         Ext.widget('progressbar', {
                             renderTo: id,
@@ -83,7 +83,7 @@ App.view.define('VOpenAffaire', {
                             width: 20
                         });
                     }, 50);
-                    return Ext.String.format('<div id="{0}"></div>', id);
+                    return Ext.String.format('<div id="{0}"></div>', id);*/
 				}
 			}
 			],
