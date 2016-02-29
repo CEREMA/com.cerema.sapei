@@ -59,6 +59,7 @@ App.view.define('VMain', {
 			},
             {
                 xtype: "tabpanel",
+                itemId: "mainscreen",
                 activeTab: 0,
                 items: [
                 {
