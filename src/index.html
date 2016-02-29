@@ -240,6 +240,7 @@
                     require(['io'],function(io) {						
 						document.socket=io.connect();
                         document.socket.on('connect', function () {
+                            alert('x');
                             try {
                                 App.unblur();
                             } catch(e) {};						
