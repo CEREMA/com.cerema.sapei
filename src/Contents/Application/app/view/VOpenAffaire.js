@@ -91,7 +91,7 @@ App.view.define('VOpenAffaire', {
                             text: (pt*100)+"%",
                         });                        
                     }, 50, undefined, [id,pt]);*/
-                    return "<div id='" + id + "'></div>";
+                    return "<div id='" + id + "'>toto</div>";
 				}
 			}
 			],
