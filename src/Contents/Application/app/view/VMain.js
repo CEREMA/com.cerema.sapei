@@ -79,11 +79,6 @@ App.view.define('VMain', {
                     flex: 1                
                 },
                 {
-                    xtype: "panel",
-                    title: "hello",
-                    html: "hello world"
-                },
-                {
                     xtype: "VOpenAffaire",
                     border: false,
                     title: "Affaires"
