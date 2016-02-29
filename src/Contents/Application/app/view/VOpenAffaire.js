@@ -73,6 +73,7 @@ App.view.define('VOpenAffaire', {
 			{
 				text: "Avancement",
 				dataIndex:"avancement",
+                width: 80,
                 renderer: function(value, meta, record){
                     if (value==-1) return "";
                     if(value == null){
