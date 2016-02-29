@@ -65,6 +65,11 @@ App.view.define('VOpenAffaire', {
 				dataIndex:"Date_prise_job",
 				renderer: Ext.util.Format.dateRenderer("d/m/Y")
 			},
+            {
+                text: "Statut",
+                dataIndex: "statut",
+                width: 100
+            },                
 			{
 				text: "Remise livrable",
 				dataIndex:"Date_livrable_job",
@@ -95,9 +100,8 @@ App.view.define('VOpenAffaire', {
 				}
 			},
             {
-                text: "Statut",
-                dataIndex: "statut",
-                width: 100
+                text: "Pilote",
+                dataIndex: "nomprenom"
             }
 			],
             features: [
@@ -105,7 +109,7 @@ App.view.define('VOpenAffaire', {
                    groupHeaderTpl: '{name}'
                 })
             ],            
-			store: App.store.create('sapei://job{Id_job,avancement, total,axe.Axe,axe.dpt.Lib_dpt,Intitule_job+,job_statut.statut,type_prestation.Libelle_type_prestation,Date_prise_job,Date_livrable_job,Num_SIGMA_job,client_origine.Lib_client_origine}',{groupField:"Lib_client_origine"})
+			store: App.store.create('sapei://job{Id_job,avancement, total,axe.Axe,axe.dpt.Lib_dpt,Intitule_job+,Id_pilote_job->bpclight_agents{nom+" "+prenom=nomprenom},job_statut.statut,type_prestation.Libelle_type_prestation,Date_prise_job,Date_livrable_job,Num_SIGMA_job,client_origine.Lib_client_origine}',{groupField:"Lib_client_origine"})
 		}
 		];
 
