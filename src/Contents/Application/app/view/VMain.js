@@ -51,7 +51,6 @@ App.view.define('VMain', {
 			split:true,
 			layout: "fit",
             border: false,
-            xtype: "tabpanel",
 			items: [
 			{
 				xtype: "TAffaire",
@@ -59,7 +58,12 @@ App.view.define('VMain', {
 				flex: 1
 			},
             {
+                xtype: "tabpanel",
+                
+                items: [
+            {
 				xtype: "VSchedulerMain",
+                title: "Tab 1",
 				hidden: false,
                 bbar: [
                     '->',
@@ -73,7 +77,9 @@ App.view.define('VMain', {
                     }
                 ],                            
 				flex: 1                
-            }
+            }                    
+                ]
+            },
 			]
 		}
 	]
