@@ -221,6 +221,7 @@
 		var spinner = new Spinner(opts).spin(target);		
 		</script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.ravenjs.com/2.1.0/raven.min.js"></script>
 		<script>
 		__SESSION__=-1;
 		__COUNTER__=-1;		
@@ -280,7 +281,7 @@
                         });																				
                     });	
 					require(["Contents/Application/app"], function() {					
-						
+						Raven.config('https://404b5b01f14d423284081d0e7f2ae282@app.getsentry.com/68704').install()
 					});
 				});		
 			});
