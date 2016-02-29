@@ -59,7 +59,7 @@ App.view.define('VMain', {
 			},
             {
                 xtype: "tabpanel",
-                
+                activeTab: 0,
                 items: [
                 {
                     xtype: "VSchedulerMain",
