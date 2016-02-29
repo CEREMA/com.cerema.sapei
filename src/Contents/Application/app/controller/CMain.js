@@ -523,7 +523,6 @@ App.controller.define('CMain', {
         });
     },
     affaire_combo_update: function(p) {
-        alert('x');
 		if (p.bind) {
 			// on met à jour l'enregistrement
 			var obj={};
