@@ -73,13 +73,13 @@ App.view.define('VOpenAffaire', {
 			{
 				text: "Avancement",
 				dataIndex:"Lib_client_origine",
+                width: 80,
                 renderer: function(value, meta, record){
                     if (value==-1) return "";
                     if(value == null){
                         value = 0;
                     };              
                     var id=Ext.id();
-                    console.info(record);
                     var pt = (record.data.avancement*100/record.data.total)/100;
                     var id = Ext.id();
                     Ext.defer(function (id,pt) {
