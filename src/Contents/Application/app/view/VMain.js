@@ -51,6 +51,7 @@ App.view.define('VMain', {
 			split:true,
 			layout: "fit",
             border: false,
+            xtype: "tabpanel",
 			items: [
 			{
 				xtype: "TAffaire",
