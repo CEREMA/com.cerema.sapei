@@ -73,7 +73,7 @@ App.view.define('VOpenAffaire', {
 			{
 				text: "Avancement",
 				dataIndex:"Lib_client_origine",
-                render: function(value, meta, record){
+                renderer: function(value, meta, record){
                     if (value==-1) return "";
                     if(value == null){
                         value = 0;
@@ -91,7 +91,7 @@ App.view.define('VOpenAffaire', {
                             text: (pt*100)+"%",
                         });                        
                     }, 50, undefined, [id,pt]);*/
-                    return "<div id='" + id + "'>toto</div>";
+                    return "<div id='" + id + "'></div>";
 				}
 			}
 			],
