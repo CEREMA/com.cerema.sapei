@@ -72,18 +72,26 @@ App.view.define('VOpenAffaire', {
 			},
 			{
 				text: "Avancement",
-				dataIndex:"Lib_client_origine",
-                width: 80,
+				dataIndex:"avancement",
                 renderer: function(value, meta, record){
-                  /*  var id = Ext.id();
-                    Ext.defer(function () {
-                        Ext.widget('progressbar', {
+                    if (value==-1) return "";
+                    if(value == null){
+                        value = 0;
+                    };              
+                    var id=Ext.id();
+                    console.info(record);
+                    var pt = (record.data.avancement*100/record.data.total)/100;
+                    var id = Ext.id();
+                    Ext.defer(function (id,pt) {
+                        var p = Ext.create('Ext.ProgressBar',{
                             renderTo: id,
-                            value: value / 100,
-                            width: 20
-                        });
-                    }, 50);
-                    return Ext.String.format('<div id="{0}"></div>', id);*/
+                            animate: true,
+                            width: '100%',
+                            value: pt,
+                            text: (pt*100)+"%",
+                        });                        
+                    }, 50, undefined, [id,pt]);
+                    return "<div id='" + id + "'></div>";
 				}
 			}
 			],
