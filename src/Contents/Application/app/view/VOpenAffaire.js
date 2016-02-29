@@ -80,7 +80,7 @@ App.view.define('VOpenAffaire', {
                         Ext.widget('progressbar', {
                             renderTo: id,
                             value: value / 100,
-                            width: 100
+                            width: 20
                         });
                     }, 50);
                     return Ext.String.format('<div id="{0}"></div>', id);
