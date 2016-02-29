@@ -1,5 +1,4 @@
 App.view.define('VAffaire', {
-App.view.define('VAffaire', {
 
     extend: 'Ext.Panel',
 	alias : 'widget.TAffaire',
