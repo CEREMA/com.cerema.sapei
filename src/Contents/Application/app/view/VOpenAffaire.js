@@ -2,7 +2,7 @@ App.view.define('VOpenAffaire', {
     extend: "Ext.window.Window",
     alias: 'widget.VOpenAffaire',
     initComponent: function() {
-        this.width = 1024;
+        this.width = 1280;
         this.height = 700;
 		
 		this.title = "Ouvrir une affaire";
