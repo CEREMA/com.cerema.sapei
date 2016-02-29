@@ -1,4 +1,4 @@
-xvar AFFAIRE_ID="";
+var AFFAIRE_ID="";
 
 App.controller.define('CMain', {
 
