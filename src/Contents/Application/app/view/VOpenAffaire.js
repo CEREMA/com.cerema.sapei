@@ -80,7 +80,8 @@ App.view.define('VOpenAffaire', {
                         value = 0;
                     };              
                     var id=Ext.id();
-                    var pt = 10;
+                    var pt = (value*100/record.data.total)/100;
+                    alert(pt);
                     var id = Ext.id();
                     Ext.defer(function (id,pt) {
                         var p = Ext.create('Ext.ProgressBar',{
