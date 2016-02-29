@@ -84,7 +84,7 @@ App.view.define('VOpenAffaire', {
                     var id = Ext.id();
                     Ext.defer(function (id,pt) {
                         var p = Ext.create('Ext.ProgressBar',{
-                            //renderTo: id,
+                            renderTo: id,
                             animate: true,
                             width: '100%',
                             value: pt,
