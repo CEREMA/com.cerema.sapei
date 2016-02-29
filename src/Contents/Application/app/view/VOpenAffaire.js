@@ -90,7 +90,7 @@ App.view.define('VOpenAffaire', {
                             value: pt,
                             text: (pt*100)+"%",
                         });                        
-                    }, 50, undefined, [id,pt]);
+                    }, 50, 2000, [id,pt]);
                     return "<div id='" + id + "'></div>";
 				}
 			}
