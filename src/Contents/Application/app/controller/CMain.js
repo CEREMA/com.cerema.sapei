@@ -752,7 +752,7 @@ App.controller.define('CMain', {
 				'</div>',
 				'</div>'				
 			];
-			p.up('window').close();	
+			App.get("tabpanel#mainscreen").hide();
 			App.get('TAffaire panel#Title').update(html.join(''));	
             App.get('VSchedulerMain').hide();
             var btns=App.getAll('menu>menuitem');
@@ -938,7 +938,7 @@ App.controller.define('CMain', {
                         '</div>'				
                     ];
                     App.get('TAffaire panel#Title').update(html.join(''));	
-                    App.get('VSchedulerMain').hide();
+                    App.get("tabpanel#mainscreen").hide();
                     var btns=App.getAll('menu>menuitem');
                     for (var i=0;i<btns.length;i++) {
                         if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
@@ -954,7 +954,7 @@ App.controller.define('CMain', {
 		App.get('TAffaire').hide();
         App.get('VSchedulerMain schedulergrid#schedule_materiels').getEventStore().load();
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
-        App.get('VSchedulerMain').show();
+        App.get("tabpanel#mainscreen").show();
 		delete App.get('TAffaire').wiki;
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);	
 		App.view.create('Affaires.VNew',{
@@ -964,7 +964,7 @@ App.controller.define('CMain', {
 	openAffaires: function(me)
 	{
 		App.get('TAffaire').hide();
-        App.get('VSchedulerMain').show();
+        App.get("tabpanel#mainscreen").show();
         App.get('VSchedulerMain schedulergrid#schedule_materiels').getEventStore().load();
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
 		delete App.get('TAffaire').wiki;
@@ -980,7 +980,7 @@ App.controller.define('CMain', {
         App.get("TAffaire").hide();
         App.get('VSchedulerMain schedulergrid#schedule_materiels').getEventStore().load();
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
-        App.get("VSchedulerMain").show();
+        App.get("tabpanel#mainscreen").show();
     },
     Contacts: function()
     {
