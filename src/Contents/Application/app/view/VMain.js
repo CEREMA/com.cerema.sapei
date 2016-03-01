@@ -9,8 +9,8 @@ App.view.define('VMain', {
 	items: [
 		{
 			region: 'north',
-			height: 250,
-			minHeight: 250,
+			height: 25,
+			minHeight: 25,
 			border:false,
 			baseCls: 'cls-header',
 			xtype: "Menu",
