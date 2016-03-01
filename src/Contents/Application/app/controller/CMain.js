@@ -1014,7 +1014,7 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{        
 		// form loaded
-        //App.get('mainform FilterBox#FilterPanel').show();
+        
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
@@ -1025,6 +1025,8 @@ App.controller.define('CMain', {
                 var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
+                App.get('mainform FilterBox#FilterPanel').store=store;
+                App.get('mainform FilterBox#FilterPanel').show();
             }
 		});
 	}
