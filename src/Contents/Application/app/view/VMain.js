@@ -63,6 +63,11 @@ App.view.define('VMain', {
                 activeTab: 0,
                 items: [
                 {
+                    xtype: "VOpenAffaire",
+                    border: false,
+                    title: "Affaires"
+                },                    
+                {
                     xtype: "VSchedulerMain",
                     title: "Planification",
                     hidden: false,
@@ -78,11 +83,6 @@ App.view.define('VMain', {
                         }
                     ],                            
                     flex: 1                
-                },
-                {
-                    xtype: "VOpenAffaire",
-                    border: false,
-                    title: "Affaires"
                 }
                 ]
             },
