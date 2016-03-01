@@ -184,8 +184,8 @@
 	.omneedia-overlay{z-index: 9999999999;position:absolute;left:0px;top:0px;width:100%;height:100%;display:none;}
 	</style>
 	</head>
-	<body class="animated2 fadeIn">	
-		<div id="appLoadingFailed"></div><div class="omneedia-overlay"></div>
+	<body class="animated2 fadeIn">		
+		<div class="omneedia-reload"></div><div id="appLoadingFailed"></div><div class="omneedia-overlay"></div>
 		<div id="bootstrap" class="animated2 fadeIn">
 			<div class="SystemScreen front face">				
 				<div id="appLoadingIcon" class="animated slideInDown"></div>
@@ -246,7 +246,8 @@
                         });
                         document.socket.on('disconnect', function () {
                             try {
-                                App.blur();
+                                //App.blur();
+								$('.omneedia-reload').show();
                             } catch(e) {};
                         });
 						document.socket.on('log',function(data) {
