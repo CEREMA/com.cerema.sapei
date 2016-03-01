@@ -174,14 +174,14 @@ App.controller.define('CMain', {
             */
             "VSchedulerMain": {
                 show: function(p) {
-                    alert('x');
-                    App.get('VSchedulerMain schedulergrid#schedule_agents').getStore().on('load',function() {
+                    App.get(p,'schedulergrid#schedule_agents').getStore().on('load',function() {
+                        alert('x');
                         // sync scrollbars
-                        App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
-                            App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+                        App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+                            App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
                         });
-                        App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
-                            App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+                        App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
+                            App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
                         });                    
                     });                    
                 }
