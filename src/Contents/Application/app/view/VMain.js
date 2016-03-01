@@ -40,21 +40,20 @@ App.view.define('VMain', {
                         }
                     ]
                 }
-			],
-            items: [
-		      {
-			     xtype: "FilterBox",
-			     itemId: "FilterPanel",
-			     fields: [
-                    {
-                        name: "Nom",
-                        field: "agents.nom",
-                        type: "text"
-                    }			
-			     ]			
-		      }
-            ]
+			]
 		},
+        {
+             region: "north"  ,
+             xtype: "FilterBox",
+			 itemId: "FilterPanel",
+			 fields: [
+                 {
+                     name: "Nom",
+                     field: "agents.nom",
+                     type: "text"
+                 }			
+			 ]            
+        },
 		{
 			region: "center",			
 			split:true,
