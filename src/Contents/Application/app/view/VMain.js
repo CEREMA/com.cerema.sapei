@@ -48,8 +48,8 @@ App.view.define('VMain', {
 			 itemId: "FilterPanel",
 			 fields: [
                  {
-                     name: "Nom",
-                     field: "agents.nom",
+                     name: "Axe",
+                     field: "Axe",
                      type: "text"
                  }			
 			 ]            
