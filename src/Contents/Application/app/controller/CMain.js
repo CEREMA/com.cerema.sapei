@@ -145,9 +145,6 @@ App.controller.define('CMain', {
 			/*
 			OpenAffaire
 			*/
-			"VOpenAffaire": {
-                show: "VOpenAffaire_onshow"
-			},
 			"VOpenAffaire grid#open": {
 				itemdblclick: "grid_open_dblclick"
 			},
@@ -175,6 +172,20 @@ App.controller.define('CMain', {
             /*
             VSchedulerMain
             */
+            "VSchedulerMain": {
+                show: function(p) {
+                    alert('x');
+                    App.get('VSchedulerMain schedulergrid#schedule_agents').getStore().on('load',function() {
+                        // sync scrollbars
+                        App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+                            App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+                        });
+                        App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
+                            App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+                        });                    
+                    });                    
+                }
+            },
             "VSchedulerMain schedulergrid": {
                 beforeeventresize: "read_only",
 				beforeeventdrag: "read_only",
@@ -196,10 +207,6 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
-    VOpenAffaire_onshow: function(p)
-    {
-        App.get(p,'grid#open').getStore().load();
-    },
     AdrBookClick: function(p) {
         this.Contacts();
     },
@@ -1009,15 +1016,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-        /*App.get('VSchedulerMain schedulergrid#schedule_agents').getStore().on('load',function() {
-            // sync scrollbars
-            App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
-                App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-            });
-            App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
-                App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-            });                    
-        });*/
+        App.get(p,'grid#open').getStore().load();
 		// form loaded
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
