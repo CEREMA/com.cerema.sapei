@@ -56,6 +56,7 @@ App.view.define('VMain', {
         {
              xtype: "FilterBox",
 			 itemId: "FilterPanel",
+            height: 250,
 			 fields: [
                  {
                      name: "Nom",
