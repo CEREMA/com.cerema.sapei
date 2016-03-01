@@ -47,6 +47,7 @@ App.view.define('VMain', {
 			split:true,
 			layout: "fit",
             border: false,
+            layout: "vbox",
 			items: [
 			{
 				xtype: "TAffaire",
