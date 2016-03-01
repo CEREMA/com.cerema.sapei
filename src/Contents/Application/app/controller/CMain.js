@@ -1014,15 +1014,17 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{        
 		// form loaded
-        App.get('mainform FilterBox#FilterPanel').show();
+        //App.get('mainform FilterBox#FilterPanel').show();
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
                 for (var i=0;i<btns.length;i++) {
                     if (btns[i].itemId=="mnu_aff_new") btns[i].show();
                 };
-                
-                App.get('VOpenAffaire grid#open').getStore().load();
+                // si je suis admin, je sélectionne par pilote
+                var store=App.get('VOpenAffaire grid#open').getStore();
+                store.getProxy().extraParams.kage=Auth.User.uid;
+                store.load();
             }
 		});
 	}
