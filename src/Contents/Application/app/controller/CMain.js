@@ -863,35 +863,6 @@ App.controller.define('CMain', {
     },
 	TAffaire_onshow: function(p)
 	{
-        if (Auth.User.profiles.indexOf('Admin')>-1) App.get('TAffaire button#newtask').show();
-		App.get('TAffaire').wiki=0;
-        App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
-        AFFAIRE_ID=p.ItemID;
-		App.get('TAffaire').runner=window.setInterval(function() {
-			App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
-				if (r.data.length==0) {
-					if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
-					if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
-				};
-				if (r.data.length!=App.get('TAffaire').wiki) {
-					App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
-						var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
-						var tpl=[];
-						for (var i=0;i<r.result.data.length;i++) {
-							var results=html;
-							results=results.replace('%DATE%',r.result.data[i].date.toDate().toString('dd/MM/yyyy hh:mm'));
-							results=results.replace('%POSTER%',r.result.data[i].nomprenom);
-							results=results.replace('%COMMENT%',r.result.data[i].blog);
-							tpl.push(results);
-						};
-						results='<ul class="timeline">'+tpl.join('')+'</ul>';
-						if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update(results);
-						if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(results);
-						App.get('TAffaire').wiki=r.result.data.length;
-					});				
-				};
-			});
-		},1000);			
 	},
 	ctxClose_onclick: function(me)
 	{	
@@ -1032,7 +1003,38 @@ App.controller.define('CMain', {
                 for (var i=0;i<btns.length;i++) {
                     if (btns[i].itemId=="mnu_aff_new") btns[i].show();
                 };
-            }
+                App.get('TAffaire button#newtask').show();
+            };
+            // on charge toutes les affaires
+            App.get('TAffaire').wiki=0;
+            App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
+            AFFAIRE_ID=p.ItemID;
+            App.get('TAffaire').runner=window.setInterval(function() {
+                App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
+                    if (r.data.length==0) {
+                        if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
+                        if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
+                    };
+                    if (r.data.length!=App.get('TAffaire').wiki) {
+                        App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
+                            var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
+                            var tpl=[];
+                            for (var i=0;i<r.result.data.length;i++) {
+                                var results=html;
+                                results=results.replace('%DATE%',r.result.data[i].date.toDate().toString('dd/MM/yyyy hh:mm'));
+                                results=results.replace('%POSTER%',r.result.data[i].nomprenom);
+                                results=results.replace('%COMMENT%',r.result.data[i].blog);
+                                tpl.push(results);
+                            };
+                            results='<ul class="timeline">'+tpl.join('')+'</ul>';
+                            if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update(results);
+                            if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(results);
+                            App.get('TAffaire').wiki=r.result.data.length;
+                        });				
+                    };
+                });
+            },1000);			
+            
 		});
 	}
 	
