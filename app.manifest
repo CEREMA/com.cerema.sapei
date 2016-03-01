@@ -57,7 +57,8 @@
     "modules": [
         "Ext.ux.Scheduler",
         "Ext.ux.form.field.BoxSelect",
-        "Ext.ux.daterange.field.DateRange"
+        "Ext.ux.daterange.field.DateRange",
+        "Ext.ux.FilterBox"
     ],
     "plugins": [],
     "api": [

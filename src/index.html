@@ -246,8 +246,7 @@
                         });
                         document.socket.on('disconnect', function () {
                             try {
-                                //App.blur();
-								$('.omneedia-reload').show();
+                                App.blur();
                             } catch(e) {};
                         });
 						document.socket.on('log',function(data) {

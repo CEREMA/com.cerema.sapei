@@ -40,7 +40,13 @@ App.view.define('VMain', {
                         }
                     ]
                 }
-			]		
+			],
+            items: [
+                {
+                    html: "yes",
+                    height: 450
+                }
+            ]
 		},
 		{
 			region: "center",			
