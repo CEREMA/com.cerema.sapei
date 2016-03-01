@@ -25,10 +25,6 @@ App.view.define('VMain', {
                             hidden: true
 						},
 						{
-							itemId: "mnu_aff_open",
-							text: "Ouvrir"
-						},
-						{
 							itemId: "mnu_aff_close",
 							text: "Fermer",
                             hidden: true
