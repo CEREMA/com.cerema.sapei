@@ -42,10 +42,17 @@ App.view.define('VMain', {
                 }
 			],
             items: [
-                {
-                    html: "yes",
-                    height: 450
-                }
+		      {
+			     xtype: "FilterBox",
+			     itemId: "FilterPanel",
+			     fields: [
+                    {
+                        name: "Nom",
+                        field: "agents.nom",
+                        type: "text"
+                    }			
+			     ]			
+		      }
             ]
 		},
 		{
