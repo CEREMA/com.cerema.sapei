@@ -42,18 +42,6 @@ App.view.define('VMain', {
                 }
 			]
 		},
-        {
-             region: "north"  ,
-             xtype: "FilterBox",
-			 itemId: "FilterPanel",
-			 fields: [
-                 {
-                     name: "Nom",
-                     field: "agents.nom",
-                     type: "text"
-                 }			
-			 ]            
-        },
 		{
 			region: "center",			
 			split:true,
@@ -65,6 +53,18 @@ App.view.define('VMain', {
 				hidden: true,
 				flex: 1
 			},
+        {
+             region: "north"  ,
+             xtype: "FilterBox",
+			 itemId: "FilterPanel",
+			 fields: [
+                 {
+                     name: "Nom",
+                     field: "agents.nom",
+                     type: "text"
+                 }			
+			 ]            
+        },                
             {
                 xtype: "tabpanel",
                 itemId: "mainscreen",
