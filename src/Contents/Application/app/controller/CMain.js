@@ -967,13 +967,13 @@ App.controller.define('CMain', {
 	},
 	openAffaires: function(me)
 	{
-		App.get('TAffaire').hide();
+		/*App.get('TAffaire').hide();
         App.get("tabpanel#mainscreen").show();
         App.get('VSchedulerMain schedulergrid#schedule_materiels').getEventStore().load();
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
 		delete App.get('TAffaire').wiki;
 		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);
-		App.view.create('VOpenAffaire',{modal: true}).show();
+		App.view.create('VOpenAffaire',{modal: true}).show();*/
 	},
     closeAffaire: function(p)
     {
@@ -1012,15 +1012,17 @@ App.controller.define('CMain', {
 		};			
 	},
 	onLoad: function()
-	{
-        App.get('VOpenAffaire grid#open').getStore().load();
+	{        
 		// form loaded
+        App.get('mainform FilterBox#FilterPanel').show();
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
                 for (var i=0;i<btns.length;i++) {
                     if (btns[i].itemId=="mnu_aff_new") btns[i].show();
                 };
+                
+                App.get('VOpenAffaire grid#open').getStore().load();
             }
 		});
 	}
