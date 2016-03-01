@@ -1016,7 +1016,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-        App.get(p,'grid#open').getStore().load();
+        App.get('VOpenAffaire grid#open').getStore().load();
 		// form loaded
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
