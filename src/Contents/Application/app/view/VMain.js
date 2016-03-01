@@ -52,20 +52,21 @@ App.view.define('VMain', {
 			{
 				xtype: "TAffaire",
 				hidden: true,
-				flex: 1
+				flex: 1,
+                height: "100%"
 			},
-        {
-             xtype: "FilterBox",
-			 itemId: "FilterPanel",
-            height: 250,
-			 fields: [
-                 {
+            {
+                xtype: "FilterBox",
+			    itemId: "FilterPanel",
+                height: 250,
+			    fields: [
+                {
                      name: "Nom",
                      field: "agents.nom",
                      type: "text"
                  }			
-			 ]            
-        },                
+			     ]            
+            },                
             {
                 xtype: "tabpanel",
                 itemId: "mainscreen",
@@ -74,7 +75,8 @@ App.view.define('VMain', {
                 {
                     xtype: "VOpenAffaire",
                     border: false,
-                    title: "Affaires"
+                    title: "Affaires",
+                    height: "100%"
                 },                    
                 {
                     xtype: "VSchedulerMain",
