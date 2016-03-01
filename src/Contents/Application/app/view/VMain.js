@@ -71,12 +71,12 @@ App.view.define('VMain', {
                 xtype: "tabpanel",
                 itemId: "mainscreen",
                 activeTab: 0,
+                height: "100%",
                 items: [
                 {
                     xtype: "VOpenAffaire",
                     border: false,
-                    title: "Affaires",
-                    height: "100%"
+                    title: "Affaires"
                 },                    
                 {
                     xtype: "VSchedulerMain",
