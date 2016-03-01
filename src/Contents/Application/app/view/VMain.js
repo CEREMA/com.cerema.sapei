@@ -42,36 +42,33 @@ App.view.define('VMain', {
                 }
 			]
 		},
+        {
+             region: "north"  ,
+             xtype: "FilterBox",
+			 itemId: "FilterPanel",
+			 fields: [
+                 {
+                     name: "Nom",
+                     field: "agents.nom",
+                     type: "text"
+                 }			
+			 ]            
+        },
 		{
 			region: "center",			
 			split:true,
 			layout: "fit",
             border: false,
-            layout: "vbox",
 			items: [
 			{
 				xtype: "TAffaire",
 				hidden: true,
-				flex: 1,
-                height: "100%"
+				flex: 1
 			},
-            {
-                xtype: "FilterBox",
-			    itemId: "FilterPanel",
-                height: 250,
-			    fields: [
-                {
-                     name: "Nom",
-                     field: "agents.nom",
-                     type: "text"
-                 }			
-			     ]            
-            },                
             {
                 xtype: "tabpanel",
                 itemId: "mainscreen",
                 activeTab: 0,
-                height: "100%",
                 items: [
                 {
                     xtype: "VOpenAffaire",
