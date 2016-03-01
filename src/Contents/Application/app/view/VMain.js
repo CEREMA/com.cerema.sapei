@@ -54,7 +54,6 @@ App.view.define('VMain', {
 				flex: 1
 			},
         {
-             region: "north"  ,
              xtype: "FilterBox",
 			 itemId: "FilterPanel",
 			 fields: [
