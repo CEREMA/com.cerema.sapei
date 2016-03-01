@@ -174,16 +174,13 @@ App.controller.define('CMain', {
             */
             "VSchedulerMain": {
                 show: function(p) {
-                    App.get(p,'schedulergrid#schedule_agents').getStore().on('load',function() {
-                        alert('x');
                         // sync scrollbars
                         App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
                             App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
                         });
                         App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
                             App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-                        });                    
-                    });                    
+                        });                                        
                 }
             },
             "VSchedulerMain schedulergrid": {
