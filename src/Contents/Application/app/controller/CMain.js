@@ -175,9 +175,6 @@ App.controller.define('CMain', {
             /*
             VSchedulerMain
             */
-            "VSchedulerMain": {
-                show: "VSchedulerMain_onshow"
-            },
             "VSchedulerMain schedulergrid": {
                 beforeeventresize: "read_only",
 				beforeeventdrag: "read_only",
@@ -199,18 +196,6 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
-    VSchedulerMain_onshow: function(p)
-    {
-        App.get(p,'schedulergrid#schedule_agents').getStore().on('load',function() {
-            // sync scrollbars
-            App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
-                App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-            });
-            App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
-                App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-            });                    
-        });        
-    },
     VOpenAffaire_onshow: function(p)
     {
         App.get(p,'grid#open').getStore().load();
@@ -751,7 +736,6 @@ App.controller.define('CMain', {
 	grid_open_dblclick: function(p,record)
 	{
 		App.reset(App.get('TAffaire')); 
-        
 		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
             
 			response=response.data[0];
@@ -863,6 +847,35 @@ App.controller.define('CMain', {
     },
 	TAffaire_onshow: function(p)
 	{
+        if (Auth.User.profiles.indexOf('Admin')>-1) App.get('TAffaire button#newtask').show();
+		App.get('TAffaire').wiki=0;
+        App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
+        AFFAIRE_ID=p.ItemID;
+		App.get('TAffaire').runner=window.setInterval(function() {
+			App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
+				if (r.data.length==0) {
+					if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
+					if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
+				};
+				if (r.data.length!=App.get('TAffaire').wiki) {
+					App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
+						var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
+						var tpl=[];
+						for (var i=0;i<r.result.data.length;i++) {
+							var results=html;
+							results=results.replace('%DATE%',r.result.data[i].date.toDate().toString('dd/MM/yyyy hh:mm'));
+							results=results.replace('%POSTER%',r.result.data[i].nomprenom);
+							results=results.replace('%COMMENT%',r.result.data[i].blog);
+							tpl.push(results);
+						};
+						results='<ul class="timeline">'+tpl.join('')+'</ul>';
+						if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update(results);
+						if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(results);
+						App.get('TAffaire').wiki=r.result.data.length;
+					});				
+				};
+			});
+		},1000);			
 	},
 	ctxClose_onclick: function(me)
 	{	
@@ -996,6 +1009,15 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
+        App.get('VSchedulerMain schedulergrid#schedule_agents').getStore().on('load',function() {
+            // sync scrollbars
+            App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+                App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+            });
+            App.get('VSchedulerMain schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
+                App.get('VSchedulerMain schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
+            });                    
+        });
 		// form loaded
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
@@ -1003,38 +1025,7 @@ App.controller.define('CMain', {
                 for (var i=0;i<btns.length;i++) {
                     if (btns[i].itemId=="mnu_aff_new") btns[i].show();
                 };
-                App.get('TAffaire button#newtask').show();
-            };
-            // on charge toutes les affaires
-            App.get('TAffaire').wiki=0;
-            App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
-            AFFAIRE_ID=p.ItemID;
-            App.get('TAffaire').runner=window.setInterval(function() {
-                App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
-                    if (r.data.length==0) {
-                        if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
-                        if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
-                    };
-                    if (r.data.length!=App.get('TAffaire').wiki) {
-                        App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
-                            var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
-                            var tpl=[];
-                            for (var i=0;i<r.result.data.length;i++) {
-                                var results=html;
-                                results=results.replace('%DATE%',r.result.data[i].date.toDate().toString('dd/MM/yyyy hh:mm'));
-                                results=results.replace('%POSTER%',r.result.data[i].nomprenom);
-                                results=results.replace('%COMMENT%',r.result.data[i].blog);
-                                tpl.push(results);
-                            };
-                            results='<ul class="timeline">'+tpl.join('')+'</ul>';
-                            if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update(results);
-                            if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(results);
-                            App.get('TAffaire').wiki=r.result.data.length;
-                        });				
-                    };
-                });
-            },1000);			
-            
+            }
 		});
 	}
 	
