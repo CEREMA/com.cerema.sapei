@@ -287,7 +287,7 @@ App.controller.define('CMain', {
                     '</div>'				
                 ];
                 App.get('TAffaire panel#Title').update(html.join(''));	
-                App.get('VSchedulerMain').hide();
+                App.get('mainform tabpanel#mainscreen').hide();
                 var btns=App.getAll('menu>menuitem');
                 for (var i=0;i<btns.length;i++) {
                     if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
