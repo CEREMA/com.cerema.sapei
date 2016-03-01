@@ -177,7 +177,7 @@ App.controller.define('CMain', {
             */
             "VSchedulerMain": {
                 show: "VSchedulerMain_onshow"
-            }
+            },
             "VSchedulerMain schedulergrid": {
                 beforeeventresize: "read_only",
 				beforeeventdrag: "read_only",
