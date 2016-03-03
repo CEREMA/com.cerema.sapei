@@ -51,7 +51,7 @@ App.view.define('VMain', {
 				name: "Axe",
 				type: "choice",
 				model: App.model.create("sapei://axe"),
-				valueField "Axe",
+				valueField: "Axe",
 				displayField: "Id_axe"
 			 }
 			 ]            
