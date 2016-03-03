@@ -50,7 +50,10 @@ App.view.define('VMain', {
                  {
                      name: "Axe",
                      field: "Axe",
-                     model: App.model.create("mAxes")
+                     model: "mAxes",
+					 type: "choice",
+					 display: "Axe",
+					 value: "Id_axe"					 
                  }			
 			 ]            
         },
