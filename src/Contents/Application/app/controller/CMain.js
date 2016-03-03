@@ -16,7 +16,6 @@ App.controller.define('CMain', {
 	],
 	
 	models: [
-		"mAxes"
 	],
 	
 	TASK_USER: {},
