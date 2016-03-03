@@ -145,6 +145,9 @@ App.controller.define('CMain', {
 			/*
 			OpenAffaire
 			*/
+			"VOpenAffaire button#BtnFilter" : {
+				click: "filter_onclick"
+			},
 			"VOpenAffaire grid#open": {
 				itemdblclick: "grid_open_dblclick"
 			},
@@ -204,6 +207,14 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+	filter_onclick: function()
+	{
+		App.get('mainform FilterBox#FilterPanel').store=App.get('VOpenAffaire grid#open').getStore();
+		if (App.get('mainform FilterBox#FilterPanel').isVisible())
+		App.get('mainform FilterBox#FilterPanel').hide();
+		else
+		App.get('mainform FilterBox#FilterPanel').show();
+	},	
     AdrBookClick: function(p) {
         this.Contacts();
     },
