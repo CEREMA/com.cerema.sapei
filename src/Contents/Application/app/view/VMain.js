@@ -47,14 +47,6 @@ App.view.define('VMain', {
              xtype: "FilterBox",
 			 itemId: "FilterPanel",
 			 fields: [
-                 {
-                     name: "Axe",
-                     field: "Axe",
-                     model: "sapei://axe",
-					 type: "choice",
-					 display: "Axe",
-					 value: "Id_axe"			 
-                 }			
 			 ]            
         },
 		{
