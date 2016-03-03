@@ -133,3 +133,9 @@
 {
 	background-image:url(webapp/address_book.png);
 }
+.ico_filter
+{
+	background-image: url(webapp/filter.png);
+	width: 16px;
+	height: 16px;
+}
