@@ -1,5 +1,5 @@
-App.model.define('Template', {
+App.model.define('Axes', {
 	api: {
-	
+		read: "sapei://axe"
 	}
 });
