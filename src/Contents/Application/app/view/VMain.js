@@ -50,10 +50,10 @@ App.view.define('VMain', {
                  {
                      name: "Axe",
                      field: "Axe",
-                     model: "mAxes",
+                     model: "sapei://axe",
 					 type: "choice",
 					 display: "Axe",
-					 value: "Id_axe"					 
+					 value: "Id_axe"			 
                  }			
 			 ]            
         },
