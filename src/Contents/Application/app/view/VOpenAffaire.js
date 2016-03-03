@@ -32,7 +32,8 @@ App.view.define('VOpenAffaire', {
         this.tbar = [
             '->',
 			{
-				text: "Filtrer"
+				text: "Filtrer",
+				buttonCls: "ico_filter"
 			}
         ];
 
