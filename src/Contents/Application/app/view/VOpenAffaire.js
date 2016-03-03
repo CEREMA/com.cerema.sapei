@@ -34,7 +34,8 @@ App.view.define('VOpenAffaire', {
 			{
 				text: "Filtrer",
 				iconCls: "ico_filter",
-				iconAlign: 'left'
+				iconAlign: 'left',
+				itemId: "BtnFilter"
 			}
         ];
 
