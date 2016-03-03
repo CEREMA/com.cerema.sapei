@@ -29,6 +29,13 @@ App.view.define('VOpenAffaire', {
             split: true
         };
 
+        this.tbar = [
+            '->',
+			{
+				text: "Filtrer"
+			}
+        ];
+
         this.items = [
 		{
 			xtype: "grid",
