@@ -1033,11 +1033,11 @@ App.controller.define('CMain', {
                     if (btns[i].itemId=="mnu_aff_new") btns[i].show();
                 };
                 // si je suis admin, je sélectionne par pilote
-                var store=App.get('VOpenAffaire grid#open').getStore();
+                /*var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
                 App.get('mainform FilterBox#FilterPanel').store=store;
-                App.get('mainform FilterBox#FilterPanel').show();
+                App.get('mainform FilterBox#FilterPanel').show();*/
             }
 		});
 	}
