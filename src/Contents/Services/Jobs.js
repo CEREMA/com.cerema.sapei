@@ -1,6 +1,7 @@
 Jobs={
 
 	getAll: function(o,cb) {
+        console.log("******************************************************************************")
 		var db=Jobs.using('db');
 		var objs=[
 			"job.Id_job",
