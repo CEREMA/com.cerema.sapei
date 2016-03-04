@@ -213,7 +213,7 @@ App.controller.define('CMain', {
 		App.get('mainform FilterBox#FilterPanel').store=App.get('VOpenAffaire grid#open').getStore();
 		if (App.get('mainform FilterBox#FilterPanel').isVisible()) {
             App.get('mainform FilterBox#FilterPanel').hide();
-            if (Auth.User.profiles.indexOf('admin')>-1) {            
+            if (Auth.User.profiles.indexOf('Admin')>-1) {            
                 // si je suis admin, je sélectionne par pilote
                 var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
