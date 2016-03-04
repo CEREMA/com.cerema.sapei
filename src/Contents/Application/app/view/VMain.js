@@ -55,7 +55,15 @@ App.view.define('VMain', {
 				display: "Axe",
 				value: "Axe"
 			 }
-			 ]            
+			 {
+				name: "Pilote",
+                field: "Id_pilote_job",
+				type: "choice",
+				model: 'sapei://bpclight_agents{kage,nom+" "+prenom=NomPrenom+}',
+				display: "NomPrenom",
+				value: "kage"
+			 }			 
+        ]            
         },
 		{
 			region: "center",			
