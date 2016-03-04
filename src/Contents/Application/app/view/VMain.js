@@ -49,6 +49,7 @@ App.view.define('VMain', {
 			 fields: [
 			 {
 				name: "Axe",
+                field: "Axe",
 				type: "choice",
 				model: "sapei://axe",
 				display: "Axe",
