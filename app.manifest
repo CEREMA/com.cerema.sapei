@@ -63,7 +63,8 @@
     "plugins": [],
     "api": [
         "Clients",
-        "Tasks"
+        "Tasks",
+        "Jobs"
     ],
     "db": [
         "sapei",
