@@ -1,5 +1,5 @@
 sapei
-SELECT 
+SELECT DISTINCT
 	$_OBJECTS
 FROM 
 	job 
@@ -9,4 +9,5 @@ FROM
 	LEFT JOIN type_prestation ON job.Id_type_prestation=type_prestation.Id_type_prestation 
 	LEFT JOIN client_origine ON job.Id_contact_client=client_origine.Id_client_origine 
 	LEFT JOIN bpclight_agents ON bpclight_agents.Kage=job.Id_pilote_job 
+    LEFT JOIN ope on ope.Id_job=job.Id_job
 $_WHERE
