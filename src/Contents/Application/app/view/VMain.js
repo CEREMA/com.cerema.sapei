@@ -53,7 +53,7 @@ App.view.define('VMain', {
 				type: "choice",
 				model: "sapei://axe",
 				display: "Axe",
-				value: "Id_axe"
+				value: "Axe"
 			 }
 			 ]            
         },
