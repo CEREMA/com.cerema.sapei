@@ -19,6 +19,7 @@ Jobs={
 		];
 		var where=[];
         o=o.quest;
+        console.log(o);
 		for (var i=0;i<o.length;i++)
 		{
 			var str="";
