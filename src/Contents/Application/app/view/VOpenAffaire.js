@@ -10,20 +10,6 @@ App.view.define('VOpenAffaire', {
         this.layout = {
             type: 'vbox'
         };
-
-        this.bbar = [
-		'->',
-		{
-			text: "Fermer",
-            handler: function(p) {
-                p.up('window').close();   
-            }
-		},
-		{
-			text: "Ouvrir",
-            itemId: "openAffaire"
-		}
-        ];
 		
         this.defaults = {
             split: true
