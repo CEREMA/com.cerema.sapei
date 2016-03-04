@@ -209,13 +209,17 @@ App.controller.define('CMain', {
 	},
 	filter_onclick: function()
 	{
-        var store=App.store.create("App.Jobs.getAll");
-        App.get('VOpenAffaire grid#open').bindStore(store);
+        App.get('VOpenAffaire grid#open').bindStore(App.store.create("App.Jobs.getAll"));
 		App.get('mainform FilterBox#FilterPanel').store=App.get('VOpenAffaire grid#open').getStore();
-		if (App.get('mainform FilterBox#FilterPanel').isVisible())
-		App.get('mainform FilterBox#FilterPanel').hide();
-		else
-		App.get('mainform FilterBox#FilterPanel').show();
+		if (App.get('mainform FilterBox#FilterPanel').isVisible()) {
+            App.get('mainform FilterBox#FilterPanel').hide();
+            if (Auth.User.profiles.indexOf('admin')>-1) {            
+                // si je suis admin, je sélectionne par pilote
+                var store=App.get('VOpenAffaire grid#open').getStore();
+                store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
+                store.load();
+            };		  
+        } else App.get('mainform FilterBox#FilterPanel').show();
 	},	
     AdrBookClick: function(p) {
         this.Contacts();
@@ -1038,8 +1042,6 @@ App.controller.define('CMain', {
                 var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
-                /*App.get('mainform FilterBox#FilterPanel').store=store;
-                App.get('mainform FilterBox#FilterPanel').show();*/
             }
 		});
 	}
