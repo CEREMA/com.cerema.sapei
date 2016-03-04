@@ -215,9 +215,9 @@ App.controller.define('CMain', {
             App.get('mainform FilterBox#FilterPanel').hide();
             if (Auth.User.profiles.indexOf('Admin')>-1) {            
                 // si je suis admin, je sélectionne par pilote
-                var store=App.get('VOpenAffaire grid#open').getStore();
-                store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
-                store.load();
+                App.get('VOpenAffaire grid#open').bindStore(App.store.create('sapei://job{Id_job,avancement, total,axe.Axe,axe.dpt.Lib_dpt,Intitule_job+,job_statut.statut,type_prestation.Libelle_type_prestation,Date_prise_job,Date_livrable_job,Num_SIGMA_job,client_origine.Lib_client_origine,Id_pilote_job->bpclight_agents{nom+" "+prenom=nomprenom}}',{groupField:"Lib_client_origine"}));
+                App.get('VOpenAffaire grid#open').getStore().getProxy().extraParams.Id_pilote_job=Auth.User.uid;
+                App.get('VOpenAffaire grid#open').getStore().load();
             };		  
         } else App.get('mainform FilterBox#FilterPanel').show();
 	},	
