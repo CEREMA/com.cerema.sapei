@@ -59,7 +59,7 @@ App.view.define('VMain', {
 				name: "Pilote",
                 field: "Id_pilote_job",
 				type: "choice",
-				model: 'sapei://user{Id_agent->bpclight_agents{kage,nom+" "+prenom=NomPrenom+}}',
+				model: 'sapei://user{Id_agent=kage,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
 				display: "NomPrenom",
 				value: "kage"
 			 }			 
