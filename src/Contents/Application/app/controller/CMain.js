@@ -210,7 +210,7 @@ App.controller.define('CMain', {
 	filter_onclick: function()
 	{
         var store=App.store.create("App.Jobs.getAll");
-        App.get('VOpenAffaire grid#open').setStore(store);
+        App.get('VOpenAffaire grid#open').bindStore(store);
 		App.get('mainform FilterBox#FilterPanel').store=App.get('VOpenAffaire grid#open').getStore();
 		if (App.get('mainform FilterBox#FilterPanel').isVisible())
 		App.get('mainform FilterBox#FilterPanel').hide();
