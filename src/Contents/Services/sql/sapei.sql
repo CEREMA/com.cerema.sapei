@@ -1,18 +1,6 @@
 sapei
 SELECT 
-	job.Id_job,
-	job.avancement,
-	job. total,
-	axe.Axe,
-	dpt.Lib_dpt,
-	job.Intitule_job,
-	job_statut.statut,
-	type_prestation.Libelle_type_prestation,
-	job.Date_prise_job,
-	job.Date_livrable_job,
-	job.Num_SIGMA_job,
-	client_origine.Lib_client_origine,
-	CONCAT(bpclight_agents.nom," ",bpclight_agents.prenom) nomprenom 
+	$_OBJS
 FROM 
 	job 
 	LEFT JOIN axe ON job.Id_axe=axe.Id_axe 
