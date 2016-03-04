@@ -18,7 +18,7 @@ Jobs={
 			"CONCAT(bpclight_agents.nom,\" \",bpclight_agents.prenom) nomprenom"
 		];
 		var where=[];
-        console.log(o);
+        o=o.quest;
 		for (var i=0;i<o.length;i++)
 		{
 			var str="";
