@@ -54,7 +54,7 @@ App.view.define('VMain', {
 				model: "sapei://axe",
 				display: "Axe",
 				value: "Axe"
-			 }
+			 },
 			 {
 				name: "Pilote",
                 field: "Id_pilote_job",
