@@ -62,7 +62,15 @@ App.view.define('VMain', {
 				model: 'sapei://user{Id_agent=kage,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
 				display: "NomPrenom",
 				value: "kage"
-			 }			 
+			 },
+			 {
+				name: "Agents",
+                field: "Id_users",
+				type: "choice",
+				model: 'sapei://user{Id_agent=kage,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
+				display: "NomPrenom",
+				value: "kage"
+			 }	                 
         ]            
         },
 		{
