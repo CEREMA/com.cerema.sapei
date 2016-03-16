@@ -903,8 +903,7 @@ App.controller.define('CMain', {
         // data.poster data.jpb
         App.DB.get('sapei://job?id_job='+data.job,function(e,o){
             App.DB.get('sapei://bpclight_agents?kage='+data.poster,function(e,oo) {
-                alert('x');
-                console.log(e);
+                console.log(oo);
                 console.log(o);
             });
         });
