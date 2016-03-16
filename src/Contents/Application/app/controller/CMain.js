@@ -594,6 +594,10 @@ App.controller.define('CMain', {
 				blog: blog
 			},function(r) {
 				App.notify('Votre commentaire a été posté.');
+                App.IO.send("#UPDATEMSG",{
+                    poster: Auth.User.uid,
+                    job: App.get('TAffaire').ItemID
+                },"*")
                 App.IO.send("#UPDATEMSG",App.get('TAffaire').ItemID,"*")
                 App.IO.send("#AFF"+App.get('TAffaire').ItemID,App.get('TAffaire').ItemID,"*");
 				p.up('window').close();
@@ -894,6 +898,17 @@ App.controller.define('CMain', {
             };
         });            
     },
+    broadcastUpdate: function(data)
+    {
+        // data.poster data.jpb
+        App.DB.get('sapei://job?id_job='+data.job,function(e,o){
+            App.DB.get'sapei://bpclight_agents?kage='+data.poster,function(e,oo) {
+                alert('x');
+                console.log(e);
+                console.log(o);
+            });
+        });
+    },
 	TAffaire_onshow: function(p)
 	{
         if (Auth.User.profiles.indexOf('Admin')>-1) App.get('TAffaire button#newtask').show();
@@ -903,6 +918,7 @@ App.controller.define('CMain', {
         App.IO.subscribe("#UPDATEMSG");
         App.IO.subscribe("#AFF"+AFFAIRE_ID);
         App.IO.on('#AFF'+AFFAIRE_ID,this.Update_Message);
+        App.IO.on('#UPDATEMSG',this.broadcastUpdate);
         this.Update_Message(AFFAIRE_ID);
 	},
 	ctxClose_onclick: function(me)
