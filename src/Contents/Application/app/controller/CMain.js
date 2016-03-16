@@ -594,6 +594,8 @@ App.controller.define('CMain', {
 				blog: blog
 			},function(r) {
 				App.notify('Votre commentaire a été posté.');
+                App.IO.send("#UPDATEMSG",App.get('TAffaire').ItemID,"*")
+                App.IO.send("#AFF"+App.get('TAffaire').ItemID,App.get('TAffaire').ItemID,"*");
 				p.up('window').close();
 			});
 		};
