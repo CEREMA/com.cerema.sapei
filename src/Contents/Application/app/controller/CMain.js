@@ -816,7 +816,7 @@ App.controller.define('CMain', {
 			modal: true
 		}).show();
 	},
-	VScheduler_onshow: function()
+	VScheduler_onshow: function(me)
 	{
         this.TASK_SKILLS={};
         this.TASK_USER={};
@@ -832,6 +832,17 @@ App.controller.define('CMain', {
 			startDate     : new Date(),
             endDate       : new Date(new Date().setMonth(new Date().getMonth()+4))
 		});
+		var year = now.getFullYear();		
+		for (var i=-3;i<=3;i++) tab.push({year:year+i});
+		
+		var store_year = App.store.create({
+			fields: [
+				"year"
+			],
+			data: tab
+		});
+		App.get(me,'combo#selectAnnee').bindStore(store_year);
+		App.get(me,'combo#selectAnnee').setValue(now.getFullYear());	        
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
