@@ -77,6 +77,7 @@ App.view.define('VScheduler', {
         this.tbar = [
 			{
                 xtype: "combo",
+                fieldLabel: "Mois",
                 itemId: "selectMonth",
 				width: 100,
 				editable:false,
@@ -123,15 +124,24 @@ App.view.define('VScheduler', {
                         month: "Décembre"
                     }]
                 }),
+                 margin:{
+ 						bottom: 5,
+						right: 5                     
+                 },
                 displayField: "month",
                 valueField: "id"
             }, {			
                  xtype: "combo",
+                 fieldLabel: "Année",
                  itemId: "selectAnnee",
 				 width: 70,
 				 editable: false,
                  displayField: "year",
                  valueField: "year",
+                 margin:{
+ 						bottom: 5,
+						right: 5                     
+                 },
 				 store: App.store.create({
                     fields: [
                         "year"
