@@ -828,10 +828,10 @@ App.controller.define('CMain', {
 			App.get('VScheduler schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
 		});
 		// update combo daterange
-		App.get('VScheduler daterangefield#range').setValue({
+		/*App.get('VScheduler daterangefield#range').setValue({
 			startDate     : new Date(),
             endDate       : new Date(new Date().setMonth(new Date().getMonth()+4))
-		});
+		});*/
 		var year = now.getFullYear();		
 		for (var i=-3;i<=3;i++) tab.push({year:year+i});
 		
