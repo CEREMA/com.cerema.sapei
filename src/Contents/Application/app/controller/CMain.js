@@ -906,7 +906,7 @@ App.controller.define('CMain', {
                 if (oo.result.data.length>0) {
                     var user=oo.result.data[0];
                     var job=o.result.data[0];
-                    if (user.Kage!=Auth.User.uid) App.notify(user.Prenom+' '+user.Nom+' a posté un nouveau message concernant l\'affaire <b>'+job.Intitule_job+'</b>');
+                    if (user.Kage!=Auth.User.uid) App.notify(user.Prenom+' '+user.Nom+' a posté un nouveau message concernant l\'affaire :<br><b>'+job.Intitule_job+'</b>');
                 };
                 console.log(oo);
                 console.log(o);
