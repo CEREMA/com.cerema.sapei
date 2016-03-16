@@ -903,6 +903,11 @@ App.controller.define('CMain', {
         // data.poster data.jpb
         App.DB.get('sapei://job?id_job='+data.job,function(e,o){
             App.DB.get('sapei://bpclight_agents?kage='+data.poster,function(e,oo) {
+                if (oo.result.data.length>0) {
+                    var user=oo.result.data[0];
+                    var job=o.result.data[0];
+                    App.notify(user.Prenom+' '+user.Nom+' a posté un nouveau message concernant l\'affaire <b>'+job.Intitule_job+'</b>');
+                };
                 console.log(oo);
                 console.log(o);
             });
