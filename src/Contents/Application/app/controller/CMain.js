@@ -832,7 +832,9 @@ App.controller.define('CMain', {
 			startDate     : new Date(),
             endDate       : new Date(new Date().setMonth(new Date().getMonth()+4))
 		});*/
-		var year = now.getFullYear();		
+		var now = new Date();
+        var year=now.getFullYear();		
+        var tab=[];
 		for (var i=-3;i<=3;i++) tab.push({year:year+i});
 		
 		var store_year = App.store.create({
