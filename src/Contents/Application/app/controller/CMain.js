@@ -873,7 +873,7 @@ App.controller.define('CMain', {
 		App.get('TAffaire').wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
         AFFAIRE_ID=p.ItemID;
-		App.get('TAffaire').runner=window.setInterval(function() {
+		/*App.get('TAffaire').runner=window.setInterval(function() {
 			App.DB.get('sapei://wiki{id}?job='+AFFAIRE_ID,function(r) {
 				if (r.data.length==0) {
 					if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
@@ -897,7 +897,7 @@ App.controller.define('CMain', {
 					});				
 				};
 			});
-		},1000);			
+		},1000);			*/
 	},
 	ctxClose_onclick: function(me)
 	{	
@@ -978,7 +978,7 @@ App.controller.define('CMain', {
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
         App.get("tabpanel#mainscreen").show();
 		delete App.get('TAffaire').wiki;
-		if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);	
+		//if (App.get('TAffaire').runner) window.clearInterval(App.get('TAffaire').runner);	
 		App.view.create('Affaires.VNew',{
 			modal: true
 		}).show();
