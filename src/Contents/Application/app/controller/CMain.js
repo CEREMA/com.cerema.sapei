@@ -757,6 +757,7 @@ App.controller.define('CMain', {
 	grid_open_dblclick: function(p,record)
 	{
 		App.reset(App.get('TAffaire')); 
+        App.get('mainform FilterBox#FilterPanel').hide();
 		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
             
 			response=response.data[0];
