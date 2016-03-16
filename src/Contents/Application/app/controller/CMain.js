@@ -898,6 +898,7 @@ App.controller.define('CMain', {
 		App.get('TAffaire').wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
         AFFAIRE_ID=p.ItemID;
+        App.IO.subscribe("#UPDATEMSG");
         App.IO.subscribe("#AFF"+AFFAIRE_ID);
         App.IO.on('#AFF'+AFFAIRE_ID,this.Update_Message);
         this.Update_Message(AFFAIRE_ID);
