@@ -844,7 +844,9 @@ App.controller.define('CMain', {
 			data: tab
 		});
 		App.get(me,'combo#selectAnnee').bindStore(store_year);
-		App.get(me,'combo#selectAnnee').setValue(now.getFullYear());	        
+		App.get(me,'combo#selectAnnee').setValue(now.getFullYear());	     
+		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+        App.get('combo#selectMonth').setValue(parseInt(mm)-1);
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
