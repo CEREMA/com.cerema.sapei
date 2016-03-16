@@ -196,10 +196,6 @@ App.view.define('VAffaire', {
             }
             ]
 		},            
-/*		{
-			flex: 1,
-			border: false
-		},		*/
 		{
             xtype: 'chart',
             style: 'background:#fff',
