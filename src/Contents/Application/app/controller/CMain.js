@@ -289,7 +289,7 @@ App.controller.define('CMain', {
             var id=r.result.data[0].Id_job; 
             App.reset(App.get('TAffaire')); 
             App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
-                console.log(response);
+                alert('x');
                 response=response.data[0];
                 App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
                 App.get('TAffaire combo#cboservice').getStore().load();
