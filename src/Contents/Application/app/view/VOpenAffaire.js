@@ -25,6 +25,7 @@ App.view.define('VOpenAffaire', {
 			},
             {
                 text: "Imprimer",
+                iconCls: "ico_printer",
                 handler: function(p) {
                     Ext.ux.grid.Printer.print(App.get(p.up('panel'),'grid#open'));
                 }
