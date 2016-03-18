@@ -4,6 +4,7 @@ Jobs={
 		var db=Jobs.using('db');
 		var objs=[
 			"job.Id_job",
+            "job.Id_contact_client",
 			"job.avancement",
 			"job. total",
 			"axe.Axe",
