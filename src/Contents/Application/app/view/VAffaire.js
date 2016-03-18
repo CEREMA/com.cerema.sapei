@@ -194,11 +194,11 @@ App.view.define('VAffaire', {
             border: false,
             items: [
 		{
-			xtype: "combo",
+			xtype: "textfield",
             itemId: "Avancement global",
 			padding: 4,
 			bind: "avancement",
-			fieldLabel: "Avancement global",
+			fieldLabel: "Avancement global"/*,
             editable: false,
 			labelAlign: "top",
             flex: 2,
@@ -218,7 +218,7 @@ App.view.define('VAffaire', {
                     {avancement: "90%", val: "9"},
                     {avancement: "100%", val: "10"}
                 ]
-            })
+            })*/
 		},            
             {
                 xtype: "datefield",
