@@ -26,8 +26,7 @@ App.view.define('VOpenAffaire', {
             {
                 text: "Imprimer",
                 handler: function(p) {
-                    console.log(App.get(p.up('panel','grid#open')));
-                    Ext.ux.grid.Printer.print(App.get(p.up('panel','grid#open')));
+                    Ext.ux.grid.Printer.print(App.get(p.up('panel'),'grid#open'));
                 }
             }
         ];
