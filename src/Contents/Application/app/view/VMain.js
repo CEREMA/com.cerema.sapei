@@ -78,12 +78,12 @@ App.view.define('VMain', {
 				model: 'sapei://client_origine{Id_client_origine,Lib_client_origine}',
 				display: "Lib_client_origine",
 				value: "Id_client_origine"
-			 },
+			 }/*,
 			 {
 				name: "N° Affaire",
                 field: "Id_job",
 				type: "text"
-			 }                 
+			 }  */               
         ]            
         },
 		{
