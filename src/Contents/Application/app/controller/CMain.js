@@ -1040,6 +1040,7 @@ App.controller.define('CMain', {
         for (var i=0;i<btns.length;i++) {
             if (btns[i].itemId=="mnu_aff_close") btns[i].hide();  
         };
+        App.get('VOpenAffaire grid#open').getStore().load();
         App.get("TAffaire").hide();
         App.get('VSchedulerMain schedulergrid#schedule_materiels').getEventStore().load();
         App.get('VSchedulerMain schedulergrid#schedule_agents').getEventStore().load();
