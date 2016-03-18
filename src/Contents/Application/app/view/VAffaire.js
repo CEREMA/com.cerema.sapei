@@ -146,14 +146,14 @@ App.view.define('VAffaire', {
 			allowBlank: false
 		},
 		{
-			xtype: "textarea",
+			xtype: "htmleditor",
             itemId: "nature",
 			padding: 4,
 			bind: "Nature_job",
 			fieldLabel: "Nature de la tâche",
 			labelAlign: "top",
 			width: "100%",
-			height: 100
+			height: 150
 		},
 		{
 			xtype: "combo",
@@ -195,6 +195,33 @@ App.view.define('VAffaire', {
                 width: 150
             }
             ]
+		},
+		{
+			xtype: "combo",
+            itemId: "Avancement global",
+			padding: 4,
+			bind: "avancement",
+			fieldLabel: "Avancement global",
+            editable: false,
+			labelAlign: "top",
+			width: "100%",
+            valueField: "value",
+            displayField: "avancement",
+            store: App.store.create({
+                fields: ["value","avancement"],
+                data: [
+                    {avancement: "10%", value: "1"},
+                    {avancement: "20%", value: "2"},
+                    {avancement: "30%", value: "3"},
+                    {avancement: "40%", value: "4"},
+                    {avancement: "50%", value: "5"},
+                    {avancement: "60%", value: "6"},
+                    {avancement: "70%", value: "7"},
+                    {avancement: "80%", value: "8"},
+                    {avancement: "90%", value: "9"},
+                    {avancement: "100%", value: "10"}
+                ]
+            })
 		},            
 		{
             xtype: 'chart',
