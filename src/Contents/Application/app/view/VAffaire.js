@@ -202,6 +202,7 @@ App.view.define('VAffaire', {
             editable: false,
 			labelAlign: "top",
 			width: "100%",
+            flex: 1,
             valueField: "value",
             displayField: "avancement",
             store: App.store.create({
@@ -225,8 +226,8 @@ App.view.define('VAffaire', {
                 fieldLabel: "Date d'affectation",
                 bind: "Date_affectation_job",
                 labelAlign: "top",
-                padding: 4,
-                width: 150
+                flex: 2,
+                padding: 4
             }
             ]
 		},
