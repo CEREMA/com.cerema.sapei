@@ -82,7 +82,7 @@ App.view.define('VMain', {
 			 {
 				name: "N° Affaire",
                 field: "Id_job",
-				type: "string"
+				type: "text"
 			 }                 
         ]            
         },
