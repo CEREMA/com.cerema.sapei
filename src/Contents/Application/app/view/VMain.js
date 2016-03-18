@@ -70,7 +70,15 @@ App.view.define('VMain', {
 				model: 'sapei://user{Id_user,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
 				display: "NomPrenom",
 				value: "Id_user"
-			 }	                 
+			 },
+			 {
+				name: "Clients",
+                field: "Id_users",
+				type: "choice",
+				model: 'sapei://client_origine{Id_client_origine,Lib_client_origine}',
+				display: "Lib_client_origine",
+				value: "Id_client_origine"
+			 }                 
         ]            
         },
 		{
