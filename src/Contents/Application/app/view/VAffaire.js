@@ -202,7 +202,7 @@ App.view.define('VAffaire', {
             editable: false,
 			labelAlign: "top",
             flex: 2,
-            valueField: "value",
+            valueField: "val",
             displayField: "avancement",
             store: App.store.create({
                 fields: ["val","avancement"],
