@@ -22,7 +22,13 @@ App.view.define('VOpenAffaire', {
 				iconCls: "ico_filter",
 				iconAlign: 'left',
 				itemId: "BtnFilter"
-			}
+			},
+            {
+                text: "Imprimer",
+                handler: function(p) {
+                    Ext.ux.grid.Printer.print(App.get(p.up('panel','grid#open')));
+                }
+            }
         ];
 
         this.items = [
