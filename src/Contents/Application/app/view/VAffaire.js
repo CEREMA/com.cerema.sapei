@@ -194,7 +194,7 @@ App.view.define('VAffaire', {
             border: false,
             items: [
 		{
-			xtype: "textfield",
+			xtype: "combo",
             itemId: "Avancement global",
 			padding: 4,
 			bind: "avancement",
