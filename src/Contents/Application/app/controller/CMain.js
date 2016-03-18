@@ -878,11 +878,11 @@ App.controller.define('CMain', {
                     }]);
                     App.get('TAffaire chart').redraw();
                     // on met à jour l'affaire
-                    App.DB.post('sapei://job',{
+                    /*App.DB.post('sapei://job',{
                         Id_job: App.get('TAffaire').ItemID,
                         avancement: inc,
                         total: total
-                    },Ext.emptyFn);
+                    },Ext.emptyFn);*/
                 };
                 App.get('TAffaire grid#tasks').getStore().loadData(data);
             };
