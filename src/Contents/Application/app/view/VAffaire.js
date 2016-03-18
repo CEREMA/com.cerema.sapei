@@ -168,7 +168,7 @@ App.view.define('VAffaire', {
 			fieldLabel: "Affaire pilotée par",
             editable: false,
 			labelAlign: "top",
-			width: "100%",
+			flex: 2,
             valueField: "Kage",
             displayField: "nomprenom",
             store: App.store.create('App.Tasks.getUsers',{autoLoad: true})
