@@ -73,7 +73,7 @@ App.view.define('VMain', {
 			 },
 			 {
 				name: "Clients",
-                field: "Id_users",
+                field: "Id_contact_client",
 				type: "choice",
 				model: 'sapei://client_origine{Id_client_origine,Lib_client_origine}',
 				display: "Lib_client_origine",
