@@ -205,18 +205,18 @@ App.view.define('VAffaire', {
             valueField: "value",
             displayField: "avancement",
             store: App.store.create({
-                fields: ["value","avancement"],
+                fields: ["val","avancement"],
                 data: [
-                    {avancement: "10%", value: "1"},
-                    {avancement: "20%", value: "2"},
-                    {avancement: "30%", value: "3"},
-                    {avancement: "40%", value: "4"},
-                    {avancement: "50%", value: "5"},
-                    {avancement: "60%", value: "6"},
-                    {avancement: "70%", value: "7"},
-                    {avancement: "80%", value: "8"},
-                    {avancement: "90%", value: "9"},
-                    {avancement: "100%", value: "10"}
+                    {avancement: "10%", val: "1"},
+                    {avancement: "20%", val: "2"},
+                    {avancement: "30%", val: "3"},
+                    {avancement: "40%", val: "4"},
+                    {avancement: "50%", val: "5"},
+                    {avancement: "60%", val: "6"},
+                    {avancement: "70%", val: "7"},
+                    {avancement: "80%", val: "8"},
+                    {avancement: "90%", val: "9"},
+                    {avancement: "100%", val: "10"}
                 ]
             })
 		},            
