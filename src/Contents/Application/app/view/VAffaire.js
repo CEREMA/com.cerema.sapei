@@ -156,6 +156,11 @@ App.view.define('VAffaire', {
 			height: 150
 		},
 		{
+            layout: "hbox",
+            width: "100%",
+            border: false,
+            items: [
+		{
 			xtype: "combo",
             itemId: "affaire_pilote",
 			padding: 4,
@@ -167,12 +172,7 @@ App.view.define('VAffaire', {
             valueField: "Kage",
             displayField: "nomprenom",
             store: App.store.create('App.Tasks.getUsers',{autoLoad: true})
-		},
-		{
-            layout: "hbox",
-            width: "100%",
-            border: false,
-            items: [
+		},                
             {
                 xtype: "combo",
                 itemId: "affaire_statut",
@@ -186,16 +186,13 @@ App.view.define('VAffaire', {
                 displayField: "statut",
                 store: App.store.create('sapei://job_statut',{autoLoad: true})
             },
-            {
-                xtype: "datefield",
-                fieldLabel: "Date d'affectation",
-                bind: "Date_affectation_job",
-                labelAlign: "top",
-                padding: 4,
-                width: 150
-            }
             ]
 		},
+		{
+            layout: "hbox",
+            width: "100%",
+            border: false,
+            items: [
 		{
 			xtype: "combo",
             itemId: "Avancement global",
@@ -223,6 +220,16 @@ App.view.define('VAffaire', {
                 ]
             })
 		},            
+            {
+                xtype: "datefield",
+                fieldLabel: "Date d'affectation",
+                bind: "Date_affectation_job",
+                labelAlign: "top",
+                padding: 4,
+                width: 150
+            }
+            ]
+		},
 		{
             xtype: 'chart',
             style: 'background:#fff',
