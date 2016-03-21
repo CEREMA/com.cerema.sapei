@@ -1076,7 +1076,7 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{        
 		// form loaded
-        
+		console.log(omneedia.IO);
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
