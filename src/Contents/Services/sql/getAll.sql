@@ -31,6 +31,6 @@ SELECT ope.Id_ope,
          LEFT OUTER JOIN sapei.porteur_outils porteur_outils
             ON (schedule_skills.ResourceId = porteur_outils.Id_porteur_outils))
         LEFT OUTER JOIN sapei.outils outils
-           ON (porteur_outils.Id_outils = outils.Id_materiel))
+           ON (schedule_skills.ResourceId = outils.Id_materiel))
        LEFT OUTER JOIN sapei.porteur porteur
           ON (porteur_outils.Id_porteur = porteur.Id_porteur)
