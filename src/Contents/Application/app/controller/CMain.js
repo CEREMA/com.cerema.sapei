@@ -891,11 +891,12 @@ App.controller.define('CMain', {
     },
     Update_Message: function(data){
         App.DB.get('sapei://wiki{id}?job='+data,function(r) {
+            console.log(r);
             if (r.data.length==0) {
                 if (App.get('TAffaire panel#timeline').isVisible()) App.get('TAffaire panel#timeline').update("");
                 if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update("");				
             };
-            if (r.data.length!=App.get('TAffaire').wiki) {
+            //if (r.data.length!=App.get('TAffaire').wiki) {
                 App.DB.get('sapei://wiki{date-,blog,poster->bpclight_agents{prenom+" "+nom=nomprenom}}?job='+AFFAIRE_ID,function(e,r) {
                     var html='<li><p class="timeline-date">%DATE%</p><div class="timeline-content"><h3>%POSTER%</h3><p>%COMMENT%</p></div></li>';
                     var tpl=[];
@@ -911,7 +912,7 @@ App.controller.define('CMain', {
                     if (App.get('TAffaire panel#timeline2').isVisible()) App.get('TAffaire panel#timeline2').update(results);
                     App.get('TAffaire').wiki=r.result.data.length;
                 });				
-            };
+            //};
         });            
     },
     broadcastUpdate: function(data)
