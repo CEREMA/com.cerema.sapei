@@ -149,8 +149,8 @@
 .checkmark
 {
 	background-image: url(webapp/check_mark.png);
-	width: 16px;
-	height: 16px;
+	width: 32px;
+	height: 32px;
 }
 
 .agenda
