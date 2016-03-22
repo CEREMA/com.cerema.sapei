@@ -445,6 +445,7 @@ App.view.define('VAffaire', {
 			tbar: [
 			{
 				text: "Nouvelle tâche",
+                iconCls: "agenda",
 				itemId: "newtask",
                 hidden: true
 			}
