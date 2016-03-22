@@ -598,7 +598,7 @@ App.controller.define('CMain', {
                 App.IO.send("#UPDATEMSG",{
                     poster: Auth.User.uid,
                     job: App.get('TAffaire').ItemID
-                },"*")
+                },"*");
                 App.IO.send("#UPDATEMSG",App.get('TAffaire').ItemID,"*")
                 App.IO.send("#AFF"+App.get('TAffaire').ItemID,App.get('TAffaire').ItemID,"*");
 				p.up('window').close();
