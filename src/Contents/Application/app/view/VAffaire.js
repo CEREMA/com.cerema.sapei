@@ -432,7 +432,7 @@ App.view.define('VAffaire', {
 		itemId: "centerpanel",
 		margins: '5 0 0 0',
 		border: false,
-		layout: "vbox",
+		layout: "fit",
 		items: [
 		{
 			title: "Tâches",
