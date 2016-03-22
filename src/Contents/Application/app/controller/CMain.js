@@ -846,6 +846,9 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
+          var d=new Date();
+          d.setMonth(p.getValue());
+          d.setYear(App.get(me,'combo#selectAnnee').getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(p.getValue());/*{
 			     startDate     : p.getValue(),
                  endDate       : new Date(p.getValue().setMonth(p.getValue().getMonth()+4))
@@ -1079,7 +1082,6 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{        
 		// form loaded
-		console.log(omneedia.IO);
 		Auth.login(function(auth) {
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
