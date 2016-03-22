@@ -691,7 +691,8 @@ App.controller.define('CMain', {
 			Name: record.data.Name,
 			ResourceId: record.data.ResourceId,
 			StartDate: record.data.StartDate,
-			User: Auth.User.uid
+			User: Auth.User.uid,
+            Job: App.get('TAffaire').IemID
 		};
 		record.data.User=Auth.User.uid;
 		if (record.data.Id!=0) obj.Id=record.data.Id;
