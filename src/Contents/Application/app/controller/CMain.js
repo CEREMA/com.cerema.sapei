@@ -851,10 +851,13 @@ App.controller.define('CMain', {
           d.setYear(App.get(me,'combo#selectAnnee').getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
-            /*{
-			     startDate     : p.getValue(),
-                 endDate       : new Date(p.getValue().setMonth(p.getValue().getMonth()+4))
-		  });            */
+        });
+        App.get('combo#selectAnnee').on('select',function(p) {
+          var d=new Date();
+          d.setMonth(App.get(me,'combo#selectAnnee').getValue());
+          d.setYear(p.getValue());
+		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
+          App.get(me,'schedulergrid#schedule_agents').setStart(d);            
         });
 	},
     TAffaire_update: function(e,r) {
