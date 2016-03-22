@@ -847,9 +847,11 @@ App.controller.define('CMain', {
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
           var d=new Date();
-          d.setMonth(p.getValue());
+          d.setMonth(p.getValue(),1);
           d.setYear(App.get(me,'combo#selectAnnee').getValue());
-		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);/*{
+		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
+          App.get(me,'schedulergrid#schedule_users').setStart(d);
+            /*{
 			     startDate     : p.getValue(),
                  endDate       : new Date(p.getValue().setMonth(p.getValue().getMonth()+4))
 		  });            */
