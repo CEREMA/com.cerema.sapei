@@ -846,10 +846,10 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
-		  App.get('VScheduler daterangefield#range').setValue({
+		  App.get('VScheduler schedulergrid#schedule_materiels').setStartDate(p.getValue());/*{
 			     startDate     : p.getValue(),
                  endDate       : new Date(p.getValue().setMonth(p.getValue().getMonth()+4))
-		  });            
+		  });            */
         });
 	},
     TAffaire_update: function(e,r) {
