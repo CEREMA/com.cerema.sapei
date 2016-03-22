@@ -704,7 +704,6 @@ App.controller.define('CMain', {
 	{
 		var p=this;
         if (record[0]) record=record[0];
-        console.log(record);
         var Cls="";
         if (App.get('VScheduler combo#type_ope').getValue()==1) Cls="yellow";
         if (App.get('VScheduler combo#type_ope').getValue()==2) Cls="yellow";
@@ -935,7 +934,7 @@ App.controller.define('CMain', {
 	TAffaire_onshow: function(p)
 	{
         if (Auth.User.profiles.indexOf('Admin')>-1) App.get('TAffaire button#newtask').show();
-		App.get('TAffaire').wiki=0;
+		p.wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
         AFFAIRE_ID=p.ItemID;
         App.IO.subscribe("#UPDATEMSG");
