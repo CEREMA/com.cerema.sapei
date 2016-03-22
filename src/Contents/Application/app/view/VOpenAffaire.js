@@ -2,11 +2,7 @@ App.view.define('VOpenAffaire', {
     extend: "Ext.Panel",
     alias: 'widget.VOpenAffaire',
     initComponent: function() {
-        /*this.width = 1280;
-        this.height = 700;
-		
-		this.title = "Ouvrir une affaire";
-		*/
+
         this.layout = {
             type: 'vbox'
         };
