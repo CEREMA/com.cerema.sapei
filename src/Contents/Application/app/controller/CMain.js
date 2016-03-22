@@ -848,7 +848,7 @@ App.controller.define('CMain', {
         App.get('combo#selectMonth').on('select',function(p) {
           var d=new Date();
           d.setMonth(p.getValue());
-          d.setYear(App.get(me,'combo#selectAnnee').getValue());
+          //d.setYear(App.get(me,'combo#selectAnnee').getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(p.getValue());/*{
 			     startDate     : p.getValue(),
                  endDate       : new Date(p.getValue().setMonth(p.getValue().getMonth()+4))
