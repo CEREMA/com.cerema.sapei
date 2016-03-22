@@ -801,17 +801,17 @@ App.controller.define('CMain', {
 	// prevent to modify event by anyone but the creator
 	sch_agents_beforeeventresize: function ( me, record, e, options ) {
 		console.log(record);
-		if (record.data.User!=Auth.User.uid) return false;    
+		if (record.data.Job!=App.get('TAffaire').ItemID) return false;	
 	},
 	sch_agents_beforeeventdrag: function ( me, record, e, options ) {
 		console.log(record);
-		if (record.data.User!=Auth.User.uid) return false;	
+		if (record.data.Job!=App.get('TAffaire').ItemID) return false;	
 	},
 	sch_materiels_beforeeventresize: function ( me, record, e, options ) {
-		if (record.data.User!=Auth.User.uid) return false;	
+		if (record.data.Job!=App.get('TAffaire').ItemID) return false;	
 	},
 	sch_materiels_beforeeventdrag: function ( me, record, e, options ) {
-		if (record.data.User!=Auth.User.uid) return false;	
+		if (record.data.Job!=App.get('TAffaire').ItemID) return false;	
 	},
 	newtask_onclick: function(p)
 	{
