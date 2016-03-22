@@ -170,6 +170,7 @@ App.view.define('VScheduler', {
 				{
 					text: "Ajouter",
 					xtype: "button",
+                    iconCls: "checkmark",
 					itemId: "save_task",
 					height: 40
 				}            
