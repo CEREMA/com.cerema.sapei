@@ -831,15 +831,10 @@ App.controller.define('CMain', {
 			App.get('VScheduler schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
 		});
 		// update combo daterange
-		/*App.get('VScheduler daterangefield#range').setValue({
-			startDate     : new Date(),
-            endDate       : new Date(new Date().setMonth(new Date().getMonth()+4))
-		});*/
 		var now = new Date();
         var year=now.getFullYear();		
         var tab=[];
 		for (var i=-3;i<=3;i++) tab.push({year:year+i});
-		
 		var store_year = App.store.create({
 			fields: [
 				"year"
@@ -850,6 +845,12 @@ App.controller.define('CMain', {
 		App.get(me,'combo#selectAnnee').setValue(now.getFullYear());	     
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
+        App.get('combo#selectMonth').on('select',function(p) {
+		  App.get('VScheduler daterangefield#range').setValue({
+			     startDate     : p.getValue(),
+                 endDate       : new Date(p.getValue().setMonth(p.getValue().getMonth()+4))
+		  });            
+        });
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
