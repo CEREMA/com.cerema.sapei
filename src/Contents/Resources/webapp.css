@@ -145,3 +145,10 @@
 	width: 16px;
 	height: 16px;
 }
+
+.checkmark
+{
+	background-image: url(webapp/check_mark.png);
+	width: 32px;
+	height: 32px;
+}
