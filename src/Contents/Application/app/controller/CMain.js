@@ -704,6 +704,7 @@ App.controller.define('CMain', {
 	{
 		var p=this;
         if (record[0]) record=record[0];
+        console.log(record);
         var Cls="";
         if (App.get('VScheduler combo#type_ope').getValue()==1) Cls="yellow";
         if (App.get('VScheduler combo#type_ope').getValue()==2) Cls="yellow";
@@ -716,7 +717,8 @@ App.controller.define('CMain', {
 			Name: record.data.Name,
 			ResourceId: record.data.ResourceId,
 			StartDate: record.data.StartDate,
-			User: Auth.User.uid
+			User: Auth.User.uid/*,
+            Job: */
 		};
 		record.data.User=Auth.User.uid;
 		if (record.data.Id!=0) obj.Id=record.data.Id;
