@@ -863,7 +863,7 @@ App.controller.define('CMain', {
         App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {
             console.log(e);
             console.log(r);
-        };
+        });
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
