@@ -1112,6 +1112,7 @@ App.controller.define('CMain', {
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
             };
+            console.log(Auth.User.profiles);
             if (Auth.User.profiles.indexOf('Users')>-1) {
                 alert('x');
                 // si je suis utilisateur, je sélectionne par mes affaires
