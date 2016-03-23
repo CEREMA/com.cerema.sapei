@@ -1120,7 +1120,7 @@ App.controller.define('CMain', {
                         var jobs=[];
                         for (var i=0;i<r.result.data.length;i++) jobs.push(r.result.data[i].Job);
                         var store=App.get('VOpenAffaire grid#open').getStore();
-                        store.getProxy().extraParams.Id_job=''+jobs.join(' OR Id_job=')+'';
+                        store.getProxy().extraParams.Id_job=jobs.join("' OR Id_job='");
                         store.load();                
                     }
                 });
