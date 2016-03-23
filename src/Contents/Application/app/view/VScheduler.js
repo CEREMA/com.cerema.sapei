@@ -226,7 +226,7 @@ App.view.define('VScheduler', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, Job, StartDate, EndDate, ResourceId->bpclight_agents{prenom+' '+nom=Name}, IF(Job='"+App.get('TAffaire').ItemID+"';'blue';'red')=Cls}",{autoLoad: true}),
+				eventStore: App.eventstore.create("sapei://schedule_skills{Id, ResourceId, Job, StartDate, EndDate, ResourceId->outils{Libelle_materiel=Name}, IF(Job='"+App.get('TAffaire').ItemID+"';'blue';'red')=Cls}",{autoLoad: true}),
 				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}",{autoLoad: true})
 			},                
 			{
@@ -251,7 +251,7 @@ App.view.define('VScheduler', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId, Job, StartDate, EndDate, User, IF(Job='"+App.get('TAffaire').ItemID+"';'blue';'red')=Cls}",{autoLoad: true}),
+				eventStore: App.eventstore.create("sapei://schedule_users{Id, ResourceId, Job, StartDate, EndDate, ResourceId->bpclight_agents{Prenom+' '+Nom=Name}, User, IF(Job='"+App.get('TAffaire').ItemID+"';'blue';'red')=Cls}",{autoLoad: true}),
 				resourceStore: App.resourcestore.create("sapei://user{Id_Agent=Id,Id_Agent->bpclight_agents{nom+' '+prenom=NomPrenom+}}?Id_role_agent=2",{autoLoad: true})
 			}
 			]
