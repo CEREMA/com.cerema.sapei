@@ -1113,6 +1113,7 @@ App.controller.define('CMain', {
                 store.load();
             }
             if (Auth.User.profiles.indexOf('Users')>-1) {
+                alert('x');
                 // si je suis utilisateur, je sélectionne par mes affaires
                 App.DB.get('sapei://schedule_users{Job}?ResourceId='+Auth.User.uid,function(e,r){
                     console.log(r);
