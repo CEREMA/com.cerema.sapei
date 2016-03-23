@@ -4,14 +4,14 @@
 	],
 	"profile": {
 		"Admin": [
+            "stephane.zucatti",
 			"sebastien.wasner",
 			"nadege.sagnard",
 			"olivier.ruiz",
 			"isabelle.alla",
 			"gil.romand"
 		],
-		"Users": [
-			"stephane.zucatti",
+		"Users": [			
 			"dominique.bessonneau",
 			"laure.bouzige",
 			"nicolas.champier",
