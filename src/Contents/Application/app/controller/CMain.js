@@ -859,6 +859,11 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);            
         });
+        // set scheduler begin date by minimum of date 
+        App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {
+            console.log(e);
+            console.log(r);
+        };
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
