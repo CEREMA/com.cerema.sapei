@@ -35,6 +35,7 @@ Jobs={
 			};
 			
 		};	
+		console.log(where);
 		if (where.length==0) where=-1;
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
