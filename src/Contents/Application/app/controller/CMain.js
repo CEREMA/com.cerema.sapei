@@ -1114,16 +1114,14 @@ App.controller.define('CMain', {
             };
             console.log(Auth.User.profiles);
             if (Auth.User.profiles.indexOf('Users')>-1) {
-                alert('x');
                 // si je suis utilisateur, je sélectionne par mes affaires
                 App.DB.get('sapei://schedule_users{Job}?ResourceId='+Auth.User.uid,function(e,r){
-                    console.log(r);
+                    if (r.result.data.length>0) {
+                        var store=App.get('VOpenAffaire grid#open').getStore();
+                        store.getProxy().extraParams.Id_job=r.result.data.join(',');
+                        store.load();                
+                    }
                 });
-                /*
-                var store=App.get('VOpenAffaire grid#open').getStore();
-                store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
-                store.load();                
-                */
             }
 		});
 	}
