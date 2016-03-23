@@ -1112,6 +1112,17 @@ App.controller.define('CMain', {
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
             }
+            if (Auth.User.profiles.indexOf('Users')>-1) {
+                // si je suis utilisateur, je sélectionne par mes affaires
+                App.DB.get('sapei://schedule_users{Job}?ResourceId='+Auth.User.uid,function(e,r){
+                    console.log(r);
+                });
+                /*
+                var store=App.get('VOpenAffaire grid#open').getStore();
+                store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
+                store.load();                
+                */
+            }
 		});
 	}
 	
