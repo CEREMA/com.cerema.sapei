@@ -1112,6 +1112,9 @@ App.controller.define('CMain', {
                 var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=2703;//Auth.User.uid;
                 store.load();
+                store.on('load',function(){
+                    App.info.hide();    
+                });                        
             };            
             if (Auth.User.profiles.indexOf('Users')>-1) {
                 // si je suis utilisateur, je sélectionne par mes affaires
