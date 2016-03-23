@@ -1125,7 +1125,7 @@ App.controller.define('CMain', {
                         store.on('load',function(){
                             App.info.hide();    
                         });                        
-                    }
+                    } else App.info.hide();
                 });
             }
 		});
