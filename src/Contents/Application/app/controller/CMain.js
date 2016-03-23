@@ -1110,7 +1110,7 @@ App.controller.define('CMain', {
                 };
                 // si je suis admin, je sélectionne par pilote
                 var store=App.get('VOpenAffaire grid#open').getStore();
-                store.getProxy().extraParams.Id_pilote_job=2703;//Auth.User.uid;
+                store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
                 store.on('load',function(){
                     App.info.hide();    
