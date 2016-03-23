@@ -1115,7 +1115,7 @@ App.controller.define('CMain', {
             console.log(Auth.User.profiles);
             if (Auth.User.profiles.indexOf('Users')>-1) {
                 // si je suis utilisateur, je sélectionne par mes affaires
-                App.DB.get('sapei://schedule_users{Job}?ResourceId='+Auth.User.uid,function(e,r){
+                App.DB.get('sapei://schedule_users{Job}?ResourceId='+314,function(e,r){
                     if (r.result.data.length>0) {
                         var store=App.get('VOpenAffaire grid#open').getStore();
                         store.getProxy().extraParams.Id_job=r.result.data.join(',');
