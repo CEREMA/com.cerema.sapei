@@ -867,7 +867,7 @@ App.controller.define('CMain', {
                     var d2=r.result.data[0].StartDate.toDate();
                     if (d2<debut) debut=d2;
                     App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
-                    App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
+                    App.get(me,'schedulergrid#schedule_agents').setStart(debut);
                 });        
             };
         });
