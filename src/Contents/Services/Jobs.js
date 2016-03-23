@@ -35,6 +35,7 @@ Jobs={
 			where.push(str);
 		};	
 		if (where.length==0) where.push("-1");
+		console.log(where);
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
 		db.model('sapei', sql , cb);	
