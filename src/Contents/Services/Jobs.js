@@ -26,17 +26,14 @@ Jobs={
 			if (i!=0) {
 				str=' '+o[i].operator+' ';
 			};
-			console.log(o[i].name);
 			if (o[i].name=="Id_users") {
 				str+=" Id_Job in (SELECT Job FROM schedule_users WHERE ResourceId="+o[i].value+")";
 			} else {
 				str+=o[i].name;
-				str+=o[i].value;
-				where.push(str);
+				str+=o[i].value;				
 			};
-			
+			where.push(str);
 		};	
-		console.log(where);
 		if (where.length==0) where.push("-1");
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
