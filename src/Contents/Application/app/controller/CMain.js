@@ -1102,6 +1102,7 @@ App.controller.define('CMain', {
 	{        
 		// form loaded
 		Auth.login(function(auth) {
+            App.info.loading();
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
                 for (var i=0;i<btns.length;i++) {
@@ -1111,8 +1112,7 @@ App.controller.define('CMain', {
                 var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
-            };
-            console.log(Auth.User.profiles);
+            };            
             if (Auth.User.profiles.indexOf('Users')>-1) {
                 // si je suis utilisateur, je sélectionne par mes affaires
                 App.DB.get('sapei://schedule_users{Job}?ResourceId='+314,function(e,r){
@@ -1121,7 +1121,10 @@ App.controller.define('CMain', {
                         for (var i=0;i<r.result.data.length;i++) jobs.push(r.result.data[i].Job);
                         var store=App.get('VOpenAffaire grid#open').getStore();
                         store.getProxy().extraParams.Id_job='['+jobs.join(',')+']';
-                        store.load();                
+                        store.load();
+                        store.on('load',function(){
+                            App.info.hide();    
+                        });                        
                     }
                 });
             }
