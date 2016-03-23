@@ -868,6 +868,8 @@ App.controller.define('CMain', {
                     if (d2<debut) debut=d2;
                     App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setStart(debut);
+                    App.get(me,'schedulergrid#schedule_agents').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4)));
+                    App.get(me,'schedulergrid#schedule_materiels').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4)));
                 });        
             };
         });
