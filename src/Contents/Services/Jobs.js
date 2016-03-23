@@ -26,6 +26,7 @@ Jobs={
 			if (i!=0) {
 				str=' '+o[i].operator+' ';
 			};
+			console.log(o[i].name);
 			if (o[i].name=="Id_users") {
 				str+=" Id_Job in (SELECT Job FROM schedule_users WHERE ResourceId="+o[i].value+")";
 			} else {
@@ -36,7 +37,7 @@ Jobs={
 			
 		};	
 		console.log(where);
-		if (where.length==0) where=-1;
+		if (where.length==0) where.push("-1");
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
 		db.model('sapei', sql , cb);	
