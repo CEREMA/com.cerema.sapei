@@ -26,9 +26,14 @@ Jobs={
 			if (i!=0) {
 				str=' '+o[i].operator+' ';
 			};
-			str+=o[i].name;
-			str+=o[i].value;
-			where.push(str);
+			if (o[i].name=="Id_users") {
+			
+			} else {
+				str+=o[i].name;
+				str+=o[i].value;
+				where.push(str);
+			};
+			
 		};		
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
