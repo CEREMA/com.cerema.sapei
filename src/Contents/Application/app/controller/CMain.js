@@ -1115,7 +1115,7 @@ App.controller.define('CMain', {
             };            
             if (Auth.User.profiles.indexOf('Users')>-1) {
                 // si je suis utilisateur, je sélectionne par mes affaires
-                App.DB.get('sapei://schedule_users{Job}?ResourceId='+314,function(e,r){
+                App.DB.get('sapei://schedule_users{Job}?ResourceId='+Auth.User.uid,function(e,r){
                     if (r.result.data.length>0) {
                         var jobs=[];
                         for (var i=0;i<r.result.data.length;i++) jobs.push(r.result.data[i].Job);
