@@ -860,13 +860,16 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_agents').setStart(d);            
         });
         // set scheduler begin date by minimum of date 
-        App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
-            var debut=r.result.data[0].StartDate.toDate();
-            App.DB.get('sapei://schedule_skills{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
-                var d2=r.result.data[0].StartDate.toDate();
-                if (d2<debut) debut=d2;
-                App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
-            });
+        App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) { 
+            if (r.result.data.length>0) {
+                var debut=r.result.data[0].StartDate.toDate();
+                App.DB.get('sapei://schedule_skills{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
+                    var d2=r.result.data[0].StartDate.toDate();
+                    if (d2<debut) debut=d2;
+                    App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
+                    App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
+                });        
+            };
         });
 	},
     TAffaire_update: function(e,r) {
