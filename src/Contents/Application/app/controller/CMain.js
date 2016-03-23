@@ -1102,7 +1102,7 @@ App.controller.define('CMain', {
 	{        
 		// form loaded
 		Auth.login(function(auth) {
-            App.info.loading();
+            App.info.loading("Veuillez patienter");
             if (Auth.User.profiles.indexOf('Admin')>-1) {
                 var btns=App.getAll('menu>menuitem');
                 for (var i=0;i<btns.length;i++) {
