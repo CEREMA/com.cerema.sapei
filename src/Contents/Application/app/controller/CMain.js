@@ -1111,7 +1111,7 @@ App.controller.define('CMain', {
                 var store=App.get('VOpenAffaire grid#open').getStore();
                 store.getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 store.load();
-            }
+            };
             if (Auth.User.profiles.indexOf('Users')>-1) {
                 alert('x');
                 // si je suis utilisateur, je sélectionne par mes affaires
