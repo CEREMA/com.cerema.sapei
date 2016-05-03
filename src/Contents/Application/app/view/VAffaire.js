@@ -121,6 +121,7 @@ App.view.define('VAffaire', {
 			{
 				xtype: "datefield",
 				fieldLabel: "Remise du livrable",
+                format: 'd/m/Y',
 				labelAlign: "top",
 				margin: {
 					left: 5
