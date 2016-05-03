@@ -172,7 +172,14 @@ App.view.define('VAffaire', {
             valueField: "Kage",
             displayField: "nomprenom",
             store: App.store.create('App.Tasks.getUsers',{autoLoad: true})
-		},                
+		}
+            ]
+		},
+		{
+            layout: "hbox",
+            width: "100%",
+            border: false,
+            items: [
             {
                 xtype: "combo",
                 itemId: "affaire_statut",
@@ -186,14 +193,8 @@ App.view.define('VAffaire', {
                 displayField: "statut",
                 store: App.store.create('sapei://job_statut?archive=0',{autoLoad: true})
             },
-            ]
-		},
-		{
-            layout: "hbox",
-            width: "100%",
-            border: false,
-            items: [
-		{
+                
+		/*{
 			xtype: "combo",
             itemId: "Avancement global",
 			padding: 4,
@@ -219,7 +220,7 @@ App.view.define('VAffaire', {
                     {avancement: "100%", val: 10}
                 ]
             })
-		},            
+		},*/            
             {
                 xtype: "datefield",
                 fieldLabel: "Date d'affectation",
