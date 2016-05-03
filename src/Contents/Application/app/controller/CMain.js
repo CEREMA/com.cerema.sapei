@@ -846,6 +846,7 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
+          function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
           var d=new Date();
           d.setDate(1);
           d.setMonth(p.getValue());
@@ -853,7 +854,7 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
           var e=new Date();
-          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);
+          if (isBissextile(App.get(me,'combo#selectAnnee').getValue(),1,1) && p.getValue()==1) e.setDate(28); else e.setDate(0);
           //e.setDate(0);
           e.setMonth(p.getValue());
           e.setYear(App.get(me,'combo#selectAnnee').getValue());
