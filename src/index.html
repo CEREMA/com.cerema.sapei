@@ -224,14 +224,14 @@
 		__SESSION__=-1;
 		__COUNTER__=-1;		
 		var bootstraploader=function(tab,i,cb) {
-			if (i<=tab.length) require([tab[i]],function(){
+			if (i<=tab.length) Require([tab[i]],function(){
 				bootstraploader(tab,i+1,cb);
 			}); else cb();
 		};
 		setTimeout(function(){			
-			require(["Contents/Settings"], function() {		
+			Require(["Contents/Settings"], function() {		
 				bootstraploader(Settings.FRAMEWORKS,0, function(){
-					require(["Contents/Application/app"], function() {					
+					Require(["Contents/Application/app"], function() {					
 						
 					});
 				});		
