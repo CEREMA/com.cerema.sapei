@@ -847,17 +847,17 @@ App.controller.define('CMain', {
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
           var d=new Date();
-          d.setDate(App.get(me,'combo#selectAnnee').getValue(),p.getValue(),1);
-          /*d.setMonth(p.getValue(),1);
-          d.setYear(App.get(me,'combo#selectAnnee').getValue());*/
+          d.setDate(1);
+          d.setMonth(p.getValue(),1);
+          d.setYear(App.get(me,'combo#selectAnnee').getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
         });
         App.get('combo#selectAnnee').on('select',function(p) {
           var d=new Date();
-          d.setDate(p.getValue(),App.get(me,'combo#selectMonth').getValue(),1);
-          /*d.setMonth(App.get(me,'combo#selectMonth').getValue());
-          d.setYear(p.getValue());*/
+          d.setDate(1);
+          d.setMonth(App.get(me,'combo#selectMonth').getValue());
+          d.setYear(p.getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);            
         });
