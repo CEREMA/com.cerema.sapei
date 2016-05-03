@@ -115,6 +115,7 @@ App.view.define('VAffaire', {
 				fieldLabel: "Prise d'affaire",
 				labelAlign: "top",
 				bind: "Date_prise_job",
+                format: 'd/m/Y',
 				allowBlank: false
 			},
 			{
