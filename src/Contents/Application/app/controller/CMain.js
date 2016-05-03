@@ -848,10 +848,16 @@ App.controller.define('CMain', {
         App.get('combo#selectMonth').on('select',function(p) {
           var d=new Date();
           d.setDate(1);
-          d.setMonth(p.getValue(),1);
+          d.setMonth(p.getValue());
           d.setYear(App.get(me,'combo#selectAnnee').getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
+          var e=new Date();
+          e.setDate(0);
+          e.setMonth(p.getValue());
+          e.setYear(App.get(me,'combo#selectAnnee').getValue());
+		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
+          App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         App.get('combo#selectAnnee').on('select',function(p) {
           var d=new Date();
@@ -860,6 +866,12 @@ App.controller.define('CMain', {
           d.setYear(p.getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);            
+          var e=new Date();
+          e.setDate(0);
+          e.setMonth(App.get(me,'combo#selectMonth').getValue());
+          e.setYear(p.getValue());
+		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
+          App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         // set scheduler begin date by minimum of date 
         App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) { 
