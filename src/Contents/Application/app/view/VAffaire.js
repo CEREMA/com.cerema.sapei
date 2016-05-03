@@ -192,35 +192,7 @@ App.view.define('VAffaire', {
                 valueField: "id",
                 displayField: "statut",
                 store: App.store.create('sapei://job_statut?archive=0',{autoLoad: true})
-            },
-                
-		/*{
-			xtype: "combo",
-            itemId: "Avancement global",
-			padding: 4,
-			bind: "avancement",
-			fieldLabel: "Avancement global",
-            editable: false,
-			labelAlign: "top",
-            flex: 2,
-            valueField: "val",
-            displayField: "avancement",
-            store: App.store.create({
-                fields: ["val","avancement"],
-                data: [
-                    {avancement: "10%", val: 1},
-                    {avancement: "20%", val: 2},
-                    {avancement: "30%", val: 3},
-                    {avancement: "40%", val: 4},
-                    {avancement: "50%", val: 5},
-                    {avancement: "60%", val: 6},
-                    {avancement: "70%", val: 7},
-                    {avancement: "80%", val: 8},
-                    {avancement: "90%", val: 9},
-                    {avancement: "100%", val: 10}
-                ]
-            })
-		},*/            
+            },           
             {
                 xtype: "datefield",
                 fieldLabel: "Date d'affectation",
