@@ -853,7 +853,7 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
           var e=new Date();
-          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(28); else e.setDate(0);
+          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);
           //e.setDate(0);
           e.setMonth(p.getValue());
           e.setYear(App.get(me,'combo#selectAnnee').getValue());
@@ -868,7 +868,7 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);            
           var e=new Date();
-          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(28); else e.setDate(0);
+          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);
             //e.setDate(0);
           e.setMonth(App.get(me,'combo#selectMonth').getValue());
           e.setYear(p.getValue());
