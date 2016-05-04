@@ -27,11 +27,4 @@ Manifest = function()
 	
 };
 
-Ext.require(Settings.MODULES, function()
-{
-	for (var i=0;i<Settings.API.length;i++)
-	{
-		App.using(Settings.API[i]);
-	};
-	App.load();
-});
+App.Loader();
