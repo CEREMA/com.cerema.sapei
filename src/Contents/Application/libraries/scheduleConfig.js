@@ -1,6 +1,6 @@
 // define time axis & presets
 
-Ext.define('Lib.scheduleConfig.timeAxis', {
+Ext.define('Lib.timeAxis', {
     extend     : "Ext.ux.Scheduler.data.TimeAxis",
     continuous : false,
 
