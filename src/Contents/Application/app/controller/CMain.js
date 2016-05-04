@@ -864,8 +864,13 @@ App.controller.define('CMain', {
         });
         App.get('combo#selectAnnee').on('select',function(p) {
           function LastDayOfMonth(year,month) {
-              alert(month);
-              if (month==1) return 28;
+              function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
+              if (month==1) {
+                  if (isBissextile(year))
+                    return 29;
+                  else
+                    return 28;
+              };
             return new Date(year, month, 0).getDate();
           };            
           var d=new Date();
