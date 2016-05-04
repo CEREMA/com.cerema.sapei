@@ -846,9 +846,9 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
-          function LastDayOfMonth(Year, Month) {
-                return new Date( (new Date(Year, Month,1))-1 );
-          };
+          function LastDayOfMonth(year,month) {
+            return new Date(year, month, 0).getDate();
+          };            
           var d=new Date();
           d.setDate(1);
           d.setMonth(p.getValue());
@@ -863,10 +863,9 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         App.get('combo#selectAnnee').on('select',function(p) {
-          function LastDayOfMonth(Year, Month) {
-            alert(new Date( (new Date(Year, Month,1))-1 ));
-            return new Date( (new Date(Year, Month,1))-1 );
-          };
+          function LastDayOfMonth(year,month) {
+            return new Date(year, month, 0).getDate();
+          };            
           var d=new Date();
           d.setDate(1);
           d.setMonth(App.get(me,'combo#selectMonth').getValue());
