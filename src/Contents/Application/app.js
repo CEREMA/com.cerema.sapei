@@ -29,7 +29,7 @@ Manifest = function()
 
 function __loader__(i) {
 	if (!i) var i=0;
-	if (i<Settings.MODULES.length-1) {
+	if (i<Settings.MODULES.length) {
 		Ext.require(Settings.MODULES[i],function() {
 			__loader__(i+1);
 		});
