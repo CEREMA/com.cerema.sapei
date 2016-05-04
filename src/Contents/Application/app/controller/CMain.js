@@ -864,7 +864,6 @@ App.controller.define('CMain', {
         });
         App.get('combo#selectAnnee').on('select',function(p) {
           function LastDayOfMonth(year,month) {
-            alert(new Date(year, month, 0).getDate());
             return new Date(year, month, 0).getDate();
           };            
           var d=new Date();
@@ -878,6 +877,7 @@ App.controller.define('CMain', {
           e.setMonth(App.get(me,'combo#selectMonth').getValue()-1);
           e.setYear(p.getValue());
           e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue()));
+            console.log(e);
 		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
