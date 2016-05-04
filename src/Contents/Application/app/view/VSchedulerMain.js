@@ -48,7 +48,7 @@ App.view.define('VSchedulerMain', {
 			{
 				xtype: "schedulergrid",
 				itemId: "schedule_agents",
-				timeAxis: new MyTimeAxis(),
+				timeAxis: new Lib.timeAxis(),
 				enableEventDragDrop:true,
 				columnWidth: 2,
 				startDate     : new Date(),
