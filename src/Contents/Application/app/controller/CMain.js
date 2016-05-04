@@ -848,6 +848,7 @@ App.controller.define('CMain', {
         App.get('combo#selectMonth').on('select',function(p) {
           function LastDayOfMonth(year,month) {
               function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
+              alert(month);
               if (month==1) {
                   if (isBissextile(year))
                     return 29;
