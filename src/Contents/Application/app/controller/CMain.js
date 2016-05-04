@@ -854,7 +854,9 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
           var e=new Date();
-          if (isBissextile(App.get(me,'combo#selectAnnee').getValue()) && p.getValue()==1) e.setDate(28); else e.setDate(0);
+          if (isBissextile(App.get(me,'combo#selectAnnee').getValue()) && p.getValue()==1) e.setDate(29); else {
+                if (p.getValue()==1) e.setDate(28); else e.setDate(0);
+          };
           //e.setDate(0);
           e.setMonth(p.getValue());
           e.setYear(App.get(me,'combo#selectAnnee').getValue());
