@@ -891,7 +891,7 @@ App.controller.define('CMain', {
           //if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);          
           e.setMonth(App.get(me,'combo#selectMonth').getValue());
           e.setYear(p.getValue());
-          e.setDate(LastDayOfMonth(p.getValue()-1,App.get(me,'combo#selectMonth').getValue()));
+          e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue())-1);
           console.log(e);
 		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
