@@ -864,6 +864,7 @@ App.controller.define('CMain', {
         });
         App.get('combo#selectAnnee').on('select',function(p) {
           function LastDayOfMonth(year,month) {
+            alert(new Date(year, month, 0).getDate());
             return new Date(year, month, 0).getDate();
           };            
           var d=new Date();
