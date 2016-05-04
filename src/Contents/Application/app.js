@@ -27,4 +27,22 @@ Manifest = function()
 	
 };
 
+console.log(Settings.MODULES);
 App.Loader();
+
+if (Settings.MODULES.length>0) {
+	Ext.require(Settings.MODULES, function()
+	{
+		for (var i=0;i<Settings.API.length;i++)
+		{
+			App.using(Settings.API[i]);
+		};
+		App.load();
+	});
+} else {
+	for (var i=0;i<Settings.API.length;i++)
+	{
+		App.using(Settings.API[i]);
+	};
+	App.load();
+}
