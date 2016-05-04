@@ -846,25 +846,26 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
-          function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
+          function LastDayOfMonth(Year, Month) {
+                return new Date( (new Date(Year, Month,1))-1 );
+          };
           var d=new Date();
           d.setDate(1);
           d.setMonth(p.getValue());
           d.setYear(App.get(me,'combo#selectAnnee').getValue());
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
-          var e=new Date();
-          if (isBissextile(App.get(me,'combo#selectAnnee').getValue()) && p.getValue()==1) e.setDate(29); else {
-                if (p.getValue()==1) e.setDate(28); else e.setDate(0);
-          };
-          //e.setDate(0);
+          var e=new Date();          
           e.setMonth(p.getValue());
           e.setYear(App.get(me,'combo#selectAnnee').getValue());
+          e.setDate(LastDayOfMonth(App.get(me,'combo#selectAnnee').getValue(),p.getValue()));
 		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         App.get('combo#selectAnnee').on('select',function(p) {
-          function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
+          function LastDayOfMonth(Year, Month) {
+            return new Date( (new Date(Year, Month,1))-1 );
+          };
           var d=new Date();
           d.setDate(1);
           d.setMonth(App.get(me,'combo#selectMonth').getValue());
@@ -875,10 +876,10 @@ App.controller.define('CMain', {
           if (isBissextile(p.getValue()) && App.get(me,'combo#selectMonth').getValue()==1) e.setDate(29); else {
                 if (p.getValue()==1) e.setDate(28); else e.setDate(0);
           };
-          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);
-            //e.setDate(0);
+          if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);          
           e.setMonth(App.get(me,'combo#selectMonth').getValue());
           e.setYear(p.getValue());
+          e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue()));
 		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
