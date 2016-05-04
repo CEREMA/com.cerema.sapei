@@ -59,7 +59,8 @@
         "Ext.ux.form.field.BoxSelect",
         "Ext.ux.daterange.field.DateRange",
         "Ext.ux.FilterBox",
-        "Ext.ux.grid.Printer"
+        "Ext.ux.grid.Printer",
+        "Lib.scheduleConfig.timeAxis"
     ],
     "plugins": [],
     "api": [
