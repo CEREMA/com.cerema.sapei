@@ -33,7 +33,7 @@ for (var i=0;i<Settings.MODULES.length;i++) {
 	Settings.FRAM=[];
 	if (Settings.MODULES[i].indexOf('omneedia')>-1) Settings.FRAM.push(Settings.MODULES[i]); else Settings.MODS.push(Settings.MODULES[i]);
 };
-
+console.log(Settings.FRAM);
 Ext.require(Settings.FRAM, function() {
 	App.Loader(Settings.MODS);
 });
