@@ -856,7 +856,7 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);
           var e=new Date();          
-          e.setMonth(p.getValue()-1);
+          e.setMonth(p.getValue());
           e.setYear(App.get(me,'combo#selectAnnee').getValue());
           e.setDate(LastDayOfMonth(App.get(me,'combo#selectAnnee').getValue(),p.getValue()));
 		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
