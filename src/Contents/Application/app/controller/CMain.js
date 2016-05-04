@@ -848,13 +848,13 @@ App.controller.define('CMain', {
         App.get('combo#selectMonth').on('select',function(p) {
           function LastDayOfMonth(year,month) {
               function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
-              alert(month);
               if (month==1) {
                   if (isBissextile(year))
                     return 29;
                   else
                     return 28;
               };
+              alert(new Date(year, month, 0).getDate());
             return new Date(year, month, 0).getDate();
           };              
           var d=new Date();
