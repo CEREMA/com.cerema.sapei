@@ -29,8 +29,8 @@ Manifest = function()
 
 console.log(Settings.MODULES);
 for (var i=0;i<Settings.MODULES.length;i++) {
-	var Settings.MODS=[];
-	var Settings.FRAM=[];
+	Settings.MODS=[];
+	Settings.FRAM=[];
 	if (Settings.MODULES[i].indexOf('omneedia')>-1) Settings.FRAM.push(Settings.MODULES[i]); else Settings.MODS.push(Settings.MODULES[i]);
 };
 
