@@ -27,30 +27,18 @@ Manifest = function()
 	
 };
 
-console.log(Settings.MODULES);
-for (var i=0;i<Settings.MODULES.length;i++) {
-	Settings.MODS=[];
-	Settings.FRAM=[];
-	if (Settings.MODULES[i].indexOf('omneedia.')>-1) Settings.FRAM.push(Settings.MODULES[i]); else Settings.MODS.push(Settings.MODULES[i]);
-};
-console.log(Settings.FRAM);
-Ext.require(Settings.FRAM, function() {
-	App.Loader(Settings.MODS);
-});
-
-/*if (Settings.MODULES.length>0) {
-	Ext.require(Settings.MODULES, function()
-	{
+function __loader__(i) {
+	if (!i) var i=0;
+	if (i<Settings.MODULES.length-1) {
+		Ext.require(Settings.MODULES[i],function() {
+			__loader__(i+1);
+		});
+	} else {
 		for (var i=0;i<Settings.API.length;i++)
 		{
 			App.using(Settings.API[i]);
 		};
-		App.load();
-	});
-} else {
-	for (var i=0;i<Settings.API.length;i++)
-	{
-		App.using(Settings.API[i]);
-	};
-	App.load();
-}*/
+		App.load();	
+	}
+};
+__loader__();
