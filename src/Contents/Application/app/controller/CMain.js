@@ -878,8 +878,8 @@ App.controller.define('CMain', {
           e.setYear(p.getValue());
           e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue()));
             console.log(e);
-		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
-          App.get(me,'schedulergrid#schedule_agents').setEnd(e);
+		  App.get(me,'schedulergrid#schedule_materiels').setEndDate(e);
+          App.get(me,'schedulergrid#schedule_agents').setEndDate(e);
         });
         // set scheduler begin date by minimum of date 
         App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) { 
