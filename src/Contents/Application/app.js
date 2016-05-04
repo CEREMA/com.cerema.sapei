@@ -28,9 +28,17 @@ Manifest = function()
 };
 
 console.log(Settings.MODULES);
-App.Loader();
+for (var i=0;i<Settings.MODULES.length;i++) {
+	var Settings.MODS=[];
+	var Settings.FRAM=[];
+	if (Settings.MODULES[i].indexOf('omneedia')>-1) Settings.FRAM.push(Settings.MODULES[i]); else Settings.MODS.push(Settings.MODULES[i]);
+};
 
-if (Settings.MODULES.length>0) {
+Ext.require(Settings.FRAM, function() {
+	App.Loader(Settings.MODS);
+});
+
+/*if (Settings.MODULES.length>0) {
 	Ext.require(Settings.MODULES, function()
 	{
 		for (var i=0;i<Settings.API.length;i++)
@@ -45,4 +53,4 @@ if (Settings.MODULES.length>0) {
 		App.using(Settings.API[i]);
 	};
 	App.load();
-}
+}*/
