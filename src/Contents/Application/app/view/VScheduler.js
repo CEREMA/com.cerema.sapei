@@ -146,7 +146,7 @@ App.view.define('VScheduler', {
 			{
 				xtype: "schedulergrid",
 				itemId: "schedule_materiels",
-				timeAxis: new MyTimeAxis(),
+				timeAxis: new Lib.scheduleConfig.timeAxis(),
 				enableEventDragDrop:true,
 				columnWidth: 30,
 				startDate     : new Date(),
