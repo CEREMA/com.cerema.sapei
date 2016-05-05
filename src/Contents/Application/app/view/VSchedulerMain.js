@@ -34,6 +34,7 @@ App.view.define('VSchedulerMain', {
 				allowOverlap: false,
 				heigth: 200,
 				width: "100%",
+				infiniteScroll: true,
 				columns: [{
 					header: 'Matériels',
 					dataIndex: 'Materiel',
@@ -59,6 +60,7 @@ App.view.define('VSchedulerMain', {
 				flex: 1,
 				heigth: 200,
 				width: "100%",
+				infiniteScroll: true,
 				columns: [{
 					header: 'Agents',
 					dataIndex: 'NomPrenom',
