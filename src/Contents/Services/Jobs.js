@@ -18,6 +18,7 @@ Jobs={
 			"client_origine.Lib_client_origine",
 			"CONCAT(bpclight_agents.nom,\" \",bpclight_agents.prenom) nomprenom"
 		];
+		console.log(o);
 		var where=[];
 		if (!o.quest) o.quest=[];
         o=JSON.parse(o.quest);
