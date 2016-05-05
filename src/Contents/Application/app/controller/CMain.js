@@ -222,12 +222,12 @@ App.controller.define('CMain', {
 
 		
 		// sync scrollbars
-		App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
+		/*App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
 			App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
 		});
 		App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
 			App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-		});
+		});*/
 		
 		App.get(p,"schedulergrid#schedule_materiels").scrollToDate(new Date());
 	},
