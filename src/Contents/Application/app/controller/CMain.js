@@ -219,7 +219,7 @@ App.controller.define('CMain', {
 		App.get(p,"schedulergrid#schedule_agents").setEnd(new Date(App.get(p,"combo#selectAnnee").getValue(),12,31));
 		App.get(p,"schedulergrid#schedule_materiels").setStart(new Date(App.get(p,"combo#selectAnnee").getValue(),0,1));
 		App.get(p,"schedulergrid#schedule_materiels").setEnd(new Date(App.get(p,"combo#selectAnnee").getValue(),12,31));
-		App.get(p,"schedulergrid#schedule_materiels").scrollToDate(new Date());
+
 		
 		// sync scrollbars
 		App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
@@ -227,7 +227,9 @@ App.controller.define('CMain', {
 		});
 		App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().on('scroll', function(e, t) {
 			App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
-		});                                        		
+		});
+		
+		App.get(p,"schedulergrid#schedule_materiels").scrollToDate(new Date());
 	},
 	filter_onclick: function()
 	{
