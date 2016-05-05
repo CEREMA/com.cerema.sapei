@@ -897,6 +897,7 @@ App.controller.define('CMain', {
         // set scheduler begin date by minimum of date 
         App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) { 
             if (r.result.data.length>0) {
+				alert('x');
                 var debut=r.result.data[0].StartDate.toDate();
                 App.DB.get('sapei://schedule_skills{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
                     var d2=r.result.data[0].StartDate.toDate();
