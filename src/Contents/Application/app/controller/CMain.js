@@ -885,13 +885,13 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         // set scheduler begin date by minimum of date 
-        App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) { 
+        App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {
+			alert('x');
             if (r.result.data.length>0) {
                 var debut=r.result.data[0].StartDate.toDate();
                 App.DB.get('sapei://schedule_skills{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
                     var d2=r.result.data[0].StartDate.toDate();
                     if (d2<debut) debut=d2;
-					alert('x');
                     App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4)));
