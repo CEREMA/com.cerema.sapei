@@ -19,10 +19,10 @@ Jobs={
 			"CONCAT(bpclight_agents.nom,\" \",bpclight_agents.prenom) nomprenom"
 		];
 		var where=[];
-		if (!o.quest) o.quest=[];
-				console.log("+++++++++++++++++++++");
+		if (!o.quest) o.quest="[]";
+
         o=JSON.parse(o.quest);
-				console.log("+++++++++++++++++++++");
+				
 		for (var i=0;i<o.length;i++)
 		{
 			var str="";
@@ -37,9 +37,9 @@ Jobs={
 			};
 			where.push(str);
 		};
-		console.log("+++++++++++++++++++++");
+
 		if (where.length==0) where.push("-1");
-		console.log("---------------------");
+
 		console.log(where);
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
