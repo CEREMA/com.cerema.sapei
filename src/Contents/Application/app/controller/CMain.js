@@ -992,7 +992,9 @@ App.controller.define('CMain', {
     },
 	TAffaire_onshow: function(p)
 	{
-        if (Auth.User.profiles.indexOf('Admin')>-1) App.get('TAffaire button#newtask').show();
+		// Tout le monde a accès aux tâches
+        //if (Auth.User.profiles.indexOf('Admin')>-1) 
+		App.get('TAffaire button#newtask').show();
 		p.wiki=0;
         App.Tasks.getAll({id_job: p.ItemID},this.TAffaire_update);        
         AFFAIRE_ID=p.ItemID;
