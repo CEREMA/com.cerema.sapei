@@ -854,8 +854,7 @@ App.controller.define('CMain', {
                   else
                     return 28;
               };
-              alert(new Date(year, month, 0).getDate());
-            return new Date(year, month, 0).getDate();
+            return new Date(year, month+1, 0).getDate();
           };              
           var d=new Date();
           d.setDate(1);
