@@ -866,7 +866,6 @@ App.controller.define('CMain', {
           e.setMonth(p.getValue());
           e.setYear(App.get(me,'combo#selectAnnee').getValue());
           e.setDate(LastDayOfMonth(App.get(me,'combo#selectAnnee').getValue(),p.getValue()));
-		  console.log(e);
           App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
@@ -879,8 +878,7 @@ App.controller.define('CMain', {
                   else
                     return 28;
               };
-              alert(new Date(year, month, 0).getDate());
-            return new Date(year, month, 0).getDate();
+            return new Date(year, month+1, 0).getDate();
           };            
           var d=new Date();
           d.setDate(1);
@@ -893,7 +891,6 @@ App.controller.define('CMain', {
           e.setMonth(App.get(me,'combo#selectMonth').getValue());
           e.setYear(p.getValue());
           e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue()));
-          console.log(e);
 		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
