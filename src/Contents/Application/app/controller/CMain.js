@@ -229,6 +229,7 @@ App.controller.define('CMain', {
 			App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
 		});
 		
+		App.get(p,"schedulergrid#schedule_materiels").setTimeSpan(App.get(p,"schedulergrid#schedule_materiels").getStart(),App.get(p,"schedulergrid#schedule_materiels").getEnd());
 		App.get(p,"schedulergrid#schedule_materiels").scrollToDate(new Date());
 	},
 	filter_onclick: function()
