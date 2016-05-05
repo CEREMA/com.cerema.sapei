@@ -215,10 +215,9 @@ App.controller.define('CMain', {
 		App.get(p,'combo#selectAnnee').bindStore(store_year);
 		App.get(p,'combo#selectAnnee').setValue(now.getFullYear());	     
 		
-		App.get(p,"schedulergrid#schedule_agents").setStart(new Date(App.get(p,"combo#selectAnnee").getValue(),1,1));
+		App.get(p,"schedulergrid#schedule_agents").setStart(new Date(App.get(p,"combo#selectAnnee").getValue(),0,1));
 		App.get(p,"schedulergrid#schedule_agents").setEnd(new Date(App.get(p,"combo#selectAnnee").getValue(),12,31));
-		App.get(p,"schedulergrid#schedule_agents").scrollToDate(new Date());
-		App.get(p,"schedulergrid#schedule_materiels").setStart(new Date(App.get(p,"combo#selectAnnee").getValue(),1,1));
+		App.get(p,"schedulergrid#schedule_materiels").setStart(new Date(App.get(p,"combo#selectAnnee").getValue(),0,1));
 		App.get(p,"schedulergrid#schedule_materiels").setEnd(new Date(App.get(p,"combo#selectAnnee").getValue(),12,31));
 		App.get(p,"schedulergrid#schedule_materiels").scrollToDate(new Date());
 		
