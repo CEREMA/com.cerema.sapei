@@ -821,6 +821,16 @@ App.controller.define('CMain', {
 	},
 	VScheduler_onshow: function(me)
 	{
+	    function LastDayOfMonth(year,month) {
+		  function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
+		  if (month==1) {
+			  if (isBissextile(year))
+				return 29;
+			  else
+				return 28;
+		  	};
+		  return new Date(year, month+1, 0).getDate();
+	    }; 		
         this.TASK_SKILLS={};
         this.TASK_USER={};
 		// sync scrollbars
@@ -846,16 +856,6 @@ App.controller.define('CMain', {
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
         App.get('combo#selectMonth').setValue(parseInt(mm)-1);
         App.get('combo#selectMonth').on('select',function(p) {
-          function LastDayOfMonth(year,month) {
-              function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
-              if (month==1) {
-                  if (isBissextile(year))
-                    return 29;
-                  else
-                    return 28;
-              };
-            return new Date(year, month+1, 0).getDate();
-          };              
           var d=new Date();
           d.setDate(1);
           d.setMonth(p.getValue());
@@ -870,16 +870,6 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         App.get('combo#selectAnnee').on('select',function(p) {
-          function LastDayOfMonth(year,month) {
-              function isBissextile(n) { return n % 4 === 0 && (n % 400 === 0 || n % 100 !== 0) ? true : false; }
-              if (month==1) {
-                  if (isBissextile(year))
-                    return 29;
-                  else
-                    return 28;
-              };
-            return new Date(year, month+1, 0).getDate();
-          };            
           var d=new Date();
           d.setDate(1);
           d.setMonth(App.get(me,'combo#selectMonth').getValue());
@@ -897,11 +887,11 @@ App.controller.define('CMain', {
         // set scheduler begin date by minimum of date 
         App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) { 
             if (r.result.data.length>0) {
-				alert('x');
                 var debut=r.result.data[0].StartDate.toDate();
                 App.DB.get('sapei://schedule_skills{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
                     var d2=r.result.data[0].StartDate.toDate();
                     if (d2<debut) debut=d2;
+					alert('x');
                     App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4)));
