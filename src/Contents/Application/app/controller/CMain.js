@@ -877,7 +877,6 @@ App.controller.define('CMain', {
 		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
           App.get(me,'schedulergrid#schedule_agents').setStart(d);            
           var e=new Date();
-          //if (new Date(App.get(me,'combo#selectAnnee').getValue(),1,1).getMonth() == new Date(App.get(me,'combo#selectAnnee').getValue(),1,29).getMonth() ? 29 : 28) e.setDate(0); else e.setDate(28);          
           e.setMonth(App.get(me,'combo#selectMonth').getValue());
           e.setYear(p.getValue());
           e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue()));
@@ -885,17 +884,28 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         // set scheduler begin date by minimum of date 
+          var d=new Date();
+          d.setDate(1);
+          d.setMonth(App.get(me,'combo#selectMonth').getValue());
+          d.setYear(p.getValue());
+		  App.get(me,'schedulergrid#schedule_materiels').setStart(d);
+          App.get(me,'schedulergrid#schedule_agents').setStart(d);            
+          var e=new Date();
+          e.setMonth(App.get(me,'combo#selectMonth').getValue());
+          e.setYear(p.getValue());
+          e.setDate(LastDayOfMonth(p.getValue(),App.get(me,'combo#selectMonth').getValue()));
+		  App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
+          App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         App.DB.get('sapei://schedule_users{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {
-			alert('x');
             if (r.result.data.length>0) {
                 var debut=r.result.data[0].StartDate.toDate();
                 App.DB.get('sapei://schedule_skills{Id, Job, StartDate}?Job='+App.get('TAffaire').ItemID,function(e,r) {            
                     var d2=r.result.data[0].StartDate.toDate();
                     if (d2<debut) debut=d2;
-                    App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
+                    /*App.get(me,'schedulergrid#schedule_materiels').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setStart(debut);
                     App.get(me,'schedulergrid#schedule_agents').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4)));
-                    App.get(me,'schedulergrid#schedule_materiels').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4)));
+                    App.get(me,'schedulergrid#schedule_materiels').setEnd(new Date(new Date().setMonth(new Date().getMonth()+4))); */
                 });        
             };
         });
