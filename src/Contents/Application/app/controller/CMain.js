@@ -215,6 +215,8 @@ App.controller.define('CMain', {
 		App.get(p,'combo#selectAnnee').bindStore(store_year);
 		App.get(p,'combo#selectAnnee').setValue(now.getFullYear());	     
 		
+		//App.get(p,"schedulergrid#"
+		
 		// sync scrollbars
 		App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
 			App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
