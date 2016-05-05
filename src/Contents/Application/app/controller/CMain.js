@@ -220,7 +220,10 @@ App.controller.define('CMain', {
                 App.get('VOpenAffaire grid#open').getStore().getProxy().extraParams.Id_pilote_job=Auth.User.uid;
                 App.get('VOpenAffaire grid#open').getStore().load();
             };		  
-        } else App.get('mainform FilterBox#FilterPanel').show();
+        } else {
+			App.get('mainform FilterBox#FilterPanel').show();
+			App.get('VOpenAffaire grid#open').getStore().load();
+		}
 	},	
     AdrBookClick: function(p) {
         this.Contacts();
