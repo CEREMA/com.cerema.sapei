@@ -201,6 +201,20 @@ App.controller.define('CMain', {
 		
 	},
 	VSchedulerMain_onshow: function(p) {
+		// update combo daterange
+		var now = new Date();
+        var year=now.getFullYear();		
+        var tab=[];
+		for (var i=-3;i<=3;i++) tab.push({year:year+i});
+		var store_year = App.store.create({
+			fields: [
+				"year"
+			],
+			data: tab
+		});
+		App.get(p,'combo#selectAnnee').bindStore(store_year);
+		App.get(p,'combo#selectAnnee').setValue(now.getFullYear());	     
+		
 		// sync scrollbars
 		App.get(p,'schedulergrid#schedule_agents').getSchedulingView().getEl().on('scroll', function(e, t) {
 			App.get(p,'schedulergrid#schedule_materiels').getSchedulingView().getEl().dom.scrollLeft = t.scrollLeft;
