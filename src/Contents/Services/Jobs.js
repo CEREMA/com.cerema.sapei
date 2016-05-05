@@ -20,7 +20,9 @@ Jobs={
 		];
 		var where=[];
 		if (!o.quest) o.quest=[];
+				console.log("+++++++++++++++++++++");
         o=JSON.parse(o.quest);
+				console.log("+++++++++++++++++++++");
 		for (var i=0;i<o.length;i++)
 		{
 			var str="";
@@ -34,7 +36,8 @@ Jobs={
 				str+=o[i].value;				
 			};
 			where.push(str);
-		};	
+		};
+		console.log("+++++++++++++++++++++");
 		if (where.length==0) where.push("-1");
 		console.log("---------------------");
 		console.log(where);
