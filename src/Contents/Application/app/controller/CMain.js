@@ -384,20 +384,18 @@ App.controller.define('CMain', {
             html: '...',
             listeners: {
                 beforeshow: function updateTipBody(tip) {
-					console.log(rec.data.Type);
-					console.log(rec.data.Id);
-                    if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_skills='+rec.data.Id,function(e,r) {
-                        var id=r.result.data[0].Id_job; 
+
+                    if (rec.data.Type==1) {
+                        var id=rec.data.Id; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
                             var html=[];
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
                             tip.update(html.join(''));
                         });
                     });
-                    if (rec.data.Type==2) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
-						console.log(e);
-						console.log(r);
-						var id=r.result.data[0].Id_job; 
+                    if (rec.data.Type==2) {
+
+						var id=rec.data.Id; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
                             var html=[];
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
