@@ -385,7 +385,7 @@ App.controller.define('CMain', {
             listeners: {
                 beforeshow: function updateTipBody(tip) {
                     if (rec.data.Type==1) {
-                        var id=rec.data.Id; 
+                        var id=rec.data.Job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
                             var html=[];
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
@@ -393,7 +393,7 @@ App.controller.define('CMain', {
                         });
                     };
                     if (rec.data.Type==2) {
-						var id=rec.data.Id; 
+						var id=rec.data.Job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
                             var html=[];
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
