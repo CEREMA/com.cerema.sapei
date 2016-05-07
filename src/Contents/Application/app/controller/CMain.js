@@ -320,8 +320,8 @@ App.controller.define('CMain', {
     },
     load_affaire: function(p,rec) {
 
-        if (rec.data.Type==1) App.DB.get('sapei://ope{Id_job}?Id_skills='+rec.data.Id,function(e,r) {
-            var id=r.result.data[0].Id_job; 
+        if (rec.data.Type==1) {
+            var id=r.result.data[0].Job; 
             App.reset(App.get('TAffaire')); 
             App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
                 response=response.data[0];
@@ -346,9 +346,9 @@ App.controller.define('CMain', {
                 };
                 App.get('TAffaire').show();		
             });            
-        });
-        if (rec.data.Type==2) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
-            var id=r.result.data[0].Id_job; 
+        };
+        if (rec.data.Type==2) {
+            var id=r.result.data[0].Job; 
             App.reset(App.get('TAffaire')); 
             App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
 
@@ -374,7 +374,7 @@ App.controller.define('CMain', {
                 };
                 App.get('TAffaire').show();		
             });            
-        });
+        };
     },
     hide_tip: function() {
         $('.x-tip').hide();  
