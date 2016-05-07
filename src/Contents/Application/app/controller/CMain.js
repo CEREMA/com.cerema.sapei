@@ -939,12 +939,13 @@ App.controller.define('CMain', {
                 var inc=0;
                 for (var i=0;i<r.result.data.length;i++) {
                     if (r.result.data[i].Stat==1) inc++;
-					alert(r.result.data[i].Libelle_materiel);
                     if (r.result.data[i].Libelle_materiel) {
                         var libelle='<b>'+r.result.data[i].Libelle_materiel+'</b>\n<i>'+r.result.data[i].Porteur_libelle+'</i>';
                         var periode="Du "+r.result.data[i].skillsD0.toDate().toString("dd/MM/yyyy")+" au "+r.result.data[i].skillsD1.toDate().toString("dd/MM/yyyy");
                     } else {
-                        var libelle=r.result.data[i].Nom+'\n'+r.result.data[i].Prenom;
+					alert(r.result.data[i].Libelle_materiel);
+
+						var libelle=r.result.data[i].Nom+'\n'+r.result.data[i].Prenom;
                         var periode="Du "+r.result.data[i].userD0.toDate().toString("dd/MM/yyyy")+" au "+r.result.data[i].userD1.toDate().toString("dd/MM/yyyy");
                     };
                     var obj={
