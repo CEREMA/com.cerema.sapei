@@ -321,7 +321,7 @@ App.controller.define('CMain', {
     load_affaire: function(p,rec) {
 
         if (rec.data.Type==1) {
-            var id=rec.data.Job; 
+            var id=r.Job; 
             App.reset(App.get('TAffaire')); 
             App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
                 response=response.data[0];
@@ -772,7 +772,6 @@ App.controller.define('CMain', {
         if (record.length<=0) return;
         record=record[0];
 		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
-            
 			response=response.data[0];
             App.get('TAffaire combo#cboservice').getStore().getProxy().extraParams.Id_client_origine=response.Id_contact_client;
             App.get('TAffaire combo#cboservice').getStore().load();
@@ -934,6 +933,7 @@ App.controller.define('CMain', {
 	},
     TAffaire_update: function(e,r) {
             if (r.result.data) {
+				alert('x');
                 var data=[];
                 var total=r.result.data.length;
                 var inc=0;
