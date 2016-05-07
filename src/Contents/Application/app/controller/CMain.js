@@ -384,7 +384,6 @@ App.controller.define('CMain', {
             html: '...',
             listeners: {
                 beforeshow: function updateTipBody(tip) {
-
                     if (rec.data.Type==1) {
                         var id=rec.data.Id; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
@@ -394,7 +393,6 @@ App.controller.define('CMain', {
                         });
                     };
                     if (rec.data.Type==2) {
-
 						var id=rec.data.Id; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
                             var html=[];
