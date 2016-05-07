@@ -321,7 +321,7 @@ App.controller.define('CMain', {
     load_affaire: function(p,rec) {
 
         if (rec.data.Type==1) {
-            var id=r.result.data[0].Job; 
+            var id=rec.data.Job; 
             App.reset(App.get('TAffaire')); 
             App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+id,App.get('TAffaire'),function(response) {
                 response=response.data[0];
