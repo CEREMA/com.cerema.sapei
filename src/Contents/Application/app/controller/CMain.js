@@ -939,7 +939,7 @@ App.controller.define('CMain', {
                 var inc=0;
                 for (var i=0;i<r.result.data.length;i++) {
                     if (r.result.data[i].Stat==1) inc++;
- 					if (r.result.data[i].Libelle_materiel) {
+ 					if (r.result.data[i].skillsD0) {
                         var libelle='<b>'+r.result.data[i].Libelle_materiel+'</b>\n<i>'+r.result.data[i].Porteur_libelle+'</i>';
                         var periode="Du "+r.result.data[i].skillsD0.toDate().toString("dd/MM/yyyy")+" au "+r.result.data[i].skillsD1.toDate().toString("dd/MM/yyyy");
                     } else {
