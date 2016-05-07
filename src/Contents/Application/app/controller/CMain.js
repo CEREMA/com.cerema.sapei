@@ -394,7 +394,9 @@ App.controller.define('CMain', {
                         });
                     });
                     if (rec.data.Type==2) App.DB.get('sapei://ope{Id_job}?Id_users='+rec.data.Id,function(e,r) {
-                        var id=r.result.data[0].Id_job; 
+                        console.log(e);
+						console.log(r);
+						var id=r.result.data[0].Id_job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
                             var html=[];
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
