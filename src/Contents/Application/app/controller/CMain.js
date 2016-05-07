@@ -392,7 +392,7 @@ App.controller.define('CMain', {
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
                             tip.update(html.join(''));
                         });
-                    });
+                    };
                     if (rec.data.Type==2) {
 
 						var id=rec.data.Id; 
@@ -401,7 +401,7 @@ App.controller.define('CMain', {
                             html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
                             tip.update(html.join(''));
                         });
-                    });
+                    };
                     
                 }
             }
