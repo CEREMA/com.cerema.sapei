@@ -932,8 +932,8 @@ App.controller.define('CMain', {
         });
 	},
     TAffaire_update: function(e,r) {
+			console.log(r);
             if (r.result.data) {
-				alert('x');
                 var data=[];
                 var total=r.result.data.length;
                 var inc=0;
