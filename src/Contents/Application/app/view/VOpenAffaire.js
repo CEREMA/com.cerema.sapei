@@ -81,7 +81,7 @@ App.view.define('VOpenAffaire', {
                 width: 80,
                 renderer: function(value, meta, record){
                     if (value==-1) return "";
-                    if(value == null){
+                    if(value === null){
                         value = 0;
                     };              
                     var id=Ext.id();
