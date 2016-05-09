@@ -734,7 +734,7 @@ App.controller.define('CMain', {
 		if (record.data.Id!=0) obj.Id=record.data.Id;
 		App.DB.post("sapei://schedule_users",obj,function(c) {
 			p.TASK_USER[c.insertId]=obj;
-			scheduler.getStore().load();
+			scheduler.getEventStore().load();
 		});
 	},
 	sch_materiels_dragcreate: function(scheduler,record)
@@ -760,10 +760,7 @@ App.controller.define('CMain', {
 		if (record.data.Id!=0) obj.Id=record.data.Id;
 		App.DB.post("sapei://schedule_skills",obj,function(c) {
 			p.TASK_SKILLS[c.insertId]=obj;
-			scheduler.getStore().load(function(){                
-                scheduler.getSchedulingView().refresh();    
-            });
-            
+			scheduler.getEventStore().load();            
 		});
 	},	
 	AffairesVNew_onshow: function(p)
