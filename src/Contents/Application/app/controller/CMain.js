@@ -951,7 +951,10 @@ App.controller.define('CMain', {
 
             if (r.result.data) {
                 var data=[];
-                var total=r.result.data.length;
+                var total=0;
+                for (var i=0;i<r.result.data.length;i++) {
+                    if (r.result.data[i].Stat<6) total++;
+                };
                 var inc=0;
                 for (var i=0;i<r.result.data.length;i++) {
                     if (r.result.data[i].Stat==1) inc++;
