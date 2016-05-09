@@ -499,7 +499,7 @@ App.controller.define('CMain', {
 		x.on('click',function(z,p) {
 			if (p.itemId=="ctx-grid-delete") {
                 App.DB.get('sapei://ope?Id_ope='+rec.data.Id,function(e,response) {
-                    alert('x');
+                    alert(rec.data.Id);
                     console.log(response);
                     var skills=response.result.data[0].Id_skills;
                     var users=response.result.data[0].Id_users;
