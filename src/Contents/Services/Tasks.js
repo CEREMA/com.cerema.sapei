@@ -15,8 +15,8 @@ Tasks={
     removeTemp: function(o,cb)
     {
         var db=Tasks.using('db');
-        db.query('sapei','DELETE FROM schedule_skills WHERE job=0',function(){
-            db.query('sapei','DELETE FROM schedule_users WHERE job=0',cb);
+        db.query('sapei','DELETE FROM schedule_skills WHERE id not in (SELECT id_skills from ope)',function(){
+            db.query('sapei','DELETE FROM schedule_users WHERE id not in (SELECT id_users from ope)',cb);
         });        
     }
 };
