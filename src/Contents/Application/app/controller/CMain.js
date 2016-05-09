@@ -508,7 +508,6 @@ App.controller.define('CMain', {
                     var users=response.result.data[0].Id_users;
                     if (skills) console.log(skills);
                     if (users) console.log(users);
-                    return;
                     App.DB.del('sapei://ope?Id_ope='+rec.data.Id,function(response) {
                        if (skills) {
                             App.DB.del('sapei://schedule_skills?Id='+skills,function(e){
