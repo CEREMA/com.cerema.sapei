@@ -761,6 +761,7 @@ App.controller.define('CMain', {
 		App.DB.post("sapei://schedule_skills",obj,function(c) {
 			p.TASK_SKILLS[c.insertId]=obj;
 			scheduler.getStore().load();
+            scheduler.getSchedulingView().refresh();
 		});
 	},	
 	AffairesVNew_onshow: function(p)
