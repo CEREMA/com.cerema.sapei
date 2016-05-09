@@ -503,6 +503,7 @@ App.controller.define('CMain', {
                     var users=response.result.data[0].Id_users;
                     if (skills) console.log(skills);
                     if (users) console.log(users);
+                    return;
                     App.DB.del('sapei://ope?Id_ope='+rec.data.Id,function(response) {
                        if (skills) {
                             App.DB.del('sapei://schedule_skills?Id='+skills,function(e){
@@ -757,7 +758,6 @@ App.controller.define('CMain', {
 		record.data.User=Auth.User.uid;
         alert(record.data.ResourceId);
 		if (record.data.Id!=0) obj.Id=record.data.Id;
-        return;
 		App.DB.post("sapei://schedule_skills",obj,function(c) {
 			p.TASK_SKILLS[c.insertId]=obj;
 			scheduler.getStore().load();
