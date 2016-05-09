@@ -84,7 +84,7 @@ App.view.define('VOpenAffaire', {
                     if(value === null){
                         value = 0;
                     };              
-                    if(record.data.total === null){
+                    if(record.data.total === 0){
                         record.data.total = 10;
                     };  
                     console.log(record.data.total);
