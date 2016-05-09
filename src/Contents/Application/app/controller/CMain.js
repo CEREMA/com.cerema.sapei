@@ -122,7 +122,8 @@ App.controller.define('CMain', {
 			Scheduler 
 			*/
 			"VScheduler": {
-				show: "VScheduler_onshow"
+				show: "VScheduler_onshow",
+                close: "VScheduler_onclose"
 			},
 			"VScheduler button#save_task": {
 				click: "save_task"
