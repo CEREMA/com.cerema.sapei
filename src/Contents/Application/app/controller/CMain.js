@@ -497,6 +497,7 @@ App.controller.define('CMain', {
 			]
 		});
 		x.on('click',function(z,p) {
+            alert('x');
 			if (p.itemId=="ctx-grid-delete") {
                 App.DB.get('sapei://ope?Id_ope='+rec.data.Id,function(e,response) {
                     alert(rec.data.Id);
