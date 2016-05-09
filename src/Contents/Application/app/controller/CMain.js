@@ -201,6 +201,10 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    VScheduler_onclose: function(p) {
+        // détection de job=0 quand on quitte la fenêtre
+        App.Tasks.removeTemp();
+    },
 	VSchedulerMain_onshow: function(p) {
 		// update combo daterange
 		var now = new Date();
