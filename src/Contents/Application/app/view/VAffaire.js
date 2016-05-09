@@ -463,8 +463,14 @@ App.view.define('VAffaire', {
 				],
 				width: "100%",
 				flex: 1,
-				store: App.store.create({fields:["Id","libelle_ope","step","modID","libelle","periode","type"],remoteGroup:true,
-    remoteSort: true,sortInfo:{field: 'order_id', direction: "ASC"},groupField: "libelle_ope",data:[]},{autoLoad: true})
+				store: App.store.create({
+                        fields:["Id","libelle_ope","step","modID","libelle","periode","type"],
+                        remoteGroup:true,
+                        remoteSort: true,
+                        sortInfo:{field: 'order_id', direction: "ASC"},
+                        groupField: "libelle_ope",
+                    data:[]
+                },{autoLoad: true})
 			}
 			]
 		},
