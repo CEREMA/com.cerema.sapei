@@ -925,6 +925,7 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
         App.get('combo#selectAnnee').on('select',function(p) {
+          alert('x');
           var d=new Date();
           d.setDate(1);
           d.setMonth(App.get(me,'combo#selectMonth').getValue());
