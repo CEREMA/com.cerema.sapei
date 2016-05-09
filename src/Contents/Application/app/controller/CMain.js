@@ -734,7 +734,7 @@ App.controller.define('CMain', {
         if (App.get('VScheduler combo#type_ope').getValue()==3) Cls="yellow";
         if (App.get('VScheduler combo#type_ope').getValue()==4) Cls="orange";
         if (App.get('VScheduler combo#type_ope').getValue()==5) Cls="red";
-        
+        alert(App.get('TAffaire').IemID);
 		var obj={
 			Cls: Cls,
 			EndDate: record.data.EndDate,
