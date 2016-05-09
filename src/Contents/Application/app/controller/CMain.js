@@ -487,7 +487,7 @@ App.controller.define('CMain', {
                 if (rec.data.step=="Non réalisé") step=3;
                 if (rec.data.step=="Programmé") step=4;
                 if (rec.data.step=="Reporté") step=5;
-                if (rec.data.step=="N/A") step=0;
+                if (rec.data.step=="-") step=0;
                 App.DB.post('sapei://ope',{
                     Id_ope: id,
                     Stat: step
