@@ -670,7 +670,7 @@ App.controller.define('CMain', {
             for (var el in this.TASK_USER) posts.push({
                 Id_job: App.get('TAffaire').ItemID,
                 Id_users: el,
-                Stat: 0,
+                Stat: 6,
                 type_ope: App.get('VScheduler combo#type_ope').getValue()
             });            
         };
