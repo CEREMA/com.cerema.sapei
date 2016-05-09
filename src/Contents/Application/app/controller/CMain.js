@@ -659,12 +659,21 @@ App.controller.define('CMain', {
 		};
 		p.setDisabled(true);
 		var posts=[];
-		for (var el in this.TASK_USER) posts.push({
-			Id_job: App.get('TAffaire').ItemID,
-			Id_users: el,
-            Stat: 4,
-			type_ope: App.get('VScheduler combo#type_ope').getValue()
-		});
+        if (App.get('VScheduler combo#type_ope').getValue()*1<4) {
+            for (var el in this.TASK_USER) posts.push({
+                Id_job: App.get('TAffaire').ItemID,
+                Id_users: el,
+                Stat: 0,
+                type_ope: App.get('VScheduler combo#type_ope').getValue()
+            });            
+        } else {
+            for (var el in this.TASK_USER) posts.push({
+                Id_job: App.get('TAffaire').ItemID,
+                Id_users: el,
+                Stat: 4,
+                type_ope: App.get('VScheduler combo#type_ope').getValue()
+            });
+        };
 		for (var el in this.TASK_SKILLS) posts.push({
 			Id_job: App.get('TAffaire').ItemID,
 			Id_skills: el,
