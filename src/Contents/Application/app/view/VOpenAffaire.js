@@ -87,9 +87,7 @@ App.view.define('VOpenAffaire', {
                     if(record.data.total === 0){
                         record.data.total = 10;
                     };  
-                    console.log(record.data.total);
                     var id=Ext.id();
-                    console.log(value);
                     var pt = (value*100/record.data.total)/100;
                     var id = Ext.id();
                     Ext.defer(function (id,pt) {
@@ -98,7 +96,7 @@ App.view.define('VOpenAffaire', {
                             animate: true,
                             width: '100%',
                             value: pt,
-                            text: (pt*100)+"%",
+                            text: parseInt((pt*100))+"%",
                         });                        
                     }, 50, undefined, [id,pt]);
                     return "<div id='" + id + "'></div>";
