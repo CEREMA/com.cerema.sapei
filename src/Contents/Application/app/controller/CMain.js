@@ -499,6 +499,7 @@ App.controller.define('CMain', {
 		x.on('click',function(z,p) {
 			if (p.itemId=="ctx-grid-delete") {
                 App.DB.get('sapei://ope?Id_ope='+rec.data.Id,function(e,response) {
+                    alert('x');
                     console.log(response);
                     var skills=response.result.data[0].Id_skills;
                     var users=response.result.data[0].Id_users;
@@ -757,7 +758,6 @@ App.controller.define('CMain', {
             Job: App.get('TAffaire').ItemID
 		};
 		record.data.User=Auth.User.uid;
-        alert(record.data.ResourceId);
 		if (record.data.Id!=0) obj.Id=record.data.Id;
 		App.DB.post("sapei://schedule_skills",obj,function(c) {
 			p.TASK_SKILLS[c.insertId]=obj;
