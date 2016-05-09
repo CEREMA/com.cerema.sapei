@@ -755,7 +755,9 @@ App.controller.define('CMain', {
             Job: App.get('TAffaire').ItemID
 		};
 		record.data.User=Auth.User.uid;
+        alert(record.data.ResourceId);
 		if (record.data.Id!=0) obj.Id=record.data.Id;
+        return;
 		App.DB.post("sapei://schedule_skills",obj,function(c) {
 			p.TASK_SKILLS[c.insertId]=obj;
 			scheduler.getStore().load();
