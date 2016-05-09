@@ -983,7 +983,7 @@ App.controller.define('CMain', {
                 if (total>0) {
                     App.get('TAffaire chart').getStore().loadData([{
                         name: "test",
-                        data1: parseInt((inc/total)*100)
+                        data1: parseInt((inc/total)*100)  
                     }]);
                     App.get('TAffaire chart').redraw();
                     // on met à jour l'affaire
