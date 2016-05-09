@@ -684,6 +684,7 @@ App.controller.define('CMain', {
             {
                 text: "Supprimer",
                 handler: function() {
+                    alert(eventRecord.data.Id);
                     App.DB.del('sapei://schedule_users?id='+eventRecord.data.Id,function() {
 						delete p.TASK_USER[eventRecord.data.Id];
                         scheduler.getEventStore().load();
