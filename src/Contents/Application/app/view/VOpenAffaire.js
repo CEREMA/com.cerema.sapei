@@ -86,7 +86,8 @@ App.view.define('VOpenAffaire', {
                     };              
                     if(record.data.total === null){
                         record.data.total = 10;
-                    };              
+                    };  
+                    console.log(record.data.total);
                     var id=Ext.id();
                     console.log(value);
                     var pt = (value*100/record.data.total)/100;
