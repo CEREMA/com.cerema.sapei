@@ -112,6 +112,8 @@ App.controller.define('CMain', {
                 itemcontextmenu:  "Task_delete",
                 edit: "Task_edit",
                 beforeedit: function(editor, e) {
+                    console.log(editor);
+                    console.log(e);
                     if (e.colIdx === 2 && e.record.get('Stat') == 6)
                     return false;
                 }
