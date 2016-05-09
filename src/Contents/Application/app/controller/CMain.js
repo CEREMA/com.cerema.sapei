@@ -110,7 +110,11 @@ App.controller.define('CMain', {
             },
             "TAffaire grid#tasks": {
                 itemcontextmenu:  "Task_delete",
-                edit: "Task_edit"
+                edit: "Task_edit",
+                beforeedit: function(editor, e) {
+                    if (e.colIdx === 2 && e.record.get('Stat') == 6)
+                    return false;
+                }
             },
             "TAffaire grid#gridContacts": {
                 itemcontextmenu:  "contacts_context"  
