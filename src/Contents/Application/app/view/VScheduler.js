@@ -73,7 +73,7 @@ App.view.define('VScheduler', {
             }, {			
                  xtype: "combo",
                  fieldLabel: "Année",
-                labelAlign: "top",
+                 labelAlign: "top",
                  itemId: "selectAnnee",
 				 width: 70,
 				 editable: false,
