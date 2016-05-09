@@ -909,8 +909,8 @@ App.controller.define('CMain', {
 		App.get(me,'combo#selectAnnee').bindStore(store_year);
 		App.get(me,'combo#selectAnnee').setValue(now.getFullYear());	     
 		var mm = ((now.getMonth() + 1) >= 10) ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
-        App.get('combo#selectMonth').setValue(parseInt(mm)-1);
-        App.get('combo#selectMonth').on('select',function(p) {
+        App.get(me,'combo#selectMonth').setValue(parseInt(mm)-1);
+        App.get(me,'combo#selectMonth').on('select',function(p) {
           var d=new Date();
           d.setDate(1);
           d.setMonth(p.getValue());
@@ -924,8 +924,7 @@ App.controller.define('CMain', {
           App.get(me,'schedulergrid#schedule_materiels').setEnd(e);
           App.get(me,'schedulergrid#schedule_agents').setEnd(e);
         });
-        App.get('combo#selectAnnee').on('select',function(p) {
-          alert('x');
+        App.get(me,'combo#selectAnnee').on('select',function(p) {
           var d=new Date();
           d.setDate(1);
           d.setMonth(App.get(me,'combo#selectMonth').getValue());
