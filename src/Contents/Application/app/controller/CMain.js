@@ -114,7 +114,7 @@ App.controller.define('CMain', {
                 beforeedit: function(editor, e) {
                     console.log(editor);
                     console.log(e);
-                    if (e.colIdx === 2 && e.record.get('Stat') == 6)
+                    if (e.colIdx === 2 && e.record.data.step == '-')
                     return false;
                 }
             },
