@@ -52,8 +52,7 @@
     "paths": {},
     "controllers": [
         "CMain",
-        "CCarnet",
-        "CBackoffice"
+        "CCarnet"
     ],
     "modules": [
         "Ext.ux.Scheduler",
