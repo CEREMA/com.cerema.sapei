@@ -31,8 +31,12 @@ Jobs={
 			if (o[i].name=="Id_users") {
 				str+=' ope.Id_Job in (SELECT schedule_users.Job FROM schedule_users WHERE ResourceId'+o[i].value+')';
 			} else {
-				str+=o[i].name;
-				str+=o[i].value;				
+                if (o[i].name=="Id_skills") {
+                    str+=' ope.Id_Job in (SELECT schedule_skills.Job FROM schedule_skills WHERE ResourceId'+o[i].value+')';                    
+                } else {
+				    str+=o[i].name;
+				    str+=o[i].value;				
+                }
 			};
 			where.push(str);
 		};
