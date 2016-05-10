@@ -55,17 +55,17 @@ App.view.define('VCarnet', {
                 {
                     text: "Fermer",
                     handler: function(p) {
-                        p.up().hide();
+                        p.up("window").hide();
                     }
                 },
                 {
                     text: "Enregistrer",
                     handler: function(p) {
-                        if (App.get(p.up(),"textfield#newcliented").getValue()!="") App.DB.post('sapei://client_origine',{
+                        if (App.get(p.up("window"),"textfield#newcliented").getValue()!="") App.DB.post('sapei://client_origine',{
                             Lib_client_origine: App.get(p.up(),"textfield#newcliented").getValue()
                         },function(){
-                            App.get(p.up(),"combo#client").getStore().load();
-                            p.up().hide();
+                            App.get(p.up("window"),"combo#client").getStore().load();
+                            p.up("window").hide();
                         });
                     }
                 }                    
