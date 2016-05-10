@@ -34,6 +34,13 @@ App.view.define('VCarnet', {
                     App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newclient").show();
                 }
+            },
+            {
+                text: "Nouveau service",
+                handler: function(p) {
+                    App.reset(p.up('window'));   
+                    App.get(p.up('window'),"panel#newservice").show();
+                }
             }            
         ];
 		
@@ -42,6 +49,50 @@ App.view.define('VCarnet', {
         };
 
         this.items = [
+            {
+                xtype: "panel",
+                itemId: "newservice",
+                layout: "fit",
+                hidden: true,
+                height: 100,
+                width: "100%",
+                border: false,
+                bbar: [
+                '->',
+                {
+                    text: "Fermer",
+                    handler: function(p) {
+                        p.up("panel").hide();
+                    }
+                },
+                {
+                    text: "Enregistrer",
+                    handler: function(p) {
+                        if (App.get(p.up('window'),"combo#client").getValue()=="") {
+                            alert("Vous devez sélectionner un client.");
+                            p.up("panel").hide();
+                            return;  
+                        };
+                        if (App.get(p.up("window"),"textfield#newserviceed").getValue()!="") App.DB.post('sapei://client_rattache',{
+                            Lib_client_rattache: App.get(p.up("window"),"textfield#newserviceed").getValue(),
+                            Id_client_origine: App.get(p.up('window'),"combo#client").getValue()
+                        },function(){
+                            App.get(p.up("window"),"combo#service").getStore().load();
+                            p.up("panel").hide();
+                        });
+                    }
+                }                    
+                ],
+                items: [
+                    {
+                        xtype: "textfield",
+                        itemId: "newcliented",
+                        padding: 5,
+                        width: "100%",
+                        fieldLabel: "Nouveau client"                
+                    }
+                ]
+            },
             {
                 xtype: "panel",
                 itemId: "newclient",
