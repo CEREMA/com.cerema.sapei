@@ -31,6 +31,7 @@ App.view.define('VCarnet', {
             {
                 text: "Nouveau client",
                 handler: function(p) {
+                    p.up('window').tbar.disabled(true);
                     App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newclient").show();
                 }
