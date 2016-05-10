@@ -48,6 +48,8 @@ App.view.define('VCarnet', {
                 layout: "fit",
                 hidden: true,
                 height: 100,
+                width: "100%",
+                border: false,
                 bbar: [
                 '->',
                 {
