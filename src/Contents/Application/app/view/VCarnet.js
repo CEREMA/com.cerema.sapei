@@ -32,23 +32,7 @@ App.view.define('VCarnet', {
                 text: "Nouveau client",
                 handler: function(p) {
                     App.reset(p.up('window'));   
-                    var mb = Ext.MessageBox.prompt({
-                        title: 'Nouveau service',
-                        msg: 'Veuillez entrer le nom du nouveau service',
-                        password: false,
-                        width: 300,
-                        height: 125,
-                        multiline: 2,
-                        value: '',
-                        buttons: Ext.MessageBox.YESNO,
-                        fn: function(c,o) {
-                            console.log(c);
-                            console.log(o);
-                        },
-                        cls: 'msgbox',
-                        baseCls: 'msgbox',
-                        icon: Ext.MessageBox.QUESTION
-                    });                    
+                    App.view.create('VNew'{modal: true}).show();
                 }
             }            
         ];
