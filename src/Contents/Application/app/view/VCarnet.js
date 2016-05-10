@@ -43,6 +43,7 @@ App.view.define('VCarnet', {
 
         this.items = [
             {
+                xtype: "panel",
                 itemId: "newclient",
                 layout: "vbox",
                 hidden: true,
