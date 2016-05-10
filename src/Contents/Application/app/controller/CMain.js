@@ -140,6 +140,7 @@ App.controller.define('CMain', {
 				beforeeventadd: "sch_agents_dragcreate",
                 eventresizeend: "sch_agents_dragcreate",
                 eventdrop: "sch_agents_dragcreate",
+                beforetooltipshow: "tooltip_schedule",
                 eventcontextmenu: "schedule_agents_context"
 			},
 			"VScheduler schedulergrid#schedule_materiels": {
