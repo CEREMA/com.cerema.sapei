@@ -40,7 +40,7 @@ App.view.define('VCarnet', {
                         height: 125,
                         multiline: 2,
                         value: '',
-                        buttons: Ext.MessageBox.YESNOCANCEL,
+                        buttons: Ext.MessageBox.YESNO,
                         fn: function(c,o) {
                             console.log(c);
                             console.log(o);
