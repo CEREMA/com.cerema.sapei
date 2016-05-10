@@ -150,7 +150,8 @@ App.controller.define('CMain', {
 				beforeeventadd: "sch_materiels_dragcreate",
                 eventresizeend: "sch_materiels_dragcreate",
                 eventdrop: "sch_materiels_dragcreate",
-                beforetooltipshow: "tooltip_schedule_agenda",
+                eventmouseleave: "hide_tip",
+                eventmouseenter: "schedule_tip",
                 eventcontextmenu: "schedule_materiels_context"
 			},
 			/*
@@ -398,6 +399,7 @@ App.controller.define('CMain', {
             html: '...',
             listeners: {
                 beforeshow: function updateTipBody(tip) {
+                    console.log(rec);
                     if (rec.data.Type==1) {
                         var id=rec.data.Job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
