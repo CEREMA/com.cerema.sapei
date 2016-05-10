@@ -399,7 +399,6 @@ App.controller.define('CMain', {
             html: '...',
             listeners: {
                 beforeshow: function updateTipBody(tip) {
-                    console.log(rec);
                     if (!rec.data.Type) {
                         var id=rec.data.Job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
