@@ -32,7 +32,7 @@ App.view.define('VCarnet', {
                 text: "Nouveau client",
                 handler: function(p) {
                     App.reset(p.up('window'));   
-                    App.view.create('VNew'{modal: true}).show();
+                    App.view.create('VNew',{modal: true}).show();
                 }
             }            
         ];
