@@ -103,10 +103,10 @@ App.view.define('VCarnet', {
                 items: [
                     {
                         xtype: "textfield",
-                        itemId: "newcliented",
+                        itemId: "newserviceed",
                         padding: 5,
                         width: "100%",
-                        fieldLabel: "Nouveau client"                
+                        fieldLabel: "Nouveau service"                
                     }
                 ]
             },
