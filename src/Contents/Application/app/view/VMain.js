@@ -67,9 +67,9 @@ App.view.define('VMain', {
 								name: "Agents",
 				                field: "Id_users",
 								type: "choice",
-								model: 'sapei://user{Id_user,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
+								model: 'sapei://user{Id_agent,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
 								display: "NomPrenom",
-								value: "Id_user"
+								value: "Id_agent"
 							 }
 				
 				, {
