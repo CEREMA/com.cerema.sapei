@@ -1,6 +1,6 @@
 Jobs={
 
-	getAll: function(o,cb) {        
+	getAll: function(o,cb) {              
 		var db=Jobs.using('db');
 		var objs=[
 			"job.Id_job",
@@ -39,10 +39,19 @@ Jobs={
 
 		if (where.length==0) where.push("-1");
 
-		console.log(where);
-		var sql=db.get('sapei',objs,where);
+        var prj_d=PROJECT_API+path.sep+"sql"+path.sep+q+".universe";		
+        var sql="";
+        if (fs.existsSync(prj_d)) {
+            var sql=fs.readFileSync(prj_d,"utf-8").split('\n');
+            var dbname=sql[0];
+			sql=sql.splice(0);
+			sql=sql.join(' ');
+			sql=sql.replace('$_OBJECTS',objects.join(', '));            
+        };
+        console.log(sql);
+		/*var sql=db.get('sapei',objs,where);
 		console.log(sql);
-		db.model('sapei', sql , cb);	
+		db.model('sapei', sql , cb);	*/
 	}
 
 };
