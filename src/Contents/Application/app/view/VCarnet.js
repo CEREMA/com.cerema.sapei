@@ -53,9 +53,20 @@ App.view.define('VCarnet', {
                 bbar: [
                 '->',
                 {
+                    text: "Fermer",
+                    handler: function(p) {
+                        p.up().hide();
+                    }
+                },
+                {
                     text: "Enregistrer",
-                    handler: function() {
-                        
+                    handler: function(p) {
+                        if (App.get(p.up(),"textfield#newcliented").getValue()!="") App.DB.post('sapei://client_origine',{
+                            Lib_client_origine: App.get(p.up(),"textfield#newcliented").getValue()
+                        },function(){
+                            App.get(p.up(),"combo#client").getStore().load();
+                            p.up().hide();
+                        });
                     }
                 }                    
                 ],
