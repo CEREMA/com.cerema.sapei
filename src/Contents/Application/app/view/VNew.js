@@ -25,7 +25,7 @@ App.view.define('VNew', {
                 xtype: "textfield",
                 padding: 5,
                 width: "100%",
-                fieldLabel: "Service"                
+                fieldLabel: "Nouveau client"                
             }
 		];
 
