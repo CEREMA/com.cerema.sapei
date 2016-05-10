@@ -14,6 +14,9 @@ App.controller.define('CCarnet', {
             "VCarnet combo#client": {
                 select: "client_select"    
             },
+            "VCarnet combo": {
+                select: "combo_select"  
+            },
             "VCarnet button#record": {
                 click: "record_click"   
             },
@@ -24,6 +27,9 @@ App.controller.define('CCarnet', {
 		});
 				
 	},
+    combo_select: function(cbo) {
+        console.log(cbo);
+    },
     grid_context: function(view, rec, node, index, e) {
 		e.stopEvent();
         var me=this;
