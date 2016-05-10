@@ -22,16 +22,14 @@ Jobs={
 		if (!o.quest) o.quest="[]";
 
         o=JSON.parse(o.quest);
-        console.log(o);
 		for (var i=0;i<o.length;i++)
 		{
 			var str="";
-            console.log(o[i]);
 			if (i!=0) {
 				str=' '+o[i].operator+' ';
 			};
 			if (o[i].name=="Id_users") {
-				str+=" Id_Job in (SELECT Job FROM schedule_users WHERE ResourceId="+o[i].value+")";
+				str+=" Id_Job in (SELECT Job FROM schedule_users WHERE ResourceId=\""+o[i].value+"\")";
 			} else {
 				str+=o[i].name;
 				str+=o[i].value;				
