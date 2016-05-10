@@ -24,20 +24,23 @@ App.view.define('VCarnet', {
         this.tbar = [
             {
                 text: "Nouveau contact",
+                itemId: "newcontact",
                 handler: function(p) {
                     App.reset(p.up('window'));   
                 }
             },
             {
                 text: "Nouveau client",
+                itemId: "newclient",
                 handler: function(p) {
-                    p.up('window').tbar.disabled(true);
+                    App.get(p.up('window'),"button#newcontact").disabled(true);
                     App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newclient").show();
                 }
             },
             {
                 text: "Nouveau service",
+                itemId: "newservice",
                 handler: function(p) {
                     App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newservice").show();
