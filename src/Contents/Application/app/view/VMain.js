@@ -41,6 +41,7 @@ App.view.define('VMain', {
                     ]
                 }, {
                     text: "Administration",
+					hidden: true,
                     menu: [
                         {
                             itemId: "mnu_admin_gestion",
