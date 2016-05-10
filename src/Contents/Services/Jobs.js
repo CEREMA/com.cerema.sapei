@@ -22,10 +22,11 @@ Jobs={
 		if (!o.quest) o.quest="[]";
 
         o=JSON.parse(o.quest);
-				
+        console.log(o);
 		for (var i=0;i<o.length;i++)
 		{
 			var str="";
+            console.log(o[i]);
 			if (i!=0) {
 				str=' '+o[i].operator+' ';
 			};
