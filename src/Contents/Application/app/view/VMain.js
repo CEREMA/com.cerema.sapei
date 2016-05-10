@@ -39,6 +39,14 @@ App.view.define('VMain', {
 							, text: "Carnet d'adresses"
                         }
                     ]
+                }, {
+                    text: "Administration",
+                    menu: [
+                        {
+                            itemId: "mnu_admin_gestion",
+                            text: "Gestion clients"
+                        }
+                    ]
                 }
 			]
 		}
