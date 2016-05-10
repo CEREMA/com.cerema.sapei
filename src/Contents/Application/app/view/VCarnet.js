@@ -32,7 +32,7 @@ App.view.define('VCarnet', {
                 text: "Nouveau client",
                 handler: function(p) {
                     App.reset(p.up('window'));   
-                    App.view.create('VNew',{modal: true}).show();
+                    App.get(p,"panel#newclient").show();
                 }
             }            
         ];
@@ -45,6 +45,7 @@ App.view.define('VCarnet', {
             {
                 itemId: "newclient",
                 layout: "vbox",
+                hidden: true,
                 height: 100,
                 bbar: [
                 '->',
