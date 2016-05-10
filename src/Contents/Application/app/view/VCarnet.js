@@ -27,6 +27,18 @@ App.view.define('VCarnet', {
                 handler: function(p) {
                     App.reset(p.up('window'));   
                 }
+            },
+            {
+                text: "Nouveau client",
+                handler: function(p) {
+                    App.reset(p.up('window'));   
+                }
+            },
+            {
+                text: "Nouveau service",
+                handler: function(p) {
+                    App.reset(p.up('window'));   
+                }
             }
         ];
 		
@@ -51,7 +63,7 @@ App.view.define('VCarnet', {
                     padding: 10,
                     flex: 1,
                     fieldLabel: "Client",
-                    editable: true,
+                    editable: false,
                     labelAlign: "top",
                     store: App.store.create('sapei://client_origine{Id_client_origine,Lib_client_origine+}',{autoLoad: true}),
                     displayField: "Lib_client_origine",
@@ -64,7 +76,7 @@ App.view.define('VCarnet', {
                     flex: 1,
                     fieldLabel: "Service",
                     bind: "Id_client_rattache",
-                    editable: true,
+                    editable: false,
                     labelAlign: "top",
                     store: App.store.create('sapei://client_rattache{Id_client_rattache,Lib_client_rattache+}'),
                     displayField: "Lib_client_rattache",
