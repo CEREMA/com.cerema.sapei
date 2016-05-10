@@ -461,6 +461,7 @@ App.view.define('VAffaire', {
 					   groupHeaderTpl: '{name}'
 				    })
 				],
+                groupHeaderTpl: 'Invoice: {invoice_number} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})',
 				width: "100%",
 				flex: 1,
 				store: App.store.create({
