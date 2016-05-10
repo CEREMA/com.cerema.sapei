@@ -63,14 +63,14 @@ App.view.define('VMain', {
 					, display: "NomPrenom"
 					, value: "kage"
 			 },
-							 {
-								name: "Agents",
-				                field: "Id_users",
-								type: "choice",
-								model: 'sapei://user{Id_agent,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
-								display: "NomPrenom",
-								value: "Id_agent"
-							 }
+                 {
+                    name: "Agents",
+                    field: "Id_users",
+                    type: "choice",
+                    model: 'sapei://user{Id_agent,Id_agent->bpclight_agents{nom+" "+prenom=NomPrenom+}}',
+                    display: "NomPrenom",
+                    value: "Id_agent"
+                 }
 				
 				, {
 					name: "Clients"
@@ -79,13 +79,15 @@ App.view.define('VMain', {
 					, model: 'sapei://client_origine{Id_client_origine,Lib_client_origine}'
 					, display: "Lib_client_origine"
 					, value: "Id_client_origine"
-			 }
-				/*,
-							 {
-								name: "N° Affaire",
-				                field: "Id_job",
-								type: "text"
-							 }  */
+			 },
+                 {
+                    name: "Matériels",
+                    field: "Id_skills",
+                    type: "choice",
+                    model: 'sapei://porteur_outils{Id_porteur_outils,porteur.libelle+outils.Libelle_materiel=Matériels+}',
+                    display: "Matériels",
+                    value: "Id_porteur"
+                 }
         ]
         }
 		, {
