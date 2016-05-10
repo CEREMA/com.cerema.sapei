@@ -1176,6 +1176,10 @@ App.controller.define('CMain', {
     {
         App.view.create('VCarnet',{modal: true}).show();  
     },
+    AdminGestion: function()
+    {
+        App.view.create('admin.VBackoffice',{modal: true}).show();  
+    },
 	Menu_onClick: function(p)
 	{
 		if (p.itemId) {
@@ -1191,6 +1195,9 @@ App.controller.define('CMain', {
                     break;
                 case "mnu_contacts":
                     this.Contacts();
+                    break;
+                case "mnu_admin_gestion":
+                    this.AdminGestion();
                     break;
 				break;
 				default:
