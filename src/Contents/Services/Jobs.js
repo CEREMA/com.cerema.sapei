@@ -49,9 +49,9 @@ Jobs={
 			sql=sql.replace('$_OBJECTS',objects.join(', '));            
         };
         console.log(sql);
-		/*var sql=db.get('sapei',objs,where);
+		var sql=db.get('sapei',objs,where);
 		console.log(sql);
-		db.model('sapei', sql , cb);	*/
+		db.model('sapei', sql , cb);	
 	}
 
 };
