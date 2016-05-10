@@ -72,6 +72,9 @@ App.view.define('VCarnet', {
                     text: "Fermer",
                     handler: function(p) {
                         p.up("panel").hide();
+                        App.get(p.up('window'),"button#newcontact").setDisabled(false);
+                        App.get(p.up('window'),"button#newservice").setDisabled(false);
+                        App.get(p.up('window'),"button#newclient").setDisabled(false);
                     }
                 },
                 {
@@ -80,6 +83,9 @@ App.view.define('VCarnet', {
                         if (App.get(p.up('window'),"combo#client").getValue()=="") {
                             alert("Vous devez sélectionner un client.");
                             p.up("panel").hide();
+                            App.get(p.up('window'),"button#newcontact").setDisabled(false);
+                            App.get(p.up('window'),"button#newservice").setDisabled(false);
+                            App.get(p.up('window'),"button#newclient").setDisabled(false);
                             return;  
                         };
                         if (App.get(p.up("window"),"textfield#newserviceed").getValue()!="") App.DB.post('sapei://client_rattache',{
@@ -87,6 +93,9 @@ App.view.define('VCarnet', {
                             Id_client_origine: App.get(p.up('window'),"combo#client").getValue()
                         },function(){
                             App.get(p.up("window"),"combo#service").getStore().load();
+                            App.get(p.up('window'),"button#newcontact").setDisabled(false);
+                            App.get(p.up('window'),"button#newservice").setDisabled(false);
+                            App.get(p.up('window'),"button#newclient").setDisabled(false);
                             p.up("panel").hide();
                         });
                     }
@@ -116,6 +125,9 @@ App.view.define('VCarnet', {
                     text: "Fermer",
                     handler: function(p) {
                         p.up("panel").hide();
+                        App.get(p.up('window'),"button#newcontact").setDisabled(false);
+                        App.get(p.up('window'),"button#newservice").setDisabled(false);
+                        App.get(p.up('window'),"button#newclient").setDisabled(false);
                     }
                 },
                 {
@@ -125,6 +137,9 @@ App.view.define('VCarnet', {
                             Lib_client_origine: App.get(p.up("window"),"textfield#newcliented").getValue()
                         },function(){
                             App.get(p.up("window"),"combo#client").getStore().load();
+                            App.get(p.up('window'),"button#newcontact").setDisabled(false);
+                            App.get(p.up('window'),"button#newservice").setDisabled(false);
+                            App.get(p.up('window'),"button#newclient").setDisabled(false);
                             p.up("panel").hide();
                         });
                     }
