@@ -62,7 +62,7 @@ App.view.define('VCarnet', {
                     text: "Enregistrer",
                     handler: function(p) {
                         if (App.get(p.up("window"),"textfield#newcliented").getValue()!="") App.DB.post('sapei://client_origine',{
-                            Lib_client_origine: App.get(p.up(),"textfield#newcliented").getValue()
+                            Lib_client_origine: App.get(p.up("window"),"textfield#newcliented").getValue()
                         },function(){
                             App.get(p.up("window"),"combo#client").getStore().load();
                             p.up("window").hide();
