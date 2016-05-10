@@ -84,7 +84,7 @@ App.view.define('VMain', {
                     name: "Matériels",
                     field: "Id_skills",
                     type: "choice",
-                    model: 'sapei://porteur_outils{Id_porteur_outils,porteur.libelle+"/"+outils.Libelle_materiel=Materiels+}',
+                    model: 'sapei://porteur_outils{Id_porteur_outils,porteur.porteur_libelle+"/"+outils.Libelle_materiel=Materiels+}',
                     display: "Matériels",
                     value: "Id_porteur"
                  }
