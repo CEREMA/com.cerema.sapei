@@ -29,7 +29,7 @@ Jobs={
 				str=' '+o[i].operator+' ';
 			};
 			if (o[i].name=="Id_users") {
-				str+=' Id_Job in (SELECT Job FROM schedule_users WHERE ResourceId'+o[i].value+')';
+				str+=' ope.Id_Job in (SELECT schedule_users.Job FROM schedule_users WHERE ResourceId'+o[i].value+')';
 			} else {
 				str+=o[i].name;
 				str+=o[i].value;				
