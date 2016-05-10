@@ -1,4 +1,4 @@
-App.controller.define('admin.CBackoffice', {
+App.controller.define('CBackoffice', {
 
 	views: [
 		"admin.VBackoffice"
