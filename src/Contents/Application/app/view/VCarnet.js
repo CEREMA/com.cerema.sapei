@@ -55,7 +55,7 @@ App.view.define('VCarnet', {
                 {
                     text: "Fermer",
                     handler: function(p) {
-                        p.up("window").hide();
+                        p.up("panel").hide();
                     }
                 },
                 {
@@ -65,7 +65,7 @@ App.view.define('VCarnet', {
                             Lib_client_origine: App.get(p.up("window"),"textfield#newcliented").getValue()
                         },function(){
                             App.get(p.up("window"),"combo#client").getStore().load();
-                            p.up("window").hide();
+                            p.up("panel").hide();
                         });
                     }
                 }                    
