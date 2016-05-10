@@ -13,7 +13,8 @@ App.controller.define('CMain', {
 		"Affaires.VNewAxe",
         "VContacts",
         "VCarnet",
-        "VSchedulerMain"
+        "VSchedulerMain",
+        "admin.VBackOffice"
 	],
 	
 	models: [
