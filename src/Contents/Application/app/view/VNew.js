@@ -2,14 +2,13 @@ App.view.define('VNew', {
     extend: "Ext.window.Window",
     alias: 'widget.VNew',
     initComponent: function() {
-		
-		
+				
 		// window property
 		
         this.width = 824;
         this.height = 160;
         
-        this.title = "Nouveau"
+        this.title = "Nouveau";
 
         this.layout = {
             type: 'vbox'
@@ -32,5 +31,6 @@ App.view.define('VNew', {
 		];
 
         this.callParent();
+        
     }
 });
