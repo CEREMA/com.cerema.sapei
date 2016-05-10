@@ -820,6 +820,7 @@ App.controller.define('CMain', {
     },
 	grid_open_dblclick: function(p,record)
 	{
+        App.info.loading('Veuillez patienter...');
 		App.reset(App.get('TAffaire')); 
         App.get('mainform FilterBox#FilterPanel').hide();
 		App.DB.get('sapei://job{*,axe.Axe,axe.dpt.IdDepartement}?Id_job='+record.data.Id_job,App.get('TAffaire'),function(response) {
@@ -845,6 +846,7 @@ App.controller.define('CMain', {
             for (var i=0;i<btns.length;i++) {
                 if (btns[i].itemId=="mnu_aff_close") btns[i].show();  
             };
+            App.info.hide();
 			App.get('TAffaire').show();		
 		});
 	},
