@@ -61,6 +61,7 @@
         "Ext.ux.daterange.field.DateRange",
         "Ext.ux.FilterBox",
         "Ext.ux.grid.Printer",
+        "Ext.ux.grid.plugin.RowEditing",
         "Lib.timeAxis"
     ],
     "plugins": [],
