@@ -43,6 +43,29 @@ App.view.define('VCarnet', {
 
         this.items = [
             {
+                itemId: "newclient",
+                layout: "vbox",
+                height: 100,
+                bbar: [
+                '->',
+                {
+                    text: "Enregistrer",
+                    handler: function() {
+                        
+                    }
+                }                    
+                ],
+                items: [
+                    {
+                        xtype: "textfield",
+                        itemId: "newcliented",
+                        padding: 5,
+                        width: "100%",
+                        fieldLabel: "Nouveau client"                
+                    }
+                ]
+            },
+            {
                 xtype: "textfield",
                 bind: "Id_contact_client",
                 hidden: true
