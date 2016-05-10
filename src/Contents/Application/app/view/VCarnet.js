@@ -27,18 +27,6 @@ App.view.define('VCarnet', {
                 handler: function(p) {
                     App.reset(p.up('window'));   
                 }
-            },
-            {
-                text: "Nouveau client",
-                handler: function(p) {
-                    App.reset(p.up('window'));   
-                }
-            },
-            {
-                text: "Nouveau service",
-                handler: function(p) {
-                    App.reset(p.up('window'));   
-                }
             }
         ];
 		
