@@ -400,6 +400,14 @@ App.controller.define('CMain', {
             listeners: {
                 beforeshow: function updateTipBody(tip) {
                     console.log(rec);
+                    if (!rec.data.Type) {
+                        var id=rec.data.Job; 
+                        App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
+                            var html=[];
+                            html.push("<b>"+rec.result.data[0].Intitule_job+"</b><br>"+rec.result.data[0].Nature_job);
+                            tip.update(html.join(''));
+                        });                        
+                    };
                     if (rec.data.Type==1) {
                         var id=rec.data.Job; 
                         App.DB.get('sapei://job{*}?Id_job='+id,function(e,rec) {
