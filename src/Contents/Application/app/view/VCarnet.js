@@ -45,7 +45,7 @@ App.view.define('VCarnet', {
             {
                 xtype: "panel",
                 itemId: "newclient",
-                layout: "vbox",
+                layout: "fit",
                 hidden: true,
                 height: 100,
                 bbar: [
