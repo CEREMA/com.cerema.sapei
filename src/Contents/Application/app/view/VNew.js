@@ -16,8 +16,9 @@ App.view.define('VNew', {
         
         this.bbar= [
           {
-              '->',
-              text: "Enregistrer"
+              '->', {
+                text: "Enregistrer"
+            }
           }
         ];
 
