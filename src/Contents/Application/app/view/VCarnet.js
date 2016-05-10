@@ -47,7 +47,6 @@ App.view.define('VCarnet', {
                     App.get(p.up('window'),"button#newcontact").setDisabled(true);
                     App.get(p.up('window'),"button#newservice").setDisabled(true);
                     App.get(p.up('window'),"button#newclient").setDisabled(true);
-                    App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newservice").show();
                 }
             }            
