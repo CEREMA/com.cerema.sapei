@@ -33,7 +33,9 @@ App.view.define('VCarnet', {
                 text: "Nouveau client",
                 itemId: "newclient",
                 handler: function(p) {
-                    App.get(p.up('window'),"button#newcontact").disabled(true);
+                    App.get(p.up('window'),"button#newcontact").setDisabled(true);
+                    App.get(p.up('window'),"button#newservice").setDisabled(true);
+                    App.get(p.up('window'),"button#newclient").setDisabled(true);
                     App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newclient").show();
                 }
@@ -42,6 +44,9 @@ App.view.define('VCarnet', {
                 text: "Nouveau service",
                 itemId: "newservice",
                 handler: function(p) {
+                    App.get(p.up('window'),"button#newcontact").setDisabled(true);
+                    App.get(p.up('window'),"button#newservice").setDisabled(true);
+                    App.get(p.up('window'),"button#newclient").setDisabled(true);
                     App.reset(p.up('window'));   
                     App.get(p.up('window'),"panel#newservice").show();
                 }
