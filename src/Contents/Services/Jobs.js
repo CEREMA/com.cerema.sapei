@@ -40,15 +40,15 @@ Jobs={
 		if (where.length==0) where.push("-1");
 
         var prj_d=PROJECT_API+path.sep+"sql"+path.sep+q+".universe";		
-        var sql="";
+        var SQL="";
         if (fs.existsSync(prj_d)) {
-            var sql=fs.readFileSync(prj_d,"utf-8").split('\n');
-            var dbname=sql[0];
-			sql=sql.splice(0);
-			sql=sql.join(' ');
-			sql=sql.replace('$_OBJECTS',objects.join(', '));            
+            var SQL=fs.readFileSync(prj_d,"utf-8").split('\n');
+            var dbname=SQL[0];
+			SQL=SQL.splice(0);
+			SQL=SQL.join(' ');
+			SQL=SQL.replace('$_OBJECTS',objects.join(', '));            
         };
-        console.log(sql);
+        console.log(SQL);
 		var sql=db.get('sapei',objs,where);
 		console.log(sql);
 		db.model('sapei', sql , cb);	
