@@ -18,7 +18,6 @@ App.view.define('VNew', {
               '->', {
                 text: "Enregistrer"
             }
-          }
         ];
 
         this.items = [
