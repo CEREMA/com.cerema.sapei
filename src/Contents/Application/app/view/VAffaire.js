@@ -193,7 +193,7 @@ App.view.define('VAffaire', {
                 flex: 1,
                 valueField: "id",
                 displayField: "statut",
-                store: App.store.create('sapei://job_statut?archive=0',{autoLoad: true})
+                store: App.store.create('sapei://job_statut{id,statut,ndx+}?archive=0',{autoLoad: true})
             },           
             {
                 xtype: "datefield",
