@@ -9,7 +9,7 @@
     ],
     "uid": "b13dfe4e-13e8-4588-9702-c183d9828188",
     "version": "1.1.0",
-    "build": 29,
+    "build": 30,
     "copyright": "Copyright (c) 2015 By CEREMA",
     "license": "BSD",
     "author": {
@@ -29,7 +29,14 @@
     ],
     "frameworks": [
         {
-            "name": "ext",
+            "name": "jquery",
+            "version": "3.1.0",
+            "src": [
+                "http://cdn.omneedia.com/public/jquery/{version}/jquery.js"
+            ]
+        },
+        {
+            "name": "EXTJS",
             "version": "4.2.1",
             "type": "desktop",
             "theme": "classic",
@@ -39,11 +46,6 @@
             "res": [
                 "http://cdn.omneedia.com/public/ext/gpl/{version}/resources/ext-theme-{theme}/ext-theme-{theme}-all.css"
             ]
-        },
-        {
-            "name": "jquery",
-            "version": "2.1.0",
-            "src": "http://cdn.omneedia.com/public/jquery/{version}/jquery.js"
         }
     ],
     "auth": [
