@@ -647,10 +647,10 @@ App.controller.define('CMain', {
 	{
 		var blog=App.get(p.up('window'),'htmleditor#blogme').getValue();
 		if (blog) {
-            alert(App.get(p.up('window'),'datefield').getValue());
+            if (App.get(p.up('window'),'datefield').getValue()) var madate=App.get(p.up('window'),'datefield').getValue(); else madate=new Date();
 			App.DB.post('sapei://wiki',{
 				poster: Auth.User.uid,
-                date: new Date(),
+                date: madate,
 				job: App.get('TAffaire').ItemID,
 				blog: blog
 			},function(r) {
