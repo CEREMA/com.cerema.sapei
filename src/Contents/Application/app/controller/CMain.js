@@ -647,6 +647,7 @@ App.controller.define('CMain', {
 	{
 		var blog=App.get(p.up('window'),'htmleditor#blogme').getValue();
 		if (blog) {
+            alert(App.get(p.up('window'),'datefield').getValue());
 			App.DB.post('sapei://wiki',{
 				poster: Auth.User.uid,
                 date: new Date(),
