@@ -1040,7 +1040,7 @@ App.controller.define('CMain', {
     },
     broadcastUpdate: function(data)
     {
-        alert('x');
+
         // data.poster data.jpb
         App.DB.get('sapei://job?id_job='+data.job,function(e,o){
             App.DB.get('sapei://bpclight_agents?kage='+data.poster,function(e,oo) {
