@@ -26,6 +26,11 @@ App.view.define('VBlog', {
         ];
 
         this.tbar = [
+            {
+                xtype: "datefield",
+                padding: 5,
+                fieldLabel: "Date"
+            }
         ];
 		
         this.defaults = {
