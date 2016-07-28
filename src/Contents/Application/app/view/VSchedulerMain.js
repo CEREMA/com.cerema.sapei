@@ -43,8 +43,8 @@ App.view.define('VSchedulerMain', {
 					sortable: true,
 					field: new Ext.form.TextField()
 				}],
-				eventStore: App.eventstore.create("sapei://schedule_skills{Id,ResourceId,Job,Type,Name,StartDate,EndDate,User,Cls}",{autoLoad: true}),
-				resourceStore: App.resourcestore.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}",{autoLoad: true})
+				eventStore: App.store.create("sapei://schedule_skills{Id,ResourceId,Job,Type,Name,StartDate,EndDate,User,Cls}",{type:"events",autoLoad: true}),
+				resourceStore: App.store.create("sapei://porteur_outils{Id_porteur_outils=Id,outils.Libelle_materiel+'<br><small><b>'+porteur.Porteur_libelle+'</b></small>'=Materiel+}",{type:"resources",autoLoad: true})
 			},                
 			{
 				xtype: "schedulergrid",
